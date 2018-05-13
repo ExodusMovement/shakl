@@ -2,6 +2,13 @@
 
 [![npm version](https://badge.fury.io/js/react-native-styled.svg)](https://badge.fury.io/js/react-native-styled)
 
+**Note:** Package is still not published, work in progress.
+
+**TODO**
+
+* [ ] Write unit tests
+* [ ] Support `.attrs()`
+
 ## Installation
 
 `yarn add react-native-styled`
@@ -17,7 +24,7 @@ const Foo = styled(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />
 ```
 
-#### Using multiple style objects
+#### Having multiple style objects
 
 ```js
 const Foo = styled(View)({ custom: 'styles' }, { more: 'styles' } .. );
