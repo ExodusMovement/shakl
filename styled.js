@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Text, TouchableOpacity, View } from 'react-native';
 
+import PropTypes from 'prop-types';
+
 // TODO:
 // support styled(Styled)
 // support isStyled
-// support prop-types
 // support style types
 // support extend
 // support extend attrs
@@ -33,6 +34,19 @@ const styled = (Component, { withAttrs = {} } = {}) => {
         ...ref,
         style
       });
+    };
+
+    StyledComponent.propTypes = {
+      innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+      style: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.arrayOf(PropTypes.object)
+      ])
+    };
+
+    StyledComponent.defaultProps = {
+      innerRef: undefined,
+      style: undefined
     };
 
     const displayName = Component.displayName || Component.name || 'Component';
