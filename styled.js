@@ -1,13 +1,12 @@
-import React from 'react';
+import { createElement } from 'react';
 
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 // TODO:
-// support extend attrs
-// support isStyled
-// support style types
+// support forwardRef
+// support dynamic attrs
 
 const styled = (Component, { withAttrs = {} } = {}) => {
   const StyledComponentFactory = (...styles) => {
@@ -25,7 +24,7 @@ const styled = (Component, { withAttrs = {} } = {}) => {
         styles.map(s => (typeof s === 'function' ? s(props) : s))
       ];
 
-      return React.createElement(Component, {
+      return createElement(Component, {
         ...props,
         ...attrs,
         ...ref,
@@ -49,8 +48,22 @@ const styled = (Component, { withAttrs = {} } = {}) => {
     const displayName = Component.displayName || Component.name || 'Component';
     StyledComponent.displayName = `Styled${displayName}`;
 
-    StyledComponent.extend = (...extendedStyles) =>
-      StyledComponentFactory(extendedStyles);
+    StyledComponent.extend = (...extendedStyles) => {
+      const ExtendedStyledComponent = StyledComponentFactory(...extendedStyles);
+
+      ExtendedStyledComponent.attrs = props =>
+        styled(Component, {
+          withAttrs: {
+            ...props,
+            style: [
+              extendedStyles.map(s => (typeof s === 'function' ? s(props) : s)),
+              props.style
+            ]
+          }
+        });
+
+      return ExtendedStyledComponent;
+    };
 
     return StyledComponent;
   };
