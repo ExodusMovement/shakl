@@ -1,13 +1,10 @@
 import React from 'react';
 
-import { Text, TouchableOpacity, View } from 'react-native';
-
 import PropTypes from 'prop-types';
 
-const evaluate = (item, props) =>
-  typeof item === 'function' ? item(props) : item;
+import evaluate from './evaluate';
 
-const styled = (Component /* , { withAttrs = {} } = {} */) => {
+const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
   const styledFactory = (...styles) => {
     const Styled = React.forwardRef((props, ref) => {
       // const attrs = evaluate(withAttrs, props);
@@ -38,7 +35,7 @@ const styled = (Component /* , { withAttrs = {} } = {} */) => {
     };
 
     const name = Component.displayName || Component.name || 'Component';
-    Styled.displayName = `Styled${name}`;
+    Styled.displayName = displayName || `Styled${name}`;
 
     Styled.extend = (...moreStyles) => {
       const extendedFactory = styled(Component)(styles, ...moreStyles);
@@ -55,9 +52,5 @@ const styled = (Component /* , { withAttrs = {} } = {} */) => {
 
   return styledFactory;
 };
-
-styled.Text = styled(Text);
-styled.TouchableOpacity = styled(TouchableOpacity);
-styled.View = styled(View);
 
 export default styled;
