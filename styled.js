@@ -24,11 +24,7 @@ const styled = (Component, { withAttrs = {} } = {}) => {
         styles.map(s => (typeof s === 'function' ? s(props) : s))
       ];
 
-      const createComponent = React.isValidElement(Component)
-        ? React.cloneElement
-        : React.createElement;
-
-      return createComponent(Component, {
+      return React.createElement(Component, {
         ...props,
         ...withAttrs,
         ...ref,
