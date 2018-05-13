@@ -7,20 +7,20 @@ import PropTypes from 'prop-types';
 const evaluate = (item, props) =>
   typeof item === 'function' ? item(props) : item;
 
-const styled = (Component, { withAttrs = {} } = {}) => {
+const styled = (Component /* , { withAttrs = {} } = {} */) => {
   const styledFactory = (...styles) => {
     const Styled = React.forwardRef((props, ref) => {
-      const attrs = evaluate(withAttrs, props);
+      // const attrs = evaluate(withAttrs, props);
 
       const style = [
         props.style,
-        attrs.style,
+        // attrs.style,
         styles.map(s => evaluate(s, props))
       ];
 
       return React.createElement(Component, {
         ...props,
-        ...attrs,
+        // ...attrs,
         ref,
         style
       });
@@ -37,20 +37,13 @@ const styled = (Component, { withAttrs = {} } = {}) => {
       style: undefined
     };
 
-    const displayName = Component.displayName || Component.name || 'Component';
-    Styled.displayName = `Styled${displayName}`;
+    const name = Component.displayName || Component.name || 'Component';
+    Styled.displayName = `Styled${name}`;
 
-    Styled.extend = (...extendedStyles) => {
-      const extendedFactory = styledFactory(...extendedStyles);
+    Styled.extend = (...moreStyles) => {
+      const extendedFactory = styled(Component)(styles, ...moreStyles);
 
-      extendedFactory.attrs = props => {
-        const style = [
-          extendedStyles.map(s => evaluate(s, props)),
-          props.style
-        ];
-
-        return styled(Component, { withAttrs: { ...props, style } });
-      };
+      // extendedFactory.attrs = props => styled(Styled, { withAttrs: props });
 
       return extendedFactory;
     };
@@ -58,7 +51,7 @@ const styled = (Component, { withAttrs = {} } = {}) => {
     return Styled;
   };
 
-  styledFactory.attrs = props => styled(Component, { withAttrs: props });
+  // styledFactory.attrs = props => styled(Component, { withAttrs: props });
 
   return styledFactory;
 };
