@@ -5,28 +5,29 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 // TODO:
-// support styled(Styled)
+// support extend attrs
 // support isStyled
 // support style types
-// support extend
-// support extend attrs
 
 const styled = (Component, { withAttrs = {} } = {}) => {
   const StyledComponentFactory = (...styles) => {
     const StyledComponent = ({ innerRef, ...props }) => {
+      const attrs =
+        typeof withAttrs === 'function' ? withAttrs(props) : withAttrs;
+
       const ref = innerRef
         ? { ref: typeof innerRef === 'function' ? r => innerRef(r) : innerRef }
         : {};
 
       const style = [
         props.style,
-        withAttrs.style,
+        attrs.style,
         styles.map(s => (typeof s === 'function' ? s(props) : s))
       ];
 
       return React.createElement(Component, {
         ...props,
-        ...withAttrs,
+        ...attrs,
         ...ref,
         style
       });
@@ -47,6 +48,9 @@ const styled = (Component, { withAttrs = {} } = {}) => {
 
     const displayName = Component.displayName || Component.name || 'Component';
     StyledComponent.displayName = `Styled${displayName}`;
+
+    StyledComponent.extend = (...extendedStyles) =>
+      StyledComponentFactory(extendedStyles);
 
     return StyledComponent;
   };
