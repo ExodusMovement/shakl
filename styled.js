@@ -1,25 +1,24 @@
-import { createElement, forwardRef } from 'react';
+import React from 'react';
 
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
-// TODO:
-// support dynamic attrs
+const evaluate = (item, props) =>
+  typeof item === 'function' ? item(props) : item;
 
 const styled = (Component, { withAttrs = {} } = {}) => {
-  const StyledComponentFactory = (...styles) => {
-    const StyledComponent = forwardRef((props, ref) => {
-      const attrs =
-        typeof withAttrs === 'function' ? withAttrs(props) : withAttrs;
+  const styledFactory = (...styles) => {
+    const Styled = React.forwardRef((props, ref) => {
+      const attrs = evaluate(withAttrs, props);
 
       const style = [
         props.style,
         attrs.style,
-        styles.map(s => (typeof s === 'function' ? s(props) : s))
+        styles.map(s => evaluate(s, props))
       ];
 
-      return createElement(Component, {
+      return React.createElement(Component, {
         ...props,
         ...attrs,
         ref,
@@ -27,46 +26,41 @@ const styled = (Component, { withAttrs = {} } = {}) => {
       });
     });
 
-    StyledComponent.propTypes = {
-      innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    Styled.propTypes = {
       style: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.arrayOf(PropTypes.object)
       ])
     };
 
-    StyledComponent.defaultProps = {
-      innerRef: undefined,
+    Styled.defaultProps = {
       style: undefined
     };
 
     const displayName = Component.displayName || Component.name || 'Component';
-    StyledComponent.displayName = `Styled${displayName}`;
+    Styled.displayName = `Styled${displayName}`;
 
-    StyledComponent.extend = (...extendedStyles) => {
-      const ExtendedStyledComponent = StyledComponentFactory(...extendedStyles);
+    Styled.extend = (...extendedStyles) => {
+      const extendedFactory = styledFactory(...extendedStyles);
 
-      ExtendedStyledComponent.attrs = props =>
-        styled(Component, {
-          withAttrs: {
-            ...props,
-            style: [
-              extendedStyles.map(s => (typeof s === 'function' ? s(props) : s)),
-              props.style
-            ]
-          }
-        });
+      extendedFactory.attrs = props => {
+        const style = [
+          extendedStyles.map(s => evaluate(s, props)),
+          props.style
+        ];
 
-      return ExtendedStyledComponent;
+        return styled(Component, { withAttrs: { ...props, style } });
+      };
+
+      return extendedFactory;
     };
 
-    return StyledComponent;
+    return Styled;
   };
 
-  StyledComponentFactory.attrs = props =>
-    styled(Component, { withAttrs: props });
+  styledFactory.attrs = props => styled(Component, { withAttrs: props });
 
-  return StyledComponentFactory;
+  return styledFactory;
 };
 
 styled.Text = styled(Text);
