@@ -1,8 +1,12 @@
 {
-  "env": { "browser": true },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "react/jsx-filename-extension": 0
   }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { StyleSheet } from 'react-native';
+
 import PropTypes from 'prop-types';
 
 import evaluate from './evaluate';
@@ -9,11 +11,11 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
     const Styled = React.forwardRef((props, ref) => {
       // const attrs = evaluate(withAttrs, props);
 
-      const style = [
+      const style = StyleSheet.flatten([
         props.style,
         // attrs.style,
         styles.map(s => evaluate(s, props))
-      ];
+      ]);
 
       return React.createElement(Component, {
         ...props,
