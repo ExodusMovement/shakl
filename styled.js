@@ -1,22 +1,17 @@
-import { createElement } from 'react';
+import { createElement, forwardRef } from 'react';
 
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 // TODO:
-// support forwardRef
 // support dynamic attrs
 
 const styled = (Component, { withAttrs = {} } = {}) => {
   const StyledComponentFactory = (...styles) => {
-    const StyledComponent = ({ innerRef, ...props }) => {
+    const StyledComponent = forwardRef((props, ref) => {
       const attrs =
         typeof withAttrs === 'function' ? withAttrs(props) : withAttrs;
-
-      const ref = innerRef
-        ? { ref: typeof innerRef === 'function' ? r => innerRef(r) : innerRef }
-        : {};
 
       const style = [
         props.style,
@@ -27,10 +22,10 @@ const styled = (Component, { withAttrs = {} } = {}) => {
       return createElement(Component, {
         ...props,
         ...attrs,
-        ...ref,
+        ref,
         style
       });
-    };
+    });
 
     StyledComponent.propTypes = {
       innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
