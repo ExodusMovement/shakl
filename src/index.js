@@ -4,7 +4,10 @@ import { StyleSheet } from 'react-native';
 
 import PropTypes from 'prop-types';
 
-import evaluate from './evaluate';
+const evaluate = (item, props) => {
+  if (typeof item === 'function') return item(props);
+  return item;
+};
 
 const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
   const styledFactory = (...styles) => {

@@ -35,5 +35,5 @@
     "preset": "react-native",
     "testPathIgnorePatterns": ["src/__tests__/helper.js"]
   },
-  "files": ["src"]
+  "files": ["src/index.js"]
 }
