@@ -2,13 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/react-native-styled.svg)](https://badge.fury.io/js/react-native-styled)
 
-**Note:** Package is still not published, work in progress.
-
-**TODO**
-
-* [ ] Write unit tests
-* [ ] Support `.attrs()`
-
 ## Installation
 
 `yarn add react-native-styled`
@@ -24,14 +17,14 @@ const Foo = styled(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />
 ```
 
-#### Having multiple style objects
+#### Multiple style objects
 
 ```js
 const Foo = styled(View)({ custom: 'styles' }, { more: 'styles' } .. );
 <Foo />; // <View style={{ custom: 'styles', more: 'styles' .. }} />
 ```
 
-#### Having dynamic styles based on props
+#### Dynamic styles based on props
 
 ```js
 const Foo = styled(View)(props => ({ padding: props.padded ? 10 : 0 }));
@@ -58,7 +51,7 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 // <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }} />
 ```
 
-**NOTE:** Don't use `styled(StyledComponent)`, always use `.extend()` to ensure propagating styles properly.
+**NOTE:** Using `.extend()` instead of `styled(StyledComponent)` is recommend to ensure propagating styles properly.
 
 #### Using refs
 

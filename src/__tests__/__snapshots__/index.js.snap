@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Combining static and dynamic styles 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`Combining static and dynamic styles 2`] = `
+<View
+  padded={true}
+  style={
+    Object {
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+/>
+`;
+
 exports[`Creating a styled component 1`] = `
 <View
   style={
@@ -7,5 +30,253 @@ exports[`Creating a styled component 1`] = `
       "flex": 1,
     }
   }
+/>
+`;
+
+exports[`Defining a custom display name for debugging 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+/>
+`;
+
+exports[`Defining a custom display name for debugging 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`Defining propTypes and defaultProps 1`] = `
+<View
+  bar="baz"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`Dynamic styles based on props 1`] = `
+<View
+  style={
+    Object {
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`Dynamic styles based on props 2`] = `
+<View
+  padded={true}
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`Extending styles 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`Extending styles 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`Extending styles 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`Extending styles with styled(StyledComponent) 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`Extending styles with styled(StyledComponent) 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`Extending styles with styled(StyledComponent) 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`Later styles have higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`Multiple style objects 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+/>
+`;
+
+exports[`Using refs 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "margin": 10,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`Using refs 2`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "margin": 10,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`Using refs 3`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "margin": 10,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
 />
 `;

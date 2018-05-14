@@ -32,8 +32,7 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native",
-    "testPathIgnorePatterns": ["src/__tests__/helper.js"]
+    "preset": "react-native"
   },
   "files": ["src/index.js"]
 }
