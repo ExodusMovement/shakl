@@ -51,15 +51,13 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 // <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }} />
 ```
 
-**NOTE:** Using `.extend()` instead of `styled(StyledComponent)` is recommend to ensure propagating styles properly.
-
 #### Using refs
 
 ```js
-const Btn = styled(TouchableOpacity)({ my: 'btn' });
-<Btn ref={this.btn} />; // based on React's forwardRef API (16.3.0)
-// this.btn.setOpacityTo(1)
-// or this.btn.current.setOpacityTo(1) (with React.createRef)
+const List = styled(FlatList)({ my: 'list' });
+<List ref={this.list} />; // based on React's forwardRef API (16.3.0)
+// this.list.scrollTo({ y: 0 })
+// or this.list.current.scrollTo({ y: 0 }) (with React.createRef)
 ```
 
 #### Defining a custom display name for debugging
@@ -73,8 +71,8 @@ styled(View, { displayName: 'MyView' });
 
 ```js
 const StyledComponent = styled(View)({ custom: 'styles' });
-StyledComponent.propTypes = {};
-StyledComponent.defaultProps = {};
+StyledComponent.propTypes = { .. };
+StyledComponent.defaultProps = { .. };
 ```
 
 #### Defining primitives (optional)
