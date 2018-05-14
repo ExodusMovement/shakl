@@ -1,19 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`allows providing a custom display name for debugging 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "color": "red",
-    }
-  }
-/>
-`;
-
-exports[`allows providing a custom display name for debugging 2`] = `
 <View
   style={
     Object {
@@ -23,17 +10,7 @@ exports[`allows providing a custom display name for debugging 2`] = `
 />
 `;
 
-exports[`allows providing a custom display name for debugging 3`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-/>
-`;
-
-exports[`allows providing defaultProps 1`] = `
+exports[`allows providing propTypes and defaultProps 1`] = `
 <View
   bar="baz"
   style={
@@ -158,7 +135,7 @@ exports[`extends styles with extend() 3`] = `
 />
 `;
 
-exports[`extends styles with styled(StyledComponent) 1`] = `
+exports[`extends styles with styled(Styled) 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -171,7 +148,7 @@ exports[`extends styles with styled(StyledComponent) 1`] = `
 />
 `;
 
-exports[`extends styles with styled(StyledComponent) 2`] = `
+exports[`extends styles with styled(Styled) 2`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -185,7 +162,7 @@ exports[`extends styles with styled(StyledComponent) 2`] = `
 />
 `;
 
-exports[`extends styles with styled(StyledComponent) 3`] = `
+exports[`extends styles with styled(Styled) 3`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -284,6 +261,29 @@ exports[`forwards ref to wrapped component 3`] = `
   }
   testID={undefined}
   tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`has proper display name 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+/>
+`;
+
+exports[`has proper display name 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 />
 `;
 

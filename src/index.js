@@ -9,7 +9,7 @@ const evaluate = (item, props) => {
   return item;
 };
 
-const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
+const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
   const styledFactory = (...styles) => {
     const Styled = React.forwardRef((props, ref) => {
       // const attrs = evaluate(withAttrs, props);
@@ -36,7 +36,7 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
     };
 
     Styled.defaultProps = {
-      style: undefined
+      style: {}
     };
 
     const name = Component.displayName || Component.name || 'Component';
@@ -44,12 +44,12 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
 
     Styled.extend = (...extendedStyles) => {
       const extendedFactory = styled(Component, { displayName })(
-        styles,
+        ...styles,
         ...extendedStyles
       );
 
       // extendedFactory.attrs = props =>
-      //   styled(Component, { displayName }, { withAttrs: props });
+      //   styled(Styled, { displayName }, { withAttrs: props });
 
       return extendedFactory;
     };

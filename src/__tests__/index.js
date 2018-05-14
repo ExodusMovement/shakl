@@ -73,7 +73,7 @@ test('extends styles with extend()', () => {
   expect(baz).toMatchSnapshot();
 });
 
-test('extends styles with styled(StyledComponent)', () => {
+test('extends styles with styled(Styled)', () => {
   const Foo = s.Text({ fontSize: 20 });
   const Bar = s(Foo)({ fontWeight: 'bold' });
   const Baz = s(Bar)({ color: 'red' });
@@ -123,19 +123,22 @@ test('forwards ref to wrapped component', () => {
   expect(baz).toMatchSnapshot();
 });
 
-test('allows providing a custom display name for debugging', () => {
+test('has proper display name', () => {
   const Foo = s.Text({ color: 'red' });
-  const Bar = s(View, { displayName: 'Bar' })({ flex: 1 });
-  const Baz = s.View({ flex: 1 });
+  const Bar = s.View({ flex: 1 }); // s(View) returns 'StyledComponent'
   expect(Foo.displayName).toBe('StyledText');
-  expect(Bar.displayName).toBe('Bar');
-  expect(Baz.displayName).toBe('StyledView');
+  expect(Bar.displayName).toBe('StyledView');
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
-  const baz = r(<Baz />).toJSON();
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
-  expect(baz).toMatchSnapshot();
+});
+
+test('allows providing a custom display name for debugging', () => {
+  const Foo = s(View, { displayName: 'Foo' })({ flex: 1 });
+  expect(Foo.displayName).toBe('Foo');
+  const foo = r(<Foo />).toJSON();
+  expect(foo).toMatchSnapshot();
 });
 
 test('keeps custom display name when extended', () => {
@@ -149,7 +152,7 @@ test('keeps custom display name when extended', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('allows providing defaultProps', () => {
+test('allows providing propTypes and defaultProps', () => {
   const Foo = s.View({ flex: 1 });
   Foo.defaultProps = { bar: 'baz' };
   const foo = r(<Foo />).toJSON();
