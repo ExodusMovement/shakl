@@ -17,17 +17,32 @@ const Foo = styled(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />
 ```
 
+#### Using primitives
+
+By default, React Native's `Text`, `TouchableOpacity` and `View` are exposed to you, they can be directly used.
+
+```js
+styled.Text({ custom: 'styles' });
+styled.Touchable({ custom: 'styles' });
+styled.View({ custom: 'styles' });
+
+// equivalent to
+styled(Text)({ custom: 'styles' });
+styled(TouchableOpacity)({ custom: 'styles' });
+styled(View)({ custom: 'styles' });
+```
+
 #### Multiple style objects
 
 ```js
-const Foo = styled(View)({ custom: 'styles' }, { more: 'styles' } .. );
+const Foo = styled.View({ custom: 'styles' }, { more: 'styles' } .. );
 <Foo />; // <View style={{ custom: 'styles', more: 'styles' .. }} />
 ```
 
 #### Dynamic styles based on props
 
 ```js
-const Foo = styled(View)(props => ({ padding: props.padded ? 10 : 0 }));
+const Foo = styled.View(props => ({ padding: props.padded ? 10 : 0 }));
 <Foo /> // <View style={{ padding: 0 }} />
 <Foo padded /> // <View style={{ padding: 10 }} />
 ```
@@ -35,13 +50,13 @@ const Foo = styled(View)(props => ({ padding: props.padded ? 10 : 0 }));
 #### Combining static and dynamic styles
 
 ```js
-const Foo = styled(View)({ is: 'static' }, props => ({ is: 'dynamic' }));
+const Foo = styled.View({ is: 'static' }, props => ({ is: 'dynamic' }));
 ```
 
 #### Extending styles
 
 ```js
-const Title = styled(Text)({ fontSize: 20 });
+const Title = styled.Text({ fontSize: 20 });
 // <Text style={{ fontSize: 20 }} />
 
 const BoldTitle = Title.extend({ fontWeight: 'bold' });
@@ -54,7 +69,7 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 #### Using refs
 
 ```js
-const List = styled(FlatList)({ my: 'list' });
+const List = styled(FlatList)({ custom: 'styles' });
 <List ref={this.list} />; // based on React's forwardRef API (16.3.0)
 // this.list.scrollTo({ y: 0 })
 // or this.list.current.scrollTo({ y: 0 }) (with React.createRef)
@@ -63,27 +78,15 @@ const List = styled(FlatList)({ my: 'list' });
 #### Defining a custom display name for debugging
 
 ```js
-styled(View, { displayName: 'MyView' });
-// default names are StyledText, StyledTouchableOpacity, StyledView, etc
+styled(View, { displayName: 'YetAnotherView' });
+// default names are StyledText, StyledTouchable, StyledView, etc
+// fallback to just StyledComponent
 ```
 
 #### Defining propTypes and defaultProps
 
 ```js
-const StyledComponent = styled(View)({ custom: 'styles' });
+const StyledComponent = styled.View({ custom: 'styles' });
 StyledComponent.propTypes = { .. };
 StyledComponent.defaultProps = { .. };
-```
-
-#### Defining primitives (optional)
-
-```js
-styled.Text = styled(Text);
-styled.Touchable = styled(TouchableOpacity);
-styled.View = styled(View);
-
-// then yu can use them anywhere as:
-styled.Text({ lorem: 'ipsum' });
-styled.Touchable({ foo: 'bar' });
-styled.View({ baz: 'qux' });
 ```

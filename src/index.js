@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -62,5 +62,9 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
 
   return styledFactory;
 };
+
+styled.Text = styled(Text);
+styled.Touchable = styled(TouchableOpacity, { displayName: 'StyledTouchable' });
+styled.View = styled(View, { displayName: 'StyledView' });
 
 export default styled;

@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 
 import { create as r } from 'react-test-renderer';
 
 import s from '../';
-
-s.Text = s(Text);
-s.Touchable = s(TouchableOpacity);
-s.View = s(View);
 
 test('creates a styled component', () => {
   const Foo = s.View({ flex: 1 });
@@ -130,12 +126,16 @@ test('forwards ref to wrapped component', () => {
 test('allows providing a custom display name for debugging', () => {
   const Foo = s.Text({ color: 'red' });
   const Bar = s(View, { displayName: 'Bar' })({ flex: 1 });
+  const Baz = s.View({ flex: 1 });
   expect(Foo.displayName).toBe('StyledText');
   expect(Bar.displayName).toBe('Bar');
+  expect(Baz.displayName).toBe('StyledView');
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
+  const baz = r(<Baz />).toJSON();
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
+  expect(baz).toMatchSnapshot();
 });
 
 test('keeps custom display name when extended', () => {

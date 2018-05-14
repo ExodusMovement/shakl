@@ -23,6 +23,16 @@ exports[`allows providing a custom display name for debugging 2`] = `
 />
 `;
 
+exports[`allows providing a custom display name for debugging 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
 exports[`allows providing defaultProps 1`] = `
 <View
   bar="baz"
