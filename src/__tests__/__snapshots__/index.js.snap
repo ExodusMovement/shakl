@@ -56,7 +56,7 @@ exports[`Defining a custom display name for debugging 2`] = `
 />
 `;
 
-exports[`Defining propTypes and defaultProps 1`] = `
+exports[`Defining defaultProps 1`] = `
 <View
   bar="baz"
   style={

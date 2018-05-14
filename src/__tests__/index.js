@@ -61,7 +61,7 @@ test('Combining static and dynamic styles', () => {
 test('Extending styles', () => {
   const Foo = s.Text({ fontSize: 20 });
   const Bar = Foo.extend({ fontWeight: 'bold' });
-  const Baz = Bar.extend({ fontSize: 20, color: 'red' });
+  const Baz = Bar.extend({ color: 'red' });
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
   const baz = r(<Baz />).toJSON();
@@ -80,7 +80,7 @@ test('Extending styles', () => {
 test('Extending styles with styled(StyledComponent)', () => {
   const Foo = s.Text({ fontSize: 20 });
   const Bar = s(Foo)({ fontWeight: 'bold' });
-  const Baz = s(Bar)({ fontSize: 20, color: 'red' });
+  const Baz = s(Bar)({ color: 'red' });
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
   const baz = r(<Baz />).toJSON();
@@ -138,7 +138,7 @@ test('Defining a custom display name for debugging', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('Defining propTypes and defaultProps', () => {
+test('Defining defaultProps', () => {
   const Foo = s.View({ flex: 1 });
   Foo.defaultProps = { bar: 'baz' };
   const foo = r(<Foo />).toJSON();
