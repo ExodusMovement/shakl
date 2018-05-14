@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "react-native-styled",
-  "description": "A light utility to create styled components in React Native.",
+  "description": "A utility to create styled components in React Native.",
   "version": "0.0.1",
   "main": "src/index.js",
   "repository": {
