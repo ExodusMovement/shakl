@@ -42,10 +42,14 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
     const name = Component.displayName || Component.name || 'Component';
     Styled.displayName = displayName || `Styled${name}`;
 
-    Styled.extend = (...moreStyles) => {
-      const extendedFactory = styled(Component)(styles, ...moreStyles);
+    Styled.extend = (...extendedStyles) => {
+      const extendedFactory = styled(Component, { displayName })(
+        styles,
+        ...extendedStyles
+      );
 
-      // extendedFactory.attrs = props => styled(Styled, { withAttrs: props });
+      // extendedFactory.attrs = props =>
+      //   styled(Component, { displayName }, { withAttrs: props });
 
       return extendedFactory;
     };
@@ -53,7 +57,8 @@ const styled = (Component, { displayName /* withAttrs = {}  */ } = {}) => {
     return Styled;
   };
 
-  // styledFactory.attrs = props => styled(Component, { withAttrs: props });
+  // styledFactory.attrs = props =>
+  //   styled(Component, { displayName }, { withAttrs: props });
 
   return styledFactory;
 };

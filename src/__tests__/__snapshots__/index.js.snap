@@ -1,39 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Combining static and dynamic styles 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-      "padding": 0,
-    }
-  }
-/>
-`;
-
-exports[`Combining static and dynamic styles 2`] = `
-<View
-  padded={true}
-  style={
-    Object {
-      "flex": 1,
-      "padding": 10,
-    }
-  }
-/>
-`;
-
-exports[`Creating a styled component 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-/>
-`;
-
-exports[`Defining a custom display name for debugging 1`] = `
+exports[`allows providing a custom display name for debugging 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -46,7 +13,7 @@ exports[`Defining a custom display name for debugging 1`] = `
 />
 `;
 
-exports[`Defining a custom display name for debugging 2`] = `
+exports[`allows providing a custom display name for debugging 2`] = `
 <View
   style={
     Object {
@@ -56,7 +23,7 @@ exports[`Defining a custom display name for debugging 2`] = `
 />
 `;
 
-exports[`Defining defaultProps 1`] = `
+exports[`allows providing defaultProps 1`] = `
 <View
   bar="baz"
   style={
@@ -67,7 +34,40 @@ exports[`Defining defaultProps 1`] = `
 />
 `;
 
-exports[`Dynamic styles based on props 1`] = `
+exports[`creates a styled component 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component with combined static and dynamic styles 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component with combined static and dynamic styles 2`] = `
+<View
+  padded={true}
+  style={
+    Object {
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component with dynamic styles based on props 1`] = `
 <View
   style={
     Object {
@@ -77,7 +77,7 @@ exports[`Dynamic styles based on props 1`] = `
 />
 `;
 
-exports[`Dynamic styles based on props 2`] = `
+exports[`creates a styled component with dynamic styles based on props 2`] = `
 <View
   padded={true}
   style={
@@ -88,101 +88,13 @@ exports[`Dynamic styles based on props 2`] = `
 />
 `;
 
-exports[`Extending styles 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "fontSize": 20,
-    }
-  }
-/>
-`;
-
-exports[`Extending styles 2`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "fontSize": 20,
-      "fontWeight": "bold",
-    }
-  }
-/>
-`;
-
-exports[`Extending styles 3`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "color": "red",
-      "fontSize": 20,
-      "fontWeight": "bold",
-    }
-  }
-/>
-`;
-
-exports[`Extending styles with styled(StyledComponent) 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "fontSize": 20,
-    }
-  }
-/>
-`;
-
-exports[`Extending styles with styled(StyledComponent) 2`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "fontSize": 20,
-      "fontWeight": "bold",
-    }
-  }
-/>
-`;
-
-exports[`Extending styles with styled(StyledComponent) 3`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={
-    Object {
-      "color": "red",
-      "fontSize": 20,
-      "fontWeight": "bold",
-    }
-  }
-/>
-`;
-
-exports[`Later styles have higher priority 1`] = `
+exports[`creates a styled component with empty styles 1`] = `
 <View
-  style={
-    Object {
-      "backgroundColor": "green",
-    }
-  }
+  style={Object {}}
 />
 `;
 
-exports[`Multiple style objects 1`] = `
+exports[`creates a styled component with multiple style objects 1`] = `
 <View
   style={
     Object {
@@ -194,7 +106,91 @@ exports[`Multiple style objects 1`] = `
 />
 `;
 
-exports[`Using refs 1`] = `
+exports[`extends styles with extend() 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`extends styles with extend() 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends styles with extend() 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends styles with styled(StyledComponent) 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`extends styles with styled(StyledComponent) 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends styles with styled(StyledComponent) 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`forwards ref to wrapped component 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -223,7 +219,7 @@ exports[`Using refs 1`] = `
 />
 `;
 
-exports[`Using refs 2`] = `
+exports[`forwards ref to wrapped component 2`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -252,7 +248,7 @@ exports[`Using refs 2`] = `
 />
 `;
 
-exports[`Using refs 3`] = `
+exports[`forwards ref to wrapped component 3`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -278,5 +274,35 @@ exports[`Using refs 3`] = `
   }
   testID={undefined}
   tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`keeps custom display name when extended 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`keeps custom display name when extended 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`later styles have higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
 />
 `;
