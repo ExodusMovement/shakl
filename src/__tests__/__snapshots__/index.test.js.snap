@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`accepts style prop 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "margin": 10,
+    }
+  }
+/>
+`;
+
 exports[`allows providing a custom display name for debugging 1`] = `
 <View
   style={
@@ -75,13 +86,19 @@ exports[`creates a styled component with dynamic styles based on props 2`] = `
 />
 `;
 
-exports[`creates a styled component with empty styles 1`] = `
+exports[`creates a styled component with empty dynamic styles 1`] = `
 <View
   style={Object {}}
 />
 `;
 
-exports[`creates a styled component with multiple style objects 1`] = `
+exports[`creates a styled component with empty static styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`creates a styled component with multiple static style objects 1`] = `
 <View
   style={
     Object {
@@ -93,7 +110,275 @@ exports[`creates a styled component with multiple style objects 1`] = `
 />
 `;
 
-exports[`extends styles with extend() 1`] = `
+exports[`creates a styled component with null dynamic styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`creates a styled component with null styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`exposed primitives have proper display names 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+/>
+`;
+
+exports[`exposed primitives have proper display names 2`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`exposed primitives have proper display names 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`exposes primitives 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`exposes primitives 2`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`exposes primitives 3`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`exposes primitives 4`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`exposes primitives 5`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`exposes primitives 6`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extended styles should have a higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`extended styles should have a higher priority 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with combined static and dynamic styles 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with combined static and dynamic styles 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "flex": 1,
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with combined static and dynamic styles 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  padded={true}
+  style={
+    Object {
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  padded={true}
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with empty dynamic styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty dynamic styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty static styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty static styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with extend() 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -106,7 +391,7 @@ exports[`extends styles with extend() 1`] = `
 />
 `;
 
-exports[`extends styles with extend() 2`] = `
+exports[`extends a styled component with extend() 2`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -120,7 +405,7 @@ exports[`extends styles with extend() 2`] = `
 />
 `;
 
-exports[`extends styles with extend() 3`] = `
+exports[`extends a styled component with extend() 3`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -135,7 +420,54 @@ exports[`extends styles with extend() 3`] = `
 />
 `;
 
-exports[`extends styles with styled(Styled) 1`] = `
+exports[`extends a styled component with multiple static style objects 1`] = `
+<View
+  style={
+    Object {
+      "margin": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with multiple static style objects 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "margin": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with null dynamic styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null dynamic styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with styled(Styled) 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -148,7 +480,7 @@ exports[`extends styles with styled(Styled) 1`] = `
 />
 `;
 
-exports[`extends styles with styled(Styled) 2`] = `
+exports[`extends a styled component with styled(Styled) 2`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -162,7 +494,7 @@ exports[`extends styles with styled(Styled) 2`] = `
 />
 `;
 
-exports[`extends styles with styled(Styled) 3`] = `
+exports[`extends a styled component with styled(Styled) 3`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -176,6 +508,10 @@ exports[`extends styles with styled(Styled) 3`] = `
   }
 />
 `;
+
+exports[`falls back to Component.name if Component.displayName cannot be inferred 1`] = `null`;
+
+exports[`falls back to Component.name if Component.displayName cannot be inferred 2`] = `null`;
 
 exports[`forwards ref to wrapped component 1`] = `
 <View
@@ -277,16 +613,6 @@ exports[`has proper display name 1`] = `
 />
 `;
 
-exports[`has proper display name 2`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-/>
-`;
-
 exports[`keeps custom display name when extended 1`] = `
 <View
   style={
@@ -312,6 +638,61 @@ exports[`later styles have higher priority 1`] = `
   style={
     Object {
       "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`passes a single child properly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`passes multiple children properly 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    style={Object {}}
+  />
+  <View
+    style={Object {}}
+  />
+  <View
+    style={Object {}}
+  />
+</View>
+`;
+
+exports[`style prop should have a higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`works with animated components 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "flex": 1,
     }
   }
 />

@@ -79,8 +79,7 @@ const List = styled(FlatList)({ custom: 'styles' });
 
 ```js
 styled(View, { displayName: 'YetAnotherView' });
-// default names are StyledText, StyledTouchable, StyledView, etc
-// fallback to just StyledComponent
+// default names are StyledText, StyledTouchable, StyledView, StyledComponent, etc
 ```
 
 #### Defining propTypes and defaultProps

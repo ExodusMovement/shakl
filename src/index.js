@@ -15,15 +15,15 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
       // const attrs = evaluate(withAttrs, props);
 
       const style = StyleSheet.flatten([
-        props.style,
+        styles.map(s => evaluate(s, props)),
         // attrs.style,
-        styles.map(s => evaluate(s, props))
+        props.style
       ]);
 
       return React.createElement(Component, {
         ...props,
-        // ...attrs,
         ref,
+        // ...attrs,
         style
       });
     });
@@ -39,8 +39,8 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
       style: {}
     };
 
-    const name = Component.displayName || Component.name || 'Component';
-    Styled.displayName = displayName || `Styled${name}`;
+    Styled.displayName =
+      displayName || `Styled${Component.displayName || Component.name}`;
 
     Styled.extend = (...extendedStyles) => {
       const extendedFactory = styled(Component, { displayName })(
@@ -51,6 +51,8 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
       // extendedFactory.attrs = props =>
       //   styled(Styled, { displayName }, { withAttrs: props });
 
+      // extendedFactory.child = () => null;
+
       return extendedFactory;
     };
 
@@ -59,6 +61,10 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
 
   // styledFactory.attrs = props =>
   //   styled(Component, { displayName }, { withAttrs: props });
+  // const Btn = styled(Text).attrs({ numberOfLines: 1 })({});
+
+  // styledFactory.child = () => null;
+  // const Btn = styled(TouchableOpacity).child(Text)({});
 
   return styledFactory;
 };
