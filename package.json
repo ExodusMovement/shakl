@@ -32,7 +32,8 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "verbose": true
   },
   "files": ["src/index.js"]
 }

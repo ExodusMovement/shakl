@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`allows providing a custom display name 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`exposed primitives have proper display names 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+/>
+`;
+
+exports[`exposed primitives have proper display names 2`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+/>
+`;
+
+exports[`exposed primitives have proper display names 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`falls back to Component.name if Component.displayName cannot be inferred 1`] = `null`;
+
+exports[`falls back to Component.name if Component.displayName cannot be inferred 2`] = `null`;
+
+exports[`has proper display name 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+/>
+`;
+
+exports[`keeps custom display name when extended 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`keeps custom display name when extended 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;

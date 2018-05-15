@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extends a styled component with combined static and dynamic styles 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with combined static and dynamic styles 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "flex": 1,
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with combined static and dynamic styles 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  padded={true}
+  style={
+    Object {
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with dynamic styles based on props 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  padded={true}
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with empty dynamic styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty dynamic styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty static styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with empty static styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with extend() 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with extend() 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with extend() 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with multiple static style objects 1`] = `
+<View
+  style={
+    Object {
+      "margin": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with multiple static style objects 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "margin": 10,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with null dynamic styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null dynamic styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null static styles 1`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with null static styles 2`] = `
+<View
+  style={Object {}}
+/>
+`;
+
+exports[`extends a styled component with styled(Styled) 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with styled(Styled) 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with styled(Styled) 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;

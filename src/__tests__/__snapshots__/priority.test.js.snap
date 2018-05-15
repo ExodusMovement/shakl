@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extended styles should have a higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+/>
+`;
+
+exports[`extended styles should have a higher priority 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`later styles have higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;
+
+exports[`style prop should have a higher priority 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+/>
+`;

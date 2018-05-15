@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`allows providing defaultProps 1`] = `
+<View
+  bar="baz"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`allows providing propTypes 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;

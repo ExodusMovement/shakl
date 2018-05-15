@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`passes a single child properly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`passes multiple children properly 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    style={Object {}}
+  />
+  <View
+    style={Object {}}
+  />
+  <View
+    style={Object {}}
+  />
+</View>
+`;

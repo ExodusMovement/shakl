@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works with animated components 1`] = `
+<View
+  collapsable={undefined}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
