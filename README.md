@@ -1,6 +1,6 @@
 # react-native-styled
 
-[![npm version](https://badge.fury.io/js/react-native-styled.svg)](https://badge.fury.io/js/react-native-styled)
+[![npm version](https://badge.fury.io/js/react-native-styled.svg)](https://badge.fury.io/js/react-native-styled) [![Build Status](https://travis-ci.org/sonaye/react-native-styled.svg?branch=master)](https://travis-ci.org/sonaye/react-native-styled)
 
 ## Installation
 
