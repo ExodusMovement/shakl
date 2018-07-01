@@ -33,14 +33,19 @@
     "react-test-renderer": "16.3.1"
   },
   "scripts": {
-    "lint": "eslint src",
-    "test": "jest"
+    "lint": "eslint src test",
+    "test": "jest test",
+    "coverage": "yarn test --coverage",
+    "postcoverage": "open -a Chrome coverage/lcov-report/index.html"
   },
   "jest": {
     "preset": "react-native",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "verbose": true
   },
   "files": [
-    "src/index.js"
+    "src"
   ]
 }

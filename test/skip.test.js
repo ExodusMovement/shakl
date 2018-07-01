@@ -4,7 +4,7 @@ import { Animated, View } from 'react-native';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '..';
+import s from '../src';
 
 // investigate whether this should be supported
 test.skip('creates a styled component of a functional component', () => {

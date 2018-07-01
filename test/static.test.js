@@ -2,7 +2,7 @@ import React from 'react';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '..';
+import s from '../src';
 
 test('allows providing propTypes', () => {
   const Foo = s.View({ flex: 1 });

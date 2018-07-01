@@ -4,7 +4,7 @@ import { Animated } from 'react-native';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '..';
+import s from '../src';
 
 test('works with animated components', () => {
   const Foo = s(Animated.View)({ flex: 1 });
