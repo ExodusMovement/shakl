@@ -2,7 +2,6 @@
 
 exports[`works with animated components 1`] = `
 <View
-  collapsable={undefined}
   style={
     Object {
       "flex": 1,

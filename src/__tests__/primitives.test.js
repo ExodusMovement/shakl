@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '../';
+import s from '..';
 
 test('exposes primitives', () => {
   expect(s.Text).toBeDefined();

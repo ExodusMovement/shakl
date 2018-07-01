@@ -2,7 +2,7 @@ import React from 'react';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '../';
+import s from '..';
 
 test('later styles have higher priority', () => {
   const Foo = s.View({ backgroundColor: 'red' }, { backgroundColor: 'green' });

@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '../';
+import s from '..';
 
 test('has proper display name', () => {
   const Foo = s.Text({ color: 'red' });
