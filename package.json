@@ -3,8 +3,7 @@
   "name": "shakl",
   "description": "A utility to create styled components in React Native.",
   "version": "0.0.1",
-  "main": "src/styled.js",
-  "react-native": "src/index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonaye/shakl.git"
