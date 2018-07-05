@@ -1,17 +1,17 @@
-# react-native-styled
+# Shakl
 
-[![npm version](https://badge.fury.io/js/react-native-styled.svg)](https://badge.fury.io/js/react-native-styled) [![Build Status](https://travis-ci.org/sonaye/react-native-styled.svg?branch=master)](https://travis-ci.org/sonaye/react-native-styled)
+[![npm version](https://badge.fury.io/js/shakl.svg)](https://badge.fury.io/js/shakl) [![Build Status](https://travis-ci.org/sonaye/shakl.svg?branch=master)](https://travis-ci.org/sonaye/shakl)
 
 ## Install
 
-`yarn add react-native-styled`
+`yarn add shakl`
 
 ## Usage
 
 ### Creating a styled component
 
 ```js
-import styled from 'react-native-styled';
+import styled from 'shakl';
 
 const Foo = styled(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />

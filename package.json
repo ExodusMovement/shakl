@@ -1,13 +1,13 @@
 {
   "license": "MIT",
-  "name": "react-native-styled",
+  "name": "shakl",
   "description": "A utility to create styled components in React Native.",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "main": "src/styled.js",
   "react-native": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sonaye/react-native-styled.git"
+    "url": "git+https://github.com/sonaye/shakl.git"
   },
   "peerDependencies": {
     "react": ">=16.3.0"
