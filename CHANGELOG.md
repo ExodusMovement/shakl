@@ -1,4 +1,4 @@
-# 0.0.2
+# 0.0.1
 
 - Initial release (previously `react-native-styled`).
 - Remove 'prop-types' from dependencies.
