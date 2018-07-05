@@ -4,14 +4,7 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('allows providing propTypes', () => {
-  const Foo = s.View({ flex: 1 });
-  const foo = r(<Foo />).toJSON();
-  expect(Foo.propTypes).toBeDefined();
-  expect(foo).toMatchSnapshot();
-});
-
-test('allows providing defaultProps', () => {
+it('allows providing defaultProps', () => {
   const Foo = s.View({ flex: 1 });
   Foo.defaultProps = { bar: 'baz' };
   const foo = r(<Foo />).toJSON();

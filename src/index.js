@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
-import PropTypes from 'prop-types';
+import flatten from './flatten';
 
 const evaluate = (item, props) => {
   if (typeof item === 'function') return item(props);
@@ -14,7 +14,7 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
     const Styled = React.forwardRef((props, ref) => {
       // const attrs = evaluate(withAttrs, props);
 
-      const style = StyleSheet.flatten([
+      const style = flatten([
         styles.map(s => evaluate(s, props)),
         // attrs.style,
         props.style
@@ -28,19 +28,10 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
       });
     });
 
-    Styled.propTypes = {
-      style: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.arrayOf(PropTypes.object)
-      ])
-    };
-
-    Styled.defaultProps = {
-      style: {}
-    };
+    Styled.defaultProps = { style: {} };
 
     Styled.displayName =
-      displayName || `Styled${Component.displayName || Component.name}`;
+      displayName || `styled(${Component.displayName || Component.name})`;
 
     Styled.extend = (...extendedStyles) => {
       const extendedFactory = styled(Component, { displayName })(
@@ -48,10 +39,8 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
         ...extendedStyles
       );
 
-      // extendedFactory.attrs = props =>
-      //   styled(Styled, { displayName }, { withAttrs: props });
-
-      // extendedFactory.child = () => null;
+      // extendedFactory.attrs = props => styled(Styled, { displayName }, { withAttrs: props });
+      // extendedFactory.withChild = () => {};
 
       return extendedFactory;
     };
@@ -59,18 +48,16 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
     return Styled;
   };
 
-  // styledFactory.attrs = props =>
-  //   styled(Component, { displayName }, { withAttrs: props });
-  // const Btn = styled(Text).attrs({ numberOfLines: 1 })({});
-
-  // styledFactory.child = () => null;
-  // const Btn = styled(TouchableOpacity).child(Text)({});
+  // styledFactory.attrs = props => styled(Component, { displayName }, { withAttrs: props });
+  // styledFactory.withChild = () => {};
 
   return styledFactory;
 };
 
 styled.Text = styled(Text);
-styled.Touchable = styled(TouchableOpacity, { displayName: 'StyledTouchable' });
-styled.View = styled(View, { displayName: 'StyledView' });
+styled.Touchable = styled(TouchableOpacity, {
+  displayName: 'styled(Touchable)'
+});
+styled.View = styled(View, { displayName: 'styled(View)' });
 
 export default styled;

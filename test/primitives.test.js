@@ -6,7 +6,7 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('exposes primitives', () => {
+it('exposes primitives', () => {
   expect(s.Text).toBeDefined();
   expect(s.Touchable).toBeDefined();
   expect(s.View).toBeDefined();

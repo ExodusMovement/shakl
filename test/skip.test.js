@@ -7,7 +7,7 @@ import { create as r } from 'react-test-renderer';
 import s from '../src';
 
 // investigate whether this should be supported
-test.skip('creates a styled component of a functional component', () => {
+it.skip('creates a styled component of a functional component', () => {
   const Foo = () => <View />;
   const Bar = s(Foo)({ flex: 1 });
   const foo = r(<Foo />).toJSON();
@@ -18,7 +18,7 @@ test.skip('creates a styled component of a functional component', () => {
 });
 
 // investigate whether this should be supported
-test.skip('creates a styled component of a class component', () => {
+it.skip('creates a styled component of a class component', () => {
   class Foo extends React.Component {
     render() {
       return <View />;
@@ -33,7 +33,7 @@ test.skip('creates a styled component of a class component', () => {
 });
 
 // faulty
-test.skip('apply animated styles to animated components', () => {
+it.skip('applies animated styles to animated components', () => {
   const opacity = new Animated.Value(0);
   const Foo = s(Animated.View)({ opacity });
   const foo = r(<Foo />).toJSON();
@@ -50,7 +50,7 @@ test.skip('apply animated styles to animated components', () => {
 });
 
 // faulty, may require lib edits
-test.skip('should throw when called with an invalid element', () => {
+it.skip('should throw when called with an invalid element', () => {
   const Foo = () => <View />;
   class Bar extends React.Component {
     render() {
@@ -66,7 +66,7 @@ test.skip('should throw when called with an invalid element', () => {
 });
 
 // requires some lib edits, it's better to have clean props
-test.skip("shouldn't append style prop if empty", () => {
+it.skip("shouldn't append style prop if empty", () => {
   const Foo = s.View();
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).not.toBeDefined();
@@ -74,6 +74,6 @@ test.skip("shouldn't append style prop if empty", () => {
 });
 
 // TODO
-test.skip('should keep prop types from parent', () => {});
-test.skip('should keep default props from parent', () => {});
-test.skip('should keep custom static member from parent', () => {});
+it.skip('should keep prop types from parent', () => {});
+it.skip('should keep default props from parent', () => {});
+it.skip('should keep custom static member from parent', () => {});

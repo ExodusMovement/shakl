@@ -6,33 +6,33 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('has proper display name', () => {
+it('has proper display name', () => {
   const Foo = s.Text({ color: 'red' });
   const foo = r(<Foo />).toJSON();
-  expect(Foo.displayName).toBe('StyledText');
+  expect(Foo.displayName).toBe('styled(Text)');
   expect(foo).toMatchSnapshot();
 });
 
-test('allows providing a custom display name', () => {
+it('allows providing a custom display name', () => {
   const Foo = s(View, { displayName: 'Foo' })({ flex: 1 });
   const foo = r(<Foo />).toJSON();
   expect(Foo.displayName).toBe('Foo');
   expect(foo).toMatchSnapshot();
 });
 
-test('falls back to Component.name if Component.displayName cannot be inferred', () => {
+it('falls back to Component.name if Component.displayName cannot be inferred', () => {
   const Foo = () => null;
   const Bar = s(Foo)();
   const foo = r(<Bar />).toJSON();
   const bar = r(<Bar />).toJSON();
   expect(Foo.displayName).not.toBeDefined();
   expect(Foo.name).toBe('Foo');
-  expect(Bar.displayName).toBe('StyledFoo');
+  expect(Bar.displayName).toBe('styled(Foo)');
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
 });
 
-test('keeps custom display name when extended', () => {
+it('keeps custom display name when extended', () => {
   const Foo = s(View, { displayName: 'Foo' })({ flex: 1 });
   const Bar = Foo.extend({ flex: 1 });
   const foo = r(<Foo />).toJSON();
@@ -50,9 +50,9 @@ test('exposed primitives have proper display names', () => {
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
   const baz = r(<Baz />).toJSON();
-  expect(Foo.displayName).toBe('StyledText');
-  expect(Bar.displayName).toBe('StyledTouchable');
-  expect(Baz.displayName).toBe('StyledView');
+  expect(Foo.displayName).toBe('styled(Text)');
+  expect(Bar.displayName).toBe('styled(Touchable)');
+  expect(Baz.displayName).toBe('styled(View)');
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
   expect(baz).toMatchSnapshot();

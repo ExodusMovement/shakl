@@ -4,7 +4,7 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('extends a styled component with extend()', () => {
+it('extends a styled component with extend()', () => {
   const Foo = s.Text({ fontSize: 20 });
   const Bar = Foo.extend({ fontWeight: 'bold' });
   const Baz = Bar.extend({ color: 'red' });
@@ -23,7 +23,7 @@ test('extends a styled component with extend()', () => {
   expect(baz).toMatchSnapshot();
 });
 
-test('extends a styled component with styled(Styled)', () => {
+it('extends a styled component with styled(Styled)', () => {
   const Foo = s.Text({ fontSize: 20 });
   const Bar = s(Foo)({ fontWeight: 'bold' });
   const Baz = s(Bar)({ color: 'red' });
@@ -42,7 +42,7 @@ test('extends a styled component with styled(Styled)', () => {
   expect(baz).toMatchSnapshot();
 });
 
-test('extends a styled component with null static styles', () => {
+it('extends a styled component with null static styles', () => {
   const Foo = s.View();
   const Bar = Foo.extend();
   const foo = r(<Foo />).toJSON();
@@ -53,7 +53,7 @@ test('extends a styled component with null static styles', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('extends a styled component with null dynamic styles', () => {
+it('extends a styled component with null dynamic styles', () => {
   const Foo = s.View();
   const Bar = Foo.extend(() => null);
   const foo = r(<Foo />).toJSON();
@@ -64,7 +64,7 @@ test('extends a styled component with null dynamic styles', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('extends a styled component with empty static styles', () => {
+it('extends a styled component with empty static styles', () => {
   const Foo = s.View();
   const Bar = Foo.extend({});
   const foo = r(<Foo />).toJSON();
@@ -75,7 +75,7 @@ test('extends a styled component with empty static styles', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('extends a styled component with empty dynamic styles', () => {
+it('extends a styled component with empty dynamic styles', () => {
   const Foo = s.View();
   const Bar = Foo.extend(() => ({}));
   const foo = r(<Foo />).toJSON();
@@ -86,7 +86,7 @@ test('extends a styled component with empty dynamic styles', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('extends a styled component with multiple static style objects', () => {
+it('extends a styled component with multiple static style objects', () => {
   const Foo = s.View({ margin: 10 });
   const Bar = Foo.extend(
     { flex: 1 },
@@ -105,7 +105,7 @@ test('extends a styled component with multiple static style objects', () => {
   expect(bar).toMatchSnapshot();
 });
 
-test('extends a styled component with dynamic styles based on props', () => {
+it('extends a styled component with dynamic styles based on props', () => {
   const Foo = s.Text();
   const Bar = Foo.extend(p => ({ padding: p.padded ? 10 : 0 }));
   const foo = r(<Foo />).toJSON();
@@ -118,7 +118,7 @@ test('extends a styled component with dynamic styles based on props', () => {
   expect(barPadded).toMatchSnapshot();
 });
 
-test('extends a styled component with combined static and dynamic styles', () => {
+it('extends a styled component with combined static and dynamic styles', () => {
   const Foo = s.Text();
   const Bar = Foo.extend({ flex: 1 }, p => ({ padding: p.padded ? 10 : 0 }));
   const foo = r(<Foo />).toJSON();

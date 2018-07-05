@@ -4,42 +4,42 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('creates a styled component', () => {
+it('creates a styled component', () => {
   const Foo = s.View({ flex: 1 });
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({ flex: 1 });
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with null static styles', () => {
+it('creates a styled component with null static styles', () => {
   const Foo = s.View();
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({});
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with null dynamic styles', () => {
+it('creates a styled component with null dynamic styles', () => {
   const Foo = s.View(() => null);
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({});
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with empty static styles', () => {
+it('creates a styled component with empty static styles', () => {
   const Foo = s.View({});
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({});
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with empty dynamic styles', () => {
+it('creates a styled component with empty dynamic styles', () => {
   const Foo = s.View(() => ({}));
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({});
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with multiple static style objects', () => {
+it('creates a styled component with multiple static style objects', () => {
   const Foo = s.View(
     { flex: 1 },
     { alignItems: 'center', justifyContent: 'center' }
@@ -53,7 +53,7 @@ test('creates a styled component with multiple static style objects', () => {
   expect(foo).toMatchSnapshot();
 });
 
-test('creates a styled component with dynamic styles based on props', () => {
+it('creates a styled component with dynamic styles based on props', () => {
   const Foo = s.View(p => ({ padding: p.padded ? 10 : 0 }));
   const foo = r(<Foo />).toJSON();
   const fooPadded = r(<Foo padded />).toJSON();
@@ -63,7 +63,7 @@ test('creates a styled component with dynamic styles based on props', () => {
   expect(fooPadded).toMatchSnapshot();
 });
 
-test('creates a styled component with combined static and dynamic styles', () => {
+it('creates a styled component with combined static and dynamic styles', () => {
   const Foo = s.View({ flex: 1 }, p => ({ padding: p.padded ? 10 : 0 }));
   const foo = r(<Foo />).toJSON();
   const fooPadded = r(<Foo padded />).toJSON();

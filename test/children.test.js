@@ -4,7 +4,7 @@ import { create as r } from 'react-test-renderer';
 
 import s from '../src';
 
-test('passes a single child properly', () => {
+it('passes a single child properly', () => {
   const Foo = s.View({ flex: 1 });
   const foo = r(
     <Foo>
@@ -15,7 +15,7 @@ test('passes a single child properly', () => {
   expect(foo).toMatchSnapshot();
 });
 
-test('passes multiple children properly', () => {
+it('passes multiple children properly', () => {
   const Foo = s.View({});
   const foo = r(
     <Foo>
