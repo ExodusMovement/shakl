@@ -1,25 +1,13 @@
-const flatten = style => {
-  if (style === null || typeof style !== 'object') {
+const flatten = styles => {
+  if (styles === null || typeof styles !== 'object') {
     return undefined;
   }
 
-  if (!Array.isArray(style)) {
-    return style;
+  if (!Array.isArray(styles)) {
+    return styles;
   }
 
-  const styles = {};
-
-  for (let i = 0; i < style.length; i += 1) {
-    const computed = flatten(style[i]);
-
-    if (computed) {
-      Object.keys(computed).forEach(key => {
-        styles[key] = computed[key];
-      });
-    }
-  }
-
-  return styles;
+  return styles.reduce((obj, style) => ({ ...obj, ...flatten(style) }), {});
 };
 
 export default flatten;
