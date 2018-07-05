@@ -1,13 +1,7 @@
 import React from 'react';
 
-import { Text, TouchableOpacity, View } from 'react-native';
-
+import evaluate from './evaluate';
 import flatten from './flatten';
-
-const evaluate = (item, props) => {
-  if (typeof item === 'function') return item(props);
-  return item;
-};
 
 const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
   const styledFactory = (...styles) => {
@@ -17,7 +11,7 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
       const style = flatten([
         styles.map(s => evaluate(s, props)),
         // attrs.style,
-        props.style
+        props.style // eslint-disable-line react/destructuring-assignment
       ]);
 
       return React.createElement(Component, {
@@ -27,8 +21,6 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
         style
       });
     });
-
-    Styled.defaultProps = { style: {} };
 
     Styled.displayName =
       displayName || `styled(${Component.displayName || Component.name})`;
@@ -53,11 +45,5 @@ const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
 
   return styledFactory;
 };
-
-styled.Text = styled(Text);
-styled.Touchable = styled(TouchableOpacity, {
-  displayName: 'styled(Touchable)'
-});
-styled.View = styled(View, { displayName: 'styled(View)' });
 
 export default styled;

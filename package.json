@@ -4,12 +4,16 @@
   "description": "A utility to create styled components in React Native.",
   "version": "0.0.4",
   "main": "src/index.js",
+  "react-native": "src/rn.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonaye/react-native-styled.git"
   },
   "peerDependencies": {
     "react": ">=16.3.0"
+  },
+  "optionalDependencies": {
+    "react-native": "*"
   },
   "devDependencies": {
     "@types/jest": "23.1.4",

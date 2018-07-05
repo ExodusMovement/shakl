@@ -12,8 +12,12 @@ it('forwards ref to wrapped component', () => {
       barRef = this.foo;
     }
 
+    handleRef = ref => {
+      this.foo = ref;
+    };
+
     render() {
-      return <Foo ref={ref => (this.foo = ref)} />;
+      return <Foo ref={this.handleRef} />;
     }
   }
   const foo = r(<Foo />).toJSON();
@@ -26,6 +30,7 @@ it('forwards ref to wrapped component', () => {
 it('forwards ref created with React.createRef() to wrapped component', () => {
   const Foo = s.Touchable({ margin: 10 });
   let barRef;
+  // eslint-disable-next-line react/no-multi-comp
   class Bar extends React.Component {
     foo = React.createRef();
 

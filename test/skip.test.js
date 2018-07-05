@@ -19,6 +19,7 @@ it.skip('creates a styled component of a functional component', () => {
 
 // investigate whether this should be supported
 it.skip('creates a styled component of a class component', () => {
+  // eslint-disable-next-line react/prefer-stateless-function
   class Foo extends React.Component {
     render() {
       return <View />;
@@ -52,6 +53,7 @@ it.skip('applies animated styles to animated components', () => {
 // faulty, may require lib edits
 it.skip('should throw when called with an invalid element', () => {
   const Foo = () => <View />;
+  // eslint-disable-next-line react/prefer-stateless-function, react/no-multi-comp
   class Bar extends React.Component {
     render() {
       return <View />;

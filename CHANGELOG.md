@@ -1,4 +1,4 @@
-# 0.0.5
+# Unreleased
 
 - Remove 'prop-types' from dependencies.
 - Display names are now on the format `styled(Foo)` instead of `StyledFoo`.
