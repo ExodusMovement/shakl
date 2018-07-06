@@ -82,8 +82,6 @@ const Button = s.Touchable({ flex: 1 });
 const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 // is equivalent to
-const Button = props => <TouchableOpacity style={{ flex: 1 }} {...props} />;
-
 const HighlightedButton = props => (
   <TouchableHighlight style={{ flex: 1 }} {...props} />
 );
@@ -97,19 +95,6 @@ const ButtonContainer = s.Touchable({ flex: 1 });
 const Button = ButtonContainer.withChild(ButtonText);
 
 // is equivalent to
-const ButtonText = props => <Text style={{ color: 'blue' }} {...props} />;
-
-const ButtonContainer = props => (
-  <TouchableOpacity style={{ flex: 1 }} {...props} />
-);
-
-const Button = ({ children, ...props }) => (
-  <ButtonContainer {...props}>
-    <ButtonText>{children}</ButtonText>
-  </ButtonContainer>
-);
-
-// or in one step
 const Button = ({ children, ...props }) => (
   <TouchableOpacity style={{ flex: 1 }} {...props}>
     <Text style={{ color: 'blue' }}>{children}</Text>
