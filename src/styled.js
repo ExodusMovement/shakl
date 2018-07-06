@@ -4,8 +4,6 @@ import evaluate from './evaluate';
 import flatten from './flatten';
 
 const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
-  if (!Comp) throw new Error('Cannot style an invalid component');
-
   const Styled = React.forwardRef(({ children, ...props }, ref) => {
     const { attrs = {}, comp, child } = opts;
 

@@ -98,11 +98,3 @@ it('creates a styled component of a class component', () => {
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
 });
-
-it('should throw when called with an invalid element', () => {
-  [undefined, null].forEach(el => {
-    expect(() => {
-      s(el)();
-    }).toThrow();
-  });
-});
