@@ -108,14 +108,14 @@ const Button = ({ children, ...props }) => (
 const Foo = s(FlatList, { multi: true })({
   style: { flex: 1 },
   contentContainerStyle: { flex: 2 },
-  anotherStyleProp: { flex: 3 }
+  anotherStyleProp: [{ flex: 3 }, { padding: 10 }] // you can pass an array too
 });
 
 // dynamic styles work too
 const Foo = s(FlatList, { multi: true })({
   style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
   contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
-  anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
+  anotherStyleProp: [{flex: 3, ({ padded }) => ({ padding: padded ? 30 : 0 })]
 });
 ```
 

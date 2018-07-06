@@ -6,7 +6,7 @@ import { FlatList } from 'react-native';
 
 import s from '../src';
 
-it('creates a styled component with static multiple style props', () => {
+it('creates a styled component with static multi style props', () => {
   const Foo = s(FlatList, { multi: true })({
     style: { flex: 1 },
     contentContainerStyle: { flex: 2 },
@@ -19,7 +19,7 @@ it('creates a styled component with static multiple style props', () => {
   expect(foo).toMatchSnapshot();
 });
 
-it('creates a styled component with dynamic multiple style props', () => {
+it('creates a styled component with dynamic multi style props', () => {
   const Foo = s(FlatList, { multi: true })({
     style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
     contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
@@ -35,4 +35,17 @@ it('creates a styled component with dynamic multiple style props', () => {
   expect(fooPadded.props.anotherStyleProp).toEqual({ padding: 30 });
   expect(foo).toMatchSnapshot();
   expect(fooPadded).toMatchSnapshot();
+});
+
+it('creates a styled component with multiple multi style props', () => {
+  const Foo = s(FlatList, { multi: true })({
+    style: [{ flex: 1 }, ({ padding }) => ({ padding })],
+    contentContainerStyle: [{ flex: 2 }, { padding: 20 }],
+    anotherStyleProp: [{ flex: 3 }, { padding: 30 }]
+  });
+  const foo = r(<Foo padding={10} />).toJSON();
+  expect(foo.props.style).toEqual({ flex: 1, padding: 10 });
+  expect(foo.props.contentContainerStyle).toEqual({ flex: 2, padding: 20 });
+  expect(foo.props.anotherStyleProp).toEqual({ flex: 3, padding: 30 });
+  expect(foo).toMatchSnapshot();
 });
