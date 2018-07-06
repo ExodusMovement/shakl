@@ -3,22 +3,22 @@ import React from 'react';
 import evaluate from './evaluate';
 import flatten from './flatten';
 
-const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
-  const Styled = React.forwardRef(({ children, ...props }, ref) => {
-    const { attrs = {}, comp, child, multiple } = opts;
+const s = (Comp, opts = {}) => (...styles) => {
+  const { name, withProps = {}, withComp, withChild, multi } = opts;
 
-    return React.createElement(
-      comp || Comp,
+  const S = React.forwardRef(({ children, ...props }, ref) =>
+    React.createElement(
+      withComp || Comp,
       {
         ref,
-        ...attrs,
+        ...withProps,
         ...props,
-        ...(multiple
+        ...(multi
           ? Object.keys(styles[0]).reduce(
               (obj, prop) => ({
                 ...obj,
                 [prop]: flatten([
-                  attrs[prop],
+                  withProps[prop],
                   evaluate(styles[0][prop], props),
                   props[prop]
                 ])
@@ -27,24 +27,24 @@ const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
             )
           : {
               style: flatten([
-                attrs.style,
+                withProps.style,
                 styles.map(style => evaluate(style, props)),
                 props.style
               ])
             })
       },
-      child ? React.createElement(child, {}, children) : children
-    );
-  });
+      withChild ? React.createElement(withChild, {}, children) : children
+    )
+  );
 
-  Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`;
+  S.displayName = name || `styled(${Comp.displayName || Comp.name})`;
 
-  Styled.extend = (...more) => styled(Styled, { name })(...styles, ...more);
-  Styled.attrs = attrs => styled(Styled, { name, attrs })(...styles);
-  Styled.withComponent = comp => styled(Styled, { name, comp })(...styles);
-  Styled.withChild = child => styled(Styled, { name, child })(...styles);
+  S.extend = (...more) => s(S, { name })(...styles, ...more);
+  S.withProps = props => s(S, { name, withProps: props })(...styles);
+  S.withComponent = comp => s(S, { name, withComp: comp })(...styles);
+  S.withChild = child => s(S, { name, withChild: child })(...styles);
 
-  return Styled;
+  return S;
 };
 
-export default styled;
+export default s;

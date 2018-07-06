@@ -38,7 +38,7 @@ exports[`extends a styled component with combined static and dynamic styles 3`] 
 />
 `;
 
-exports[`extends a styled component with custom attrs 1`] = `
+exports[`extends a styled component with custom props 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -51,7 +51,7 @@ exports[`extends a styled component with custom attrs 1`] = `
 />
 `;
 
-exports[`extends a styled component with custom attrs 2`] = `
+exports[`extends a styled component with custom props 2`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -66,7 +66,7 @@ exports[`extends a styled component with custom attrs 2`] = `
 />
 `;
 
-exports[`extends a styled component with custom attrs 3`] = `
+exports[`extends a styled component with custom props 3`] = `
 <Text
   accessible={true}
   allowFontScaling={true}

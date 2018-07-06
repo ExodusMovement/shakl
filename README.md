@@ -66,10 +66,10 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 // <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }} />
 ```
 
-### Defining custom props/attributes
+### Defining custom props
 
 ```js
-const Foo = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
+const Foo = s.Text({ color: 'blue' }).withProps({ numberOfLines: 1 });
 
 // is equivalent to
 <Text style={{ color: 'blue' }} numberOfLines={1} />;
@@ -105,14 +105,14 @@ const Button = ({ children, ...props }) => (
 ### Handling contentContainerStyle-like styles
 
 ```js
-const Foo = s(FlatList, { multiple: true })({
+const Foo = s(FlatList, { multi: true })({
   style: { flex: 1 },
   contentContainerStyle: { flex: 2 },
   anotherStyleProp: { flex: 3 }
 });
 
 // dynamic styles work too
-const Foo = s(FlatList, { multiple: true })({
+const Foo = s(FlatList, { multi: true })({
   style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
   contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
   anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })

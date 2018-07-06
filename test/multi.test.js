@@ -7,7 +7,7 @@ import { FlatList } from 'react-native';
 import s from '../src';
 
 it('creates a styled component with static multiple style props', () => {
-  const Foo = s(FlatList, { multiple: true })({
+  const Foo = s(FlatList, { multi: true })({
     style: { flex: 1 },
     contentContainerStyle: { flex: 2 },
     anotherStyleProp: { flex: 3 }
@@ -20,7 +20,7 @@ it('creates a styled component with static multiple style props', () => {
 });
 
 it('creates a styled component with dynamic multiple style props', () => {
-  const Foo = s(FlatList, { multiple: true })({
+  const Foo = s(FlatList, { multi: true })({
     style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
     contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
     anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
