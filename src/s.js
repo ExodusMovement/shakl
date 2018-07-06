@@ -2,8 +2,8 @@ import React from 'react';
 
 import flatten from './flatten';
 
-const s = (Comp, { name, multi, ...opts } = {}) => style => {
-  const S = React.forwardRef(({ children, ...props }, ref) => {
+const styled = (Comp, { name, multi, ...opts } = {}) => style => {
+  const Styled = React.forwardRef(({ children, ...props }, ref) => {
     const { attrs = {}, comp, child } = opts;
 
     const styles = multi ? style : { style };
@@ -32,14 +32,14 @@ const s = (Comp, { name, multi, ...opts } = {}) => style => {
     );
   });
 
-  S.displayName = name || `styled(${Comp.displayName || Comp.name})`;
+  Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`;
 
-  S.extend = more => s(S, { name })(more);
-  S.withProps = attrs => s(S, { name, attrs })();
-  S.withComponent = comp => s(S, { name, comp })(style);
-  S.withChild = child => s(S, { name, child })();
+  Styled.extend = more => styled(Styled, { name })(more);
+  Styled.withProps = attrs => styled(Styled, { name, attrs })();
+  Styled.withComponent = comp => styled(Styled, { name, comp })(style);
+  Styled.withChild = child => styled(Styled, { name, child })();
 
-  return S;
+  return Styled;
 };
 
-export default s;
+export default styled;

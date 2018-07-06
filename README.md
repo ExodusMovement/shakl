@@ -11,7 +11,7 @@
 ### Creating a styled component
 
 ```js
-import s from 'shakl';
+import styled from 'shakl';
 
 const Foo = s(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />
@@ -22,9 +22,9 @@ const Foo = s(View)({ custom: 'styles' });
 By default, React Native's `Text`, `TouchableOpacity` and `View` are exposed to you, they can be directly used.
 
 ```js
-s.Text({ custom: 'styles' });
-s.Touchable({ custom: 'styles' });
-s.View({ custom: 'styles' });
+styled.Text({ custom: 'styles' });
+styled.Touchable({ custom: 'styles' });
+styled.View({ custom: 'styles' });
 
 // equivalent to
 s(Text)({ custom: 'styles' });
@@ -35,7 +35,7 @@ s(View)({ custom: 'styles' });
 ### Dynamic styles based on props
 
 ```js
-const Foo = s.View(props => ({ padding: props.padded ? 10 : 0 }));
+const Foo = styled.View(props => ({ padding: props.padded ? 10 : 0 }));
 <Foo /> // <View style={{ padding: 0 }} />
 <Foo padded /> // <View style={{ padding: 10 }} />
 ```
@@ -43,7 +43,7 @@ const Foo = s.View(props => ({ padding: props.padded ? 10 : 0 }));
 ### Extending styles
 
 ```js
-const Title = s.Text({ fontSize: 20 });
+const Title = styled.Text({ fontSize: 20 });
 // <Text style={{ fontSize: 20 }} />
 
 const BoldTitle = Title.extend({ fontWeight: 'bold' });
@@ -56,7 +56,7 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 ### Defining custom props
 
 ```js
-const Foo = s.Text({ color: 'blue' }).withProps({ numberOfLines: 1 });
+const Foo = styled.Text({ color: 'blue' }).withProps({ numberOfLines: 1 });
 
 // is equivalent to
 <Text style={{ color: 'blue' }} numberOfLines={1} />;
@@ -65,7 +65,7 @@ const Foo = s.Text({ color: 'blue' }).withProps({ numberOfLines: 1 });
 ### Wrapping another component
 
 ```js
-const Button = s.Touchable({ flex: 1 });
+const Button = styled.Touchable({ flex: 1 });
 const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 // is equivalent to
@@ -77,8 +77,8 @@ const HighlightedButton = props => (
 ### Wrapping a child
 
 ```js
-const ButtonText = s.Text({ color: 'blue' });
-const ButtonContainer = s.Touchable({ flex: 1 });
+const ButtonText = styled.Text({ color: 'blue' });
+const ButtonContainer = styled.Touchable({ flex: 1 });
 const Button = ButtonContainer.withChild(ButtonText);
 
 // is equivalent to
@@ -125,7 +125,7 @@ s(View, { name: 'YetAnotherView' });
 ### Defining propTypes and defaultProps
 
 ```js
-const Foo = s.View({ custom: 'styles' });
+const Foo = styled.View({ custom: 'styles' });
 Foo.propTypes = { .. };
 Foo.defaultProps = { .. };
 ```
