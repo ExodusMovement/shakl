@@ -86,25 +86,6 @@ it('extends a styled component with empty dynamic styles', () => {
   expect(bar).toMatchSnapshot();
 });
 
-it('extends a styled component with multiple static style objects', () => {
-  const Foo = s.View({ margin: 10 });
-  const Bar = Foo.extend(
-    { flex: 1 },
-    { alignItems: 'center', justifyContent: 'center' }
-  );
-  const foo = r(<Foo />).toJSON();
-  const bar = r(<Bar />).toJSON();
-  expect(foo.props.style).toEqual({ margin: 10 });
-  expect(bar.props.style).toEqual({
-    margin: 10,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  });
-  expect(foo).toMatchSnapshot();
-  expect(bar).toMatchSnapshot();
-});
-
 it('extends a styled component with dynamic styles based on props', () => {
   const Foo = s.Text();
   const Bar = Foo.extend(p => ({ padding: p.padded ? 10 : 0 }));
@@ -113,19 +94,6 @@ it('extends a styled component with dynamic styles based on props', () => {
   const barPadded = r(<Bar padded />).toJSON();
   expect(bar.props.style).toEqual({ padding: 0 });
   expect(barPadded.props.style).toEqual({ padding: 10 });
-  expect(foo).toMatchSnapshot();
-  expect(bar).toMatchSnapshot();
-  expect(barPadded).toMatchSnapshot();
-});
-
-it('extends a styled component with combined static and dynamic styles', () => {
-  const Foo = s.Text();
-  const Bar = Foo.extend({ flex: 1 }, p => ({ padding: p.padded ? 10 : 0 }));
-  const foo = r(<Foo />).toJSON();
-  const bar = r(<Bar />).toJSON();
-  const barPadded = r(<Bar padded />).toJSON();
-  expect(bar.props.style).toEqual({ flex: 1, padding: 0 });
-  expect(barPadded.props.style).toEqual({ flex: 1, padding: 10 });
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
   expect(barPadded).toMatchSnapshot();

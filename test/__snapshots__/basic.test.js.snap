@@ -34,29 +34,6 @@ exports[`creates a styled component of a functional component 2`] = `
 />
 `;
 
-exports[`creates a styled component with combined static and dynamic styles 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-      "padding": 0,
-    }
-  }
-/>
-`;
-
-exports[`creates a styled component with combined static and dynamic styles 2`] = `
-<View
-  padded={true}
-  style={
-    Object {
-      "flex": 1,
-      "padding": 10,
-    }
-  }
-/>
-`;
-
 exports[`creates a styled component with dynamic styles based on props 1`] = `
 <View
   style={
@@ -87,18 +64,6 @@ exports[`creates a styled component with empty dynamic styles 1`] = `
 exports[`creates a styled component with empty static styles 1`] = `
 <View
   style={Object {}}
-/>
-`;
-
-exports[`creates a styled component with multiple static style objects 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flex": 1,
-      "justifyContent": "center",
-    }
-  }
 />
 `;
 

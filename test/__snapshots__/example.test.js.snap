@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works 1`] = `
+<RCTScrollView
+  backgroundColor="#f5fcff"
+  contentContainerStyle={
+    Object {
+      "flex": 1,
+      "paddingTop": 20,
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#f5fcff",
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "red",
+          "height": 40,
+          "width": 40,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 28,
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "green",
+          "height": 40,
+          "opacity": 1,
+          "width": 40,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "blue",
+          "height": 40,
+          "width": 40,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "red",
+          "padding": 0,
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      padded={true}
+      style={
+        Object {
+          "backgroundColor": "red",
+          "padding": 10,
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 20,
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "green",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Hello world
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "blue",
+        }
+      }
+    >
+      Hello world Hello world Hello world Hello world Hello world 
+    </Text>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "green",
+          "height": 40,
+          "width": 40,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "red",
+            "height": 40,
+            "width": 40,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 1,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        BUTTON
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;

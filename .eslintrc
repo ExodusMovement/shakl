@@ -11,7 +11,6 @@
     "guard-for-in": 0,
     "import/no-extraneous-dependencies": [2, { "optionalDependencies": true }],
     "no-restricted-syntax": 0,
-    "object-curly-newline": 0,
     "react/destructuring-assignment": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,

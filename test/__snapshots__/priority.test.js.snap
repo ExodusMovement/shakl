@@ -20,16 +20,6 @@ exports[`extended styles should have a higher priority 2`] = `
 />
 `;
 
-exports[`later styles have higher priority 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "green",
-    }
-  }
-/>
-`;
-
 exports[`style prop should have a higher priority 1`] = `
 <View
   style={

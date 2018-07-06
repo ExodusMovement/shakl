@@ -32,25 +32,12 @@ s(TouchableOpacity)({ custom: 'styles' });
 s(View)({ custom: 'styles' });
 ```
 
-### Multiple style objects
-
-```js
-const Foo = s.View({ custom: 'styles' }, { more: 'styles' } .. );
-<Foo />; // <View style={{ custom: 'styles', more: 'styles' .. }} />
-```
-
 ### Dynamic styles based on props
 
 ```js
 const Foo = s.View(props => ({ padding: props.padded ? 10 : 0 }));
 <Foo /> // <View style={{ padding: 0 }} />
 <Foo padded /> // <View style={{ padding: 10 }} />
-```
-
-### Combining static and dynamic styles
-
-```js
-const Foo = s.View({ is: 'static' }, props => ({ is: 'dynamic' }));
 ```
 
 ### Extending styles
@@ -108,14 +95,14 @@ const Button = ({ children, ...props }) => (
 const Foo = s(FlatList, { multi: true })({
   style: { flex: 1 },
   contentContainerStyle: { flex: 2 },
-  anotherStyleProp: [{ flex: 3 }, { padding: 10 }] // you can pass an array too
+  anotherStyleProp: { flex: 3 }
 });
 
 // dynamic styles work too
 const Foo = s(FlatList, { multi: true })({
   style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
   contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
-  anotherStyleProp: [{flex: 3, ({ padded }) => ({ padding: padded ? 30 : 0 })]
+  anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
 });
 ```
 

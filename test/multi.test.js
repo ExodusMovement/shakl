@@ -36,16 +36,3 @@ it('creates a styled component with dynamic multi style props', () => {
   expect(foo).toMatchSnapshot();
   expect(fooPadded).toMatchSnapshot();
 });
-
-it('creates a styled component with multiple multi style props', () => {
-  const Foo = s(FlatList, { multi: true })({
-    style: [{ flex: 1 }, ({ padding }) => ({ padding })],
-    contentContainerStyle: [{ flex: 2 }, { padding: 20 }],
-    anotherStyleProp: [{ flex: 3 }, { padding: 30 }]
-  });
-  const foo = r(<Foo padding={10} />).toJSON();
-  expect(foo.props.style).toEqual({ flex: 1, padding: 10 });
-  expect(foo.props.contentContainerStyle).toEqual({ flex: 2, padding: 20 });
-  expect(foo.props.anotherStyleProp).toEqual({ flex: 3, padding: 30 });
-  expect(foo).toMatchSnapshot();
-});
