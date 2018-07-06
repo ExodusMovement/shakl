@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { View } from 'react-native';
+
 import { create as r } from 'react-test-renderer';
 
 import s from '../src';
@@ -71,4 +73,36 @@ it('creates a styled component with combined static and dynamic styles', () => {
   expect(fooPadded.props.style).toEqual({ flex: 1, padding: 10 });
   expect(foo).toMatchSnapshot();
   expect(fooPadded).toMatchSnapshot();
+});
+
+it('creates a styled component of a functional component', () => {
+  const Foo = props => <View {...props} />;
+  const Bar = s(Foo)({ flex: 1 });
+  const foo = r(<Foo />).toJSON();
+  const bar = r(<Bar />).toJSON();
+  expect(bar.props.style).toEqual({ flex: 1 });
+  expect(foo).toMatchSnapshot();
+  expect(bar).toMatchSnapshot();
+});
+
+it('creates a styled component of a class component', () => {
+  class Foo extends React.Component {
+    render() {
+      return <View {...this.props} />;
+    }
+  }
+  const Bar = s(Foo)({ flex: 1 });
+  const foo = r(<Foo />).toJSON();
+  const bar = r(<Bar />).toJSON();
+  expect(bar.props.style).toEqual({ flex: 1 });
+  expect(foo).toMatchSnapshot();
+  expect(bar).toMatchSnapshot();
+});
+
+it('should throw when called with an invalid element', () => {
+  [undefined, null].forEach(el => {
+    expect(() => {
+      s(el)();
+    }).toThrow();
+  });
 });

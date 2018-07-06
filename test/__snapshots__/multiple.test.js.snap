@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates a styled component with dynamic multiple style props 1`] = `
+<View
+  anotherStyleProp={
+    Object {
+      "padding": 0,
+    }
+  }
+  contentContainerStyle={
+    Object {
+      "padding": 0,
+    }
+  }
+  style={
+    Object {
+      "padding": 0,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component with dynamic multiple style props 2`] = `
+<View
+  anotherStyleProp={
+    Object {
+      "padding": 30,
+    }
+  }
+  contentContainerStyle={
+    Object {
+      "padding": 20,
+    }
+  }
+  padded={true}
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component with static multiple style props 1`] = `
+<View
+  anotherStyleProp={
+    Object {
+      "flex": 3,
+    }
+  }
+  contentContainerStyle={
+    Object {
+      "flex": 2,
+    }
+  }
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;

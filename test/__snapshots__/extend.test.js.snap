@@ -38,6 +38,51 @@ exports[`extends a styled component with combined static and dynamic styles 3`] 
 />
 `;
 
+exports[`extends a styled component with custom attrs 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with custom attrs 2`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  bar={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
+exports[`extends a styled component with custom attrs 3`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  bar={true}
+  baz={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": 20,
+      "fontWeight": "bold",
+    }
+  }
+/>
+`;
+
 exports[`extends a styled component with dynamic styles based on props 1`] = `
 <Text
   accessible={true}

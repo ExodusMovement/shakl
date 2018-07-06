@@ -66,6 +66,83 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 // <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }} />
 ```
 
+### Defining custom props/attributes
+
+```js
+const Foo = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
+
+// is equivalent to
+<Text style={{ color: 'blue' }} numberOfLines={1} />;
+```
+
+### Wrapping another component
+
+```js
+const Button = s.Touchable({ flex: 1 });
+const HighlightedButton = Button.withComponent(TouchableHighlight);
+
+// is equivalent to
+const Button = props => <TouchableOpacity style={{ flex: 1 }} {...props} />;
+
+const HighlightedButton = props => (
+  <TouchableHighlight style={{ flex: 1 }} {...props} />
+);
+```
+
+### Wrapping a child
+
+```js
+const ButtonText = s.Text({ color: 'blue' });
+const ButtonContainer = s.Touchable({ flex: 1 });
+const Button = ButtonContainer.withChild(ButtonText);
+
+// is equivalent to
+const ButtonText = props => <Text style={{ color: 'blue' }} {...props} />;
+
+const ButtonContainer = props => (
+  <TouchableOpacity style={{ flex: 1 }} {...props} />
+);
+
+const Button = ({ children, ...props }) => (
+  <ButtonContainer {...props}>
+    <ButtonText>{children}</ButtonText>
+  </ButtonContainer>
+);
+
+// or in one step
+const Button = ({ children, ...props }) => (
+  <TouchableOpacity style={{ flex: 1 }} {...props}>
+    <Text style={{ color: 'blue' }}>{children}</Text>
+  </TouchableOpacity>
+);
+```
+
+### Handling contentContainerStyle-like styles
+
+```js
+const Foo = s.View([
+  { prop: 'style', style: { flex: 1 } },
+  { prop: 'contentContainerStyle', style: { flex: 2 } },
+  { prop: 'anotherStyleProp', style: { flex: 3 } }
+]);
+
+// dynamic styles work too
+const Foo = s.View([
+  {
+    prop: 'style',
+    style: props => ({ padding: props.padded ? 10 : 0 })
+  },
+  {
+    prop: 'contentContainerStyle',
+    style: props => ({ padding: props.padded ? 20 : 0 })
+  },
+  {
+    prop: 'anotherStyleProp',
+    style: props => ({ padding: props.padded ? 30 : 0 })
+  }
+]);
+```
+
 ### Using refs
 
 ```js
@@ -78,7 +155,7 @@ const List = s(FlatList)({ custom: 'styles' });
 ### Defining a custom display name for debugging
 
 ```js
-s(View, { displayName: 'YetAnotherView' });
+s(View, { name: 'YetAnotherView' });
 // default names are styled(Text), styled(Touchable), styled(View), styled(Component), etc
 ```
 

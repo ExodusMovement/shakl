@@ -3,45 +3,50 @@ import React from 'react';
 import evaluate from './evaluate';
 import flatten from './flatten';
 
-const styled = (Component, { displayName /* withAttrs = {} */ } = {}) => {
-  const styledFactory = (...styles) => {
-    const Styled = React.forwardRef((props, ref) => {
-      // const attrs = evaluate(withAttrs, props);
+const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
+  if (!Comp) throw new Error('Cannot style an invalid component');
 
-      return React.createElement(Component, {
-        ...props,
+  const Styled = React.forwardRef(({ children, ...props }, ref) => {
+    const { attrs = {}, comp, child } = opts;
+
+    return React.createElement(
+      comp || Comp,
+      {
         ref,
-        // ...attrs,
-        style: flatten([
-          styles.map(style => evaluate(style, props)),
-          // attrs.style,
-          props.style // eslint-disable-line react/destructuring-assignment
-        ])
-      });
-    });
+        ...attrs,
+        ...props,
+        ...(Array.isArray(styles[0])
+          ? styles[0].reduce(
+              (obj, { prop, style }) => ({
+                ...obj,
+                [prop]: flatten([
+                  attrs[prop],
+                  evaluate(style, props),
+                  props[prop]
+                ])
+              }),
+              {}
+            )
+          : {
+              style: flatten([
+                attrs.style,
+                styles.map(style => evaluate(style, props)),
+                props.style
+              ])
+            })
+      },
+      child ? React.createElement(child, {}, children) : children
+    );
+  });
 
-    Styled.displayName =
-      displayName || `styled(${Component.displayName || Component.name})`;
+  Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`;
 
-    Styled.extend = (...extendedStyles) => {
-      const extendedFactory = styled(Component, { displayName })(
-        ...styles,
-        ...extendedStyles
-      );
+  Styled.extend = (...more) => styled(Styled, { name })(...styles, ...more);
+  Styled.attrs = attrs => styled(Styled, { name, attrs })(...styles);
+  Styled.withComponent = comp => styled(Styled, { name, comp })(...styles);
+  Styled.withChild = child => styled(Styled, { name, child })(...styles);
 
-      // extendedFactory.attrs = props => styled(Styled, { displayName }, { withAttrs: props });
-      // extendedFactory.withChild = () => {};
-
-      return extendedFactory;
-    };
-
-    return Styled;
-  };
-
-  // styledFactory.attrs = props => styled(Component, { displayName }, { withAttrs: props });
-  // styledFactory.withChild = () => {};
-
-  return styledFactory;
+  return Styled;
 };
 
 export default styled;

@@ -130,3 +130,25 @@ it('extends a styled component with combined static and dynamic styles', () => {
   expect(bar).toMatchSnapshot();
   expect(barPadded).toMatchSnapshot();
 });
+
+it('extends a styled component with custom attrs', () => {
+  const Foo = s.Text({ fontSize: 20 });
+  const Bar = Foo.extend({ fontWeight: 'bold' }).attrs({ bar: true });
+  const Baz = Bar.extend({ color: 'red' }).attrs({ baz: true });
+  const foo = r(<Foo />).toJSON();
+  const bar = r(<Bar />).toJSON();
+  const baz = r(<Baz />).toJSON();
+  expect(bar.props.bar).toBe(true);
+  expect(baz.props.bar).toBe(true);
+  expect(baz.props.baz).toBe(true);
+  expect(foo.props.style).toEqual({ fontSize: 20 });
+  expect(bar.props.style).toEqual({ fontSize: 20, fontWeight: 'bold' });
+  expect(baz.props.style).toEqual({
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red'
+  });
+  expect(foo).toMatchSnapshot();
+  expect(bar).toMatchSnapshot();
+  expect(baz).toMatchSnapshot();
+});

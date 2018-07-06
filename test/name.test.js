@@ -14,7 +14,7 @@ it('has proper display name', () => {
 });
 
 it('allows providing a custom display name', () => {
-  const Foo = s(View, { displayName: 'Foo' })({ flex: 1 });
+  const Foo = s(View, { name: 'Foo' })({ flex: 1 });
   const foo = r(<Foo />).toJSON();
   expect(Foo.displayName).toBe('Foo');
   expect(foo).toMatchSnapshot();
@@ -23,7 +23,7 @@ it('allows providing a custom display name', () => {
 it('falls back to Component.name if Component.displayName cannot be inferred', () => {
   const Foo = () => null;
   const Bar = s(Foo)();
-  const foo = r(<Bar />).toJSON();
+  const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
   expect(Foo.displayName).not.toBeDefined();
   expect(Foo.name).toBe('Foo');
@@ -33,7 +33,7 @@ it('falls back to Component.name if Component.displayName cannot be inferred', (
 });
 
 it('keeps custom display name when extended', () => {
-  const Foo = s(View, { displayName: 'Foo' })({ flex: 1 });
+  const Foo = s(View, { name: 'Foo' })({ flex: 1 });
   const Bar = Foo.extend({ flex: 1 });
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();

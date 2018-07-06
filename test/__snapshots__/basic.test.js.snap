@@ -10,6 +10,30 @@ exports[`creates a styled component 1`] = `
 />
 `;
 
+exports[`creates a styled component of a class component 1`] = `<View />`;
+
+exports[`creates a styled component of a class component 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`creates a styled component of a functional component 1`] = `<View />`;
+
+exports[`creates a styled component of a functional component 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
 exports[`creates a styled component with combined static and dynamic styles 1`] = `
 <View
   style={

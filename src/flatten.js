@@ -13,7 +13,6 @@ const flatten = style => {
     const computed = flatten(style[i]);
 
     if (computed) {
-      // eslint-disable-next-line guard-for-in, no-restricted-syntax
       for (const key in computed) {
         styles[key] = computed[key];
       }
