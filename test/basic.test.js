@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { View } from 'react-native';
-
 import { create as r } from 'react-test-renderer';
+
+import { View } from 'react-native';
 
 import s from '../src';
 

@@ -5,7 +5,7 @@ import flatten from './flatten';
 
 const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
   const Styled = React.forwardRef(({ children, ...props }, ref) => {
-    const { attrs = {}, comp, child } = opts;
+    const { attrs = {}, comp, child, multiple } = opts;
 
     return React.createElement(
       comp || Comp,
@@ -13,13 +13,13 @@ const styled = (Comp, { name, ...opts } = {}) => (...styles) => {
         ref,
         ...attrs,
         ...props,
-        ...(Array.isArray(styles[0])
-          ? styles[0].reduce(
-              (obj, { prop, style }) => ({
+        ...(multiple
+          ? Object.keys(styles[0]).reduce(
+              (obj, prop) => ({
                 ...obj,
                 [prop]: flatten([
                   attrs[prop],
-                  evaluate(style, props),
+                  evaluate(styles[0][prop], props),
                   props[prop]
                 ])
               }),

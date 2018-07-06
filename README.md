@@ -105,27 +105,18 @@ const Button = ({ children, ...props }) => (
 ### Handling contentContainerStyle-like styles
 
 ```js
-const Foo = s.View([
-  { prop: 'style', style: { flex: 1 } },
-  { prop: 'contentContainerStyle', style: { flex: 2 } },
-  { prop: 'anotherStyleProp', style: { flex: 3 } }
-]);
+const Foo = s(FlatList, { multiple: true })({
+  style: { flex: 1 },
+  contentContainerStyle: { flex: 2 },
+  anotherStyleProp: { flex: 3 }
+});
 
 // dynamic styles work too
-const Foo = s.View([
-  {
-    prop: 'style',
-    style: props => ({ padding: props.padded ? 10 : 0 })
-  },
-  {
-    prop: 'contentContainerStyle',
-    style: props => ({ padding: props.padded ? 20 : 0 })
-  },
-  {
-    prop: 'anotherStyleProp',
-    style: props => ({ padding: props.padded ? 30 : 0 })
-  }
-]);
+const Foo = s(FlatList, { multiple: true })({
+  style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
+  contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
+  anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
+});
 ```
 
 ### Using refs

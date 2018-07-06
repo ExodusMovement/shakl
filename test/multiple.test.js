@@ -2,14 +2,16 @@ import React from 'react';
 
 import { create as r } from 'react-test-renderer';
 
+import { FlatList } from 'react-native';
+
 import s from '../src';
 
 it('creates a styled component with static multiple style props', () => {
-  const Foo = s.View([
-    { prop: 'style', style: { flex: 1 } },
-    { prop: 'contentContainerStyle', style: { flex: 2 } },
-    { prop: 'anotherStyleProp', style: { flex: 3 } }
-  ]);
+  const Foo = s(FlatList, { multiple: true })({
+    style: { flex: 1 },
+    contentContainerStyle: { flex: 2 },
+    anotherStyleProp: { flex: 3 }
+  });
   const foo = r(<Foo />).toJSON();
   expect(foo.props.style).toEqual({ flex: 1 });
   expect(foo.props.contentContainerStyle).toEqual({ flex: 2 });
@@ -18,20 +20,11 @@ it('creates a styled component with static multiple style props', () => {
 });
 
 it('creates a styled component with dynamic multiple style props', () => {
-  const Foo = s.View([
-    {
-      prop: 'style',
-      style: ({ padded }) => ({ padding: padded ? 10 : 0 })
-    },
-    {
-      prop: 'contentContainerStyle',
-      style: ({ padded }) => ({ padding: padded ? 20 : 0 })
-    },
-    {
-      prop: 'anotherStyleProp',
-      style: ({ padded }) => ({ padding: padded ? 30 : 0 })
-    }
-  ]);
+  const Foo = s(FlatList, { multiple: true })({
+    style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
+    contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
+    anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
+  });
   const foo = r(<Foo />).toJSON();
   const fooPadded = r(<Foo padded />).toJSON();
   expect(foo.props.style).toEqual({ padding: 0 });
