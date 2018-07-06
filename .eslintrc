@@ -8,11 +8,8 @@
   "rules": {
     "arrow-parens": 0,
     "comma-dangle": [2, "never"],
-    "function-paren-newline": 0,
     "guard-for-in": 0,
-    "implicit-arrow-linebreak": 0,
     "import/no-extraneous-dependencies": [2, { "optionalDependencies": true }],
-    "indent": 0,
     "no-restricted-syntax": 0,
     "object-curly-newline": 0,
     "react/destructuring-assignment": 0,
