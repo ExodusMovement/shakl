@@ -2,7 +2,7 @@ import React from 'react';
 
 import { create as r } from 'react-test-renderer';
 
-import s from '../src/styled';
+import s from '../src/s';
 
 s.div = s('div');
 

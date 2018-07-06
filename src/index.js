@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 
-import s from './styled';
+import s from './s';
 
 s.Text = s(Text);
 s.Touchable = s(TouchableOpacity, { name: 'styled(Touchable)' });
