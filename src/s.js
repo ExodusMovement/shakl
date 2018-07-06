@@ -2,42 +2,42 @@ import React from 'react';
 
 import flatten from './flatten';
 
-const s = (Comp, opts = {}) => (...args) => {
-  const { name, multi, withProps = {}, withComp, withChild } = opts;
-
+const s = (Comp, { name, multi, ...opts } = {}) => (...args) => {
   const S = React.forwardRef(({ children, ...props }, ref) => {
-    const styles = multi ? args[0] : { style: args };
+    const { attrs = {}, comp, child } = opts;
+
+    const styleProps = multi ? args[0] : { style: args };
+
+    const styles = Object.keys(styleProps).reduce((obj, prop) => {
+      const styleProp = Array.isArray(styleProps[prop])
+        ? styleProps[prop]
+        : [styleProps[prop]];
+
+      return {
+        ...obj,
+        [prop]: flatten([
+          attrs[prop],
+          styleProp.map(
+            style => (typeof style === 'function' ? style(props) : style)
+          ),
+          props[prop]
+        ])
+      };
+    }, {});
 
     return React.createElement(
-      withComp || Comp,
-      {
-        ref,
-        ...withProps,
-        ...props,
-        ...Object.keys(styles).reduce(
-          (obj, prop) => ({
-            ...obj,
-            [prop]: flatten([
-              withProps[prop],
-              (Array.isArray(styles[prop]) ? styles[prop] : [styles[prop]]).map(
-                style => (typeof style === 'function' ? style(props) : style)
-              ),
-              props[prop]
-            ])
-          }),
-          {}
-        )
-      },
-      withChild ? React.createElement(withChild, {}, children) : children
+      comp || Comp,
+      { ref, ...attrs, ...props, ...styles },
+      child ? React.createElement(child, {}, children) : children
     );
   });
 
   S.displayName = name || `styled(${Comp.displayName || Comp.name})`;
 
   S.extend = (...more) => s(S, { name })(...args, ...more);
-  S.withProps = props => s(S, { name, withProps: props })(...args);
-  S.withComponent = comp => s(S, { name, withComp: comp })(...args);
-  S.withChild = child => s(S, { name, withChild: child })(...args);
+  S.withProps = attrs => s(S, { name, attrs })(...args);
+  S.withComponent = comp => s(S, { name, comp })(...args);
+  S.withChild = child => s(S, { name, child })(...args);
 
   return S;
 };
