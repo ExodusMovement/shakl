@@ -35,7 +35,7 @@ const ButtonText = s.Text({ color: 'green' });
 const ButtonContainer = s.Touchable({ flex: 1 });
 const AnotherButton = ButtonContainer.withChild(ButtonText);
 
-export default class App extends React.PureComponent {
+class App extends React.PureComponent {
   container = React.createRef();
 
   componentDidMount() {
