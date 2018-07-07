@@ -6,19 +6,21 @@
 
 ## Features
 
-- Supports static styles and dynamic styles (based on props).
-- Supports component extension using `extend()` and `attrs()`.
-- Supports component composition using `clone()` and `child()`.
-- Supports styling other style props, e.g. `contentContainerStyle`, you can "truly" style any component.
-- Exposes basic primitives such as `View`, `Text` and `Touchable`,
+- Exposes basic [primitives](#using-primitives) such as `View`, `Text` and `Touchable`,
+- Supports static and [dynamic styles](#dynamic-styles) (based on props).
+- Supports component extension using [`extend(/* more styles */)`](#extending-styles) and [`attrs(/* some props */)`](#custom-props).
+- Supports component composition using [`clone(/* into another component */)`](#wrapping-another-component) and [`child(/_ another component _/)](#wrapping-a-child)`.
+- Supports [styling other style props](#styling-other-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
-- Works with React DOM too!
+- [Works with React DOM](#usage-with-react-dom) too! same simple API, same benefits.
 - No dependencies, all just React goodness.
 - ~2 KB in size, with less than 100 lines of code.
 
-<img src="benchmarks/chart.png" alt="Benchmarks" width="600">
+### Benchmarks
 
 Time required to create a simple styled component (in ms).
+
+<img src="benchmarks/chart.png" alt="Benchmarks" width="600">
 
 ## Install
 
@@ -28,7 +30,7 @@ yarn add shakl
 
 ## Usage
 
-### Creating a styled component
+##### Creating a styled component
 
 ```js
 import styled from 'shakl';
@@ -53,7 +55,7 @@ styled(Text)({ color: 'blue' });
 styled(TouchableOpacity)({ padding: 10 });
 ```
 
-### Dynamic styles based on props
+### Dynamic styles
 
 ```js
 const Foo = styled.View(props => ({ padding: props.padded ? 10 : 0 }));
@@ -75,14 +77,14 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 // <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }} />
 ```
 
-### Defining custom props (attrs / withProps)
+### Custom props
 
 ```js
 const Foo = styled.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 // <Text style={{ color: 'blue' }} numberOfLines={1} />;
 ```
 
-### Wrapping another component (withComponent)
+### Wrapping another component
 
 ```js
 const Button = styled.Touchable({ flex: 1 });
@@ -94,7 +96,7 @@ const HighlightedButton = props => (
 );
 ```
 
-### Wrapping a child (withChild)
+### Wrapping a child
 
 ```js
 const ButtonText = styled.Text({ color: 'blue' });
@@ -109,7 +111,7 @@ const Button = ({ children, ...props }) => (
 );
 ```
 
-### Handling contentContainerStyle-like styles
+### Styling other style props
 
 ```js
 const Foo = styled(FlatList, { multi: true })({
@@ -135,14 +137,14 @@ const List = styled(FlatList)({ flex: 1 });
 // or this.list.current.scrollTo({ y: 0 }) (with React.createRef)
 ```
 
-### Defining a custom display name for debugging
+### Using a custom display name for debugging
 
 ```js
 styled(View, { name: 'YetAnotherView' });
 // default names are styled(View), styled(Text), styled(Touchable), styled(Component), etc
 ```
 
-### Defining propTypes and defaultProps
+### Using propTypes and defaultProps
 
 ```js
 const Foo = styled.View({ flex: 1 });
