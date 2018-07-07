@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "shakl",
   "description": "A utility to create styled components in React Native.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/styled.js",
   "react-native": "src/index.js",
   "repository": {
