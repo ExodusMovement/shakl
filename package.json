@@ -11,9 +11,6 @@
   "peerDependencies": {
     "react": ">=16.3.0"
   },
-  "optionalDependencies": {
-    "react-native": "*"
-  },
   "devDependencies": {
     "@types/jest": "23.1.4",
     "@types/react": "16.4.6",
@@ -43,7 +40,7 @@
     ],
     "verbose": true,
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+      "^.+\\.js$": "react-native/jest/preprocessor.js"
     }
   },
   "files": [
