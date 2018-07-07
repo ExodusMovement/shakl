@@ -27,13 +27,13 @@ const Title = s.Text({ fontSize: 20 });
 const BoldTitle = Title.extend({ fontWeight: 'bold' });
 const RedBoldTitle = BoldTitle.extend({ color: 'green' });
 
-const OneLiner = s.Text({ color: 'blue' }).withProps({ numberOfLines: 1 });
+const OneLiner = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 
-const HighlightedButton = Button.withComponent(TouchableHighlight);
+const HighlightedButton = Button.clone(TouchableHighlight);
 
 const ButtonText = s.Text({ color: 'green' });
 const ButtonContainer = s.Touchable({ flex: 1 });
-const AnotherButton = ButtonContainer.withChild(ButtonText);
+const AnotherButton = ButtonContainer.child(ButtonText);
 
 export default class App extends React.PureComponent {
   container = React.createRef();

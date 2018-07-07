@@ -35,7 +35,7 @@
   },
   "scripts": {
     "lint": "eslint src test",
-    "test": "jest test",
+    "test": "jest /test",
     "coverage": "yarn test --coverage",
     "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
     "benchmark": "jest benchmarks",
