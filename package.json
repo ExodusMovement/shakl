@@ -41,7 +41,10 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "verbose": true
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   },
   "files": [
     "src"
