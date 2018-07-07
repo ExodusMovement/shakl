@@ -13,7 +13,7 @@
 ```js
 import styled from 'shakl';
 
-const Foo = s(View)({ custom: 'styles' });
+const Foo = styled(View)({ custom: 'styles' });
 <Foo />; // <View style={{ custom: 'styles' }} />
 ```
 
@@ -27,9 +27,9 @@ styled.Touchable({ custom: 'styles' });
 styled.View({ custom: 'styles' });
 
 // equivalent to
-s(Text)({ custom: 'styles' });
-s(TouchableOpacity)({ custom: 'styles' });
-s(View)({ custom: 'styles' });
+styled(Text)({ custom: 'styles' });
+styled(TouchableOpacity)({ custom: 'styles' });
+styled(View)({ custom: 'styles' });
 ```
 
 ### Dynamic styles based on props
@@ -92,14 +92,14 @@ const Button = ({ children, ...props }) => (
 ### Handling contentContainerStyle-like styles
 
 ```js
-const Foo = s(FlatList, { multi: true })({
+const Foo = styled(FlatList, { multi: true })({
   style: { flex: 1 },
   contentContainerStyle: { flex: 2 },
   anotherStyleProp: { flex: 3 }
 });
 
 // dynamic styles work too
-const Foo = s(FlatList, { multi: true })({
+const Foo = styled(FlatList, { multi: true })({
   style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
   contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
   anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
@@ -109,7 +109,7 @@ const Foo = s(FlatList, { multi: true })({
 ### Using refs
 
 ```js
-const List = s(FlatList)({ custom: 'styles' });
+const List = styled(FlatList)({ custom: 'styles' });
 <List ref={this.list} />; // based on React's forwardRef API (16.3.0)
 // this.list.scrollTo({ y: 0 })
 // or this.list.current.scrollTo({ y: 0 }) (with React.createRef)
@@ -118,7 +118,7 @@ const List = s(FlatList)({ custom: 'styles' });
 ### Defining a custom display name for debugging
 
 ```js
-s(View, { name: 'YetAnotherView' });
+styled(View, { name: 'YetAnotherView' });
 // default names are styled(Text), styled(Touchable), styled(View), styled(Component), etc
 ```
 
