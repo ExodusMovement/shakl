@@ -129,3 +129,15 @@ const Foo = styled.View({ custom: 'styles' });
 Foo.propTypes = { .. };
 Foo.defaultProps = { .. };
 ```
+
+### Usage with React DOM
+
+```js
+// Shakl is internally decoupled from React Native and can be used in the DOM
+import styled from 'shakl';
+
+// no exposed primitives however, feel free to add your own
+const styled.div = styled('div');
+
+const Foo = styled.div({ custom: 'styles' });
+```

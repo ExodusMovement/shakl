@@ -9,7 +9,7 @@
     "arrow-parens": 0,
     "comma-dangle": [2, "never"],
     "guard-for-in": 0,
-    "import/no-extraneous-dependencies": [2, { "optionalDependencies": true }],
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
     "no-restricted-syntax": 0,
     "react/destructuring-assignment": 0,
     "react/jsx-filename-extension": 0,
