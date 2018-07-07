@@ -4,11 +4,20 @@
 
 <img src="shakl.svg" alt="Shakl logo" width="128">
 
-## Benchmarks
+## Features
 
-<img src="benchmarks/chart.png" alt="Benchmarks">
+- Supports static styles and dynamic styles (based on props).
+- Supports components extension with `extend()`, .
+- Supports components composition with `withProps()`, `withComponent()` and `withChild()`.
+- Supports styling other style props, e.g. `contentContainerStyle`, you can "truly" style any component.
+- Exposes basic primitives such as `View`, `Text` and `Touchable`,
+- Uses regular inline styles under the hood (performance boost).
+- Works with React DOM too!
+- No dependencies, all just React goodness.
+- ~2 KB in size, with less than 100 lines of code.
 
-Times are in ms.
+> <img src="benchmarks/chart.png" alt="Benchmarks" width="600">
+> Time required to create a simple styled component (in ms).
 
 ## Install
 
@@ -27,12 +36,12 @@ const Foo = styled(View)({ custom: 'styles' });
 
 ### Using primitives
 
-By default, React Native's `Text`, `TouchableOpacity` and `View` are exposed to you, they can be directly used.
+By default, React Native's `View`, `Text`, and `TouchableOpacity` are exposed to you, they can be directly used.
 
 ```js
+styled.View({ custom: 'styles' });
 styled.Text({ custom: 'styles' });
 styled.Touchable({ custom: 'styles' });
-styled.View({ custom: 'styles' });
 
 // equivalent to
 styled(Text)({ custom: 'styles' });
