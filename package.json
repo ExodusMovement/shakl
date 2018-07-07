@@ -18,28 +18,38 @@
     "@types/react-native": "0.55.28",
     "@types/react-test-renderer": "16.0.1",
     "babel-eslint": "8.2.5",
+    "benchmark": "2.1.4",
+    "emotion": "9.2.5",
     "eslint": "5.0.1",
     "eslint-config-airbnb": "17.0.0",
     "eslint-plugin-import": "2.13.0",
     "eslint-plugin-jsx-a11y": "6.1.0",
     "eslint-plugin-react": "7.10.0",
+    "glamorous-native": "1.4.0",
     "jest": "23.3.0",
     "react": "16.3.1",
+    "react-emotion": "9.2.5",
     "react-native": "0.55.4",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.3.1",
+    "styled-components": "3.3.3"
   },
   "scripts": {
     "lint": "eslint src test",
     "test": "jest test",
     "coverage": "yarn test --coverage",
-    "postcoverage": "open -a Chrome coverage/lcov-report/index.html"
+    "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
+    "benchmark": "jest benchmarks",
+    "postbenchmark": "open -a Chrome benchmarks/index.html"
   },
   "jest": {
-    "preset": "react-native",
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "verbose": true
+    "verbose": true,
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|glamorous-native)"
+    ]
   },
   "files": [
     "src"

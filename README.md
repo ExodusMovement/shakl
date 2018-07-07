@@ -2,6 +2,14 @@
 
 [![npm version](https://badge.fury.io/js/shakl.svg)](https://badge.fury.io/js/shakl) [![Build Status](https://travis-ci.org/sonaye/shakl.svg?branch=master)](https://travis-ci.org/sonaye/shakl)
 
+<img src="shakl.svg" alt="Shakl logo" width="128">
+
+## Benchmarks
+
+<img src="benchmarks/chart.png" alt="Benchmarks">
+
+Times are in ms.
+
 ## Install
 
 `yarn add shakl`
