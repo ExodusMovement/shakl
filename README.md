@@ -30,7 +30,7 @@ yarn add shakl
 
 ## Usage
 
-#### Creating a styled component
+### Creating a styled component
 
 ```js
 import styled from 'shakl';
