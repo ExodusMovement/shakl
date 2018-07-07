@@ -16,11 +16,11 @@
 - No dependencies, all just React goodness.
 - ~2 KB in size, with less than 100 lines of code.
 
-### Benchmarks
+### Benchmark
 
 Time required to create a simple styled component (in ms).
 
-<img src="benchmarks/chart.png" alt="Benchmarks" width="600">
+<img src="benchmark/chart.png" alt="Shakl Benchmark" width="600">
 
 ## Install
 
