@@ -73,6 +73,8 @@ Container.defaultProps = { backgroundColor: '#000' };
 
 it('works', () => {
   const app = r(<App />).toJSON();
+
   expect(Container.displayName).toBe('Container');
+
   expect(app).toMatchSnapshot();
 });

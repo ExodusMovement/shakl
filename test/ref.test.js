@@ -6,7 +6,9 @@ import s from '../src';
 
 it('forwards ref to wrapped component', () => {
   const Foo = s.Touchable({ margin: 10 });
+
   let barRef;
+
   class Bar extends React.Component {
     componentDidMount() {
       barRef = this.foo;
@@ -20,16 +22,21 @@ it('forwards ref to wrapped component', () => {
       return <Foo ref={this.handleRef} />;
     }
   }
+
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
+
   expect(barRef).toBeDefined();
+
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
 });
 
 it('forwards ref created with React.createRef() to wrapped component', () => {
   const Foo = s.Touchable({ margin: 10 });
+
   let barRef;
+
   class Bar extends React.Component {
     foo = React.createRef();
 
@@ -41,10 +48,13 @@ it('forwards ref created with React.createRef() to wrapped component', () => {
       return <Foo ref={this.foo} />;
     }
   }
+
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
+
   expect(barRef).toBeDefined();
   expect(barRef.current).toBeDefined();
+
   expect(foo).toMatchSnapshot();
   expect(bar).toMatchSnapshot();
 });
