@@ -9,7 +9,7 @@
 - Exposes basic [primitives](#using-primitives) such as `View`, `Text` and `Touchable`,
 - Supports static and [dynamic styles](#dynamic-styles) (based on props).
 - Supports component extension using [`extend()`](#extending-styles) and [`attrs()`](#custom-props).
-- Supports component composition using [`clone()`](#wrapping-another-component) and [`child()`](#wrapping-a-child).
+- Supports component composition using [`withComponent()`](#wrapping-another-component) and [`withChild()`](#wrapping-a-child).
 - Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
 - [Works with React DOM](#usage-with-react-dom) too! same simple API, same benefits.
@@ -79,8 +79,6 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 const RedHeadline = styled(RedBoldTitle)({ fontSize: 28 }); // this works too
 ```
 
-`extend()` is analogous to `extend()` and `styled(StyledComponent)` in other styling libraries.
-
 ### Custom props
 
 ```js
@@ -88,13 +86,11 @@ const Foo = styled.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 // <Text style={{ color: 'blue' }} numberOfLines={1} />;
 ```
 
-`attrs()` is analogous to `attrs()` and `withProps()` in other styling libraries.
-
 ### Wrapping another component
 
 ```js
 const Button = styled.Touchable({ flex: 1 });
-const HighlightedButton = Button.clone(TouchableHighlight);
+const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 // equivalent to
 const HighlightedButton = props => (
@@ -102,14 +98,12 @@ const HighlightedButton = props => (
 );
 ```
 
-`clone()` is analogous to `withComponent()` in other styling libraries.
-
 ### Wrapping a child
 
 ```js
 const ButtonText = styled.Text({ color: 'blue' });
 const ButtonContainer = styled.Touchable({ flex: 1 });
-const Button = ButtonContainer.child(ButtonText);
+const Button = ButtonContainer.withChild(ButtonText);
 
 // equivalent to
 const Button = ({ children, ...props }) => (

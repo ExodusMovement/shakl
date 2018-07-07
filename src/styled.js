@@ -39,8 +39,8 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
 
   Styled.extend = more => styled(Styled, { name })(more);
   Styled.attrs = attrs => styled(Styled, { name, attrs })();
-  Styled.clone = comp => styled(Styled, { name, comp })(style);
-  Styled.child = child => styled(Styled, { name, child })();
+  Styled.withComponent = comp => styled(Styled, { name, comp })(style);
+  Styled.withChild = child => styled(Styled, { name, child })();
 
   return Styled;
 };

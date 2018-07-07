@@ -29,11 +29,11 @@ const RedBoldTitle = BoldTitle.extend({ color: 'green' });
 
 const OneLiner = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 
-const HighlightedButton = Button.clone(TouchableHighlight);
+const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 const ButtonText = s.Text({ color: 'green' });
 const ButtonContainer = s.Touchable({ flex: 1 });
-const AnotherButton = ButtonContainer.child(ButtonText);
+const AnotherButton = ButtonContainer.withChild(ButtonText);
 
 export default class App extends React.PureComponent {
   container = React.createRef();

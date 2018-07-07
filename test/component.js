@@ -6,7 +6,7 @@ import s from '../src';
 
 it('creates a styled component with another styled component', () => {
   const Foo = s.View({ flex: 1 });
-  const Bar = Foo.clone(s.Text());
+  const Bar = Foo.withComponent(s.Text());
 
   const foo = r(<Foo />).toJSON();
   const bar = r(<Bar />).toJSON();
