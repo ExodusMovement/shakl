@@ -6,7 +6,22 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
   const Styled = React.forwardRef(({ children, ...props }, ref) => {
     const { attrs = {}, comp, child } = opts;
 
-    const styles = multi ? style : { style };
+    const styleProps = multi ? style : { style };
+    const styleKeys = Object.keys(styleProps);
+
+    const styles = {};
+
+    for (let i = 0; i < styleKeys.length; i += 1) {
+      const prop = styleKeys[i];
+
+      styles[prop] = flatten([
+        attrs[prop],
+        typeof styleProps[prop] === 'function'
+          ? styleProps[prop](props)
+          : styleProps[prop],
+        props[prop]
+      ]);
+    }
 
     return React.createElement(
       comp || Comp,
@@ -14,19 +29,7 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
         ref,
         ...attrs,
         ...props,
-        ...Object.keys(styles).reduce(
-          (obj, prop) => ({
-            ...obj,
-            [prop]: flatten([
-              attrs[prop],
-              typeof styles[prop] === 'function'
-                ? styles[prop](props)
-                : styles[prop],
-              props[prop]
-            ])
-          }),
-          {}
-        )
+        ...styles
       },
       child ? React.createElement(child, {}, children) : children
     );

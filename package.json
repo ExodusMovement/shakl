@@ -38,7 +38,7 @@
     "test": "jest /test",
     "coverage": "yarn test --coverage",
     "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
-    "benchmark": "jest benchmarks",
+    "benchmark": "jest /benchmarks",
     "postbenchmark": "open -a Chrome benchmarks/index.html"
   },
   "jest": {
