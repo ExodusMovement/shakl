@@ -9,7 +9,7 @@
 - Exposes basic [primitives](#using-primitives) such as `View`, `Text` and `Touchable`,
 - Supports static and [dynamic styles](#dynamic-styles) (based on props).
 - Supports component extension using [`extend()`](#extending-styles) and [`attrs()`](#custom-props).
-- Supports component composition using [`clone()`](#wrapping-another-component) and [`child()](#wrapping-a-child)`.
+- Supports component composition using [`clone()`](#wrapping-another-component) and [`child()`](#wrapping-a-child).
 - Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
 - [Works with React DOM](#usage-with-react-dom) too! same simple API, same benefits.
@@ -66,8 +66,6 @@ const Foo = styled.View(props => ({ padding: props.padded ? 10 : 0 }));
 
 ### Extending styles
 
-`extend()` is analogous to `extend()` and `styled(StyledComponent)` in other libraries.
-
 ```js
 const Title = styled.Text({ fontSize: 20 });
 // <Text style={{ fontSize: 20 }} />
@@ -81,18 +79,18 @@ const RedBoldTitle = BoldTitle.extend({ color: 'red' });
 const RedHeadline = styled(RedBoldTitle)({ fontSize: 28 }); // this works too
 ```
 
-### Custom props
+`extend()` is analogous to `extend()` and `styled(StyledComponent)` in other styling libraries.
 
-`attrs()` is analogous to `attrs()` and `withProps()` in other libraries.
+### Custom props
 
 ```js
 const Foo = styled.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 // <Text style={{ color: 'blue' }} numberOfLines={1} />;
 ```
 
-### Wrapping another component
+`attrs()` is analogous to `attrs()` and `withProps()` in other styling libraries.
 
-`clone()` is analogous to `withComponent()` in other libraries.
+### Wrapping another component
 
 ```js
 const Button = styled.Touchable({ flex: 1 });
@@ -103,6 +101,8 @@ const HighlightedButton = props => (
   <TouchableHighlight style={{ flex: 1 }} {...props} />
 );
 ```
+
+`clone()` is analogous to `withComponent()` in other styling libraries.
 
 ### Wrapping a child
 
@@ -149,11 +149,11 @@ const List = styled(FlatList)({ flex: 1 });
 
 ### Using a custom display name for debugging
 
-Default display names are styled(View), styled(Text), styled(Touchable), styled(Component), etc.
-
 ```js
 styled(View, { name: 'YetAnotherView' });
 ```
+
+Default display names are `styled(View)`, `styled(Text)`, `styled(Touchable)`, `styled(Component)`, etc.
 
 ### Using propTypes and defaultProps
 
