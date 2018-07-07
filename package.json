@@ -39,7 +39,7 @@
     "coverage": "yarn test --coverage",
     "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
     "benchmark": "jest /benchmark",
-    "postbenchmark": "open -a Chrome benchmark/index.html"
+    "postbenchmark": "open -a Chrome benchmark/chart/index.html"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -20,7 +20,7 @@
 
 Time required to create a simple styled component (in ms).
 
-<img src="benchmark/chart.png" alt="Shakl Benchmark" width="600">
+<img src="benchmark/results.png" alt="Shakl Benchmark" width="600">
 
 ## Install
 

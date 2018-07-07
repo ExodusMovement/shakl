@@ -1,4 +1,4 @@
-/* global Chart, data */
+/* global Chart, results */
 
 Chart.defaults.global.defaultFontFamily = 'Open Sans';
 Chart.defaults.global.legend.display = false;
@@ -7,10 +7,10 @@ const createChart = () => {
   const chart = new Chart(document.getElementById('chart'), {
     type: 'horizontalBar',
     data: {
-      labels: ['Shakl', 'Emotion', 'Glamorous Native', 'Styled Components'],
+      labels: Object.keys(results),
       datasets: [
         {
-          data,
+          data: Object.values(results),
           backgroundColor: [
             'rgba(40, 167, 69, 0.2)',
             'rgba(0, 92, 197, 0.2)',

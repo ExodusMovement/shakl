@@ -16,7 +16,7 @@ const suite = new Benchmark.Suite();
 
 const runSample = s => {
   const Foo = s('div')({ padding: 10 });
-  r(<Foo />).toJSON();
+  r(<Foo />);
 };
 
 suite.add('Shakl', () => runSample(shakl));
@@ -24,7 +24,7 @@ suite.add('Emotion', () => runSample(emotion));
 suite.add('Glamorous Native', () => runSample(glamorous));
 suite.add('Styled Components', () => runSample(styled));
 
-const data = [];
+const results = {};
 
 it('runs', () => {
   suite
@@ -55,7 +55,7 @@ it('runs', () => {
 
         const result = mean * 1000;
 
-        data.push(result);
+        results[name] = result;
 
         output += `${name} averaged ${result} ms\n`;
       });
@@ -70,7 +70,7 @@ it('runs', () => {
 
 afterAll(() => {
   fs.writeFile(
-    `${__dirname}/data.js`,
-    `const data = ${JSON.stringify(data, null, 2)};\n`
+    `${__dirname}/results.js`,
+    `const results = ${JSON.stringify(results, null, 2)};\n`
   );
 });
