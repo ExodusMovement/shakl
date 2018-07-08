@@ -2,6 +2,8 @@ import React from 'react';
 
 import flatten from './flatten';
 
+import { ThemeProvider, withTheme } from './theme';
+
 const styled = (Comp, { name, multi, ...opts } = {}) => style => {
   const Styled = React.forwardRef(({ children, ...props }, ref) => {
     const { attrs = {}, comp, child } = opts;
@@ -39,10 +41,11 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
 
   Styled.extend = more => styled(Styled, { name })(more);
   Styled.attrs = attrs => styled(Styled, { name, attrs })();
-  Styled.withComponent = comp => styled(Styled, { name, comp })(style);
+  Styled.withComponent = comp => styled(Styled, { comp })(style);
   Styled.withChild = child => styled(Styled, { name, child })();
+  Styled.withTheme = () => withTheme(Styled);
 
   return Styled;
 };
 
-export default styled;
+export { styled as default, ThemeProvider, withTheme };

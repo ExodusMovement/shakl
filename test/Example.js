@@ -48,7 +48,7 @@ export default class Example extends React.PureComponent {
   container = React.createRef();
 
   componentDidMount() {
-    if (!this.container.current) console.log('ref is not working');
+    if (!this.container.current) throw new Error('ref is not working');
   }
 
   render() {

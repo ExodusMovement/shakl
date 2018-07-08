@@ -6,10 +6,11 @@
 
 ## Features
 
-- Exposes basic [primitives](#using-primitives) such as `View`, `Text` and `Touchable`,
+- Exposes basic [primitives](#primitives) such as `View`, `Text` and `Touchable`,
 - Supports static and [dynamic styles](#dynamic-styles) (based on props).
 - Supports component extension using [`extend()`](#extending-styles) and [`attrs()`](#custom-props).
 - Supports component composition using [`withComponent()`](#wrapping-another-component) and [`withChild()`](#wrapping-a-child).
+- Supports component [theming](#theming), based on React's new context API.
 - Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
 - [Works with React DOM](#usage-with-react-dom) too! same simple API, same benefits.
@@ -40,7 +41,7 @@ const Foo = styled(View)({ flex: 1 });
 <Foo />; // <View style={{ flex: 1 }} />
 ```
 
-### Using primitives
+### Primitives
 
 By default, React Native's `View`, `Text`, and `TouchableOpacity` are exposed to you, they can be directly used.
 
@@ -110,6 +111,27 @@ const Button = ({ children, ...props }) => (
     <Text style={{ color: 'blue' }}>{children}</Text>
   </TouchableOpacity>
 );
+```
+
+### Theming
+
+```js
+import styled, { ThemeProvider } from 'shakl';
+
+const Foo = styled.Text(props => ({ color: props.theme.primary })).withTheme();
+
+const App = () => (
+  <ThemeProvider theme={{ primary: 'blue' }}>
+    <Foo />
+  </ThemeProvider>
+);
+
+// to theme non-styled components you can directly use the HOC withTheme()
+import { withTheme } from 'shakl';
+
+const Bar = props => <Text>Primary color is {props.theme.primary}</Text>;
+
+const ThemedBar = withTheme(Bar);
 ```
 
 ### Multiple style props
