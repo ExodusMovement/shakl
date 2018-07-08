@@ -102,8 +102,7 @@ const HighlightedButton = props => (
 
 ```js
 const ButtonText = styled.Text({ color: 'blue' });
-const ButtonContainer = styled.Touchable({ flex: 1 });
-const Button = ButtonContainer.withChild(ButtonText);
+const Button = styled.Touchable({ flex: 1 }).withChild(ButtonText);
 
 // equivalent to
 const Button = ({ children, ...props }) => (

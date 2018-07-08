@@ -42,15 +42,13 @@ const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 const ButtonText = s.Text({ color: 'green' });
 
-const ButtonContainer = s.Touchable({ flex: 1 });
-
-const AnotherButton = ButtonContainer.withChild(ButtonText);
+const AnotherButton = s.Touchable({ flex: 1 }).withChild(ButtonText);
 
 export default class Example extends React.PureComponent {
   container = React.createRef();
 
   componentDidMount() {
-    if (!this.container.current) alert('ref is not working');
+    if (!this.container.current) console.log('ref is not working');
   }
 
   render() {

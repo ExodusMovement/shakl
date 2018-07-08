@@ -6,8 +6,7 @@ import s from '../src';
 
 it('creates a styled component with a child', () => {
   const ButtonText = s.Text({ color: 'blue' });
-  const ButtonContainer = s.Touchable({ flex: 1 });
-  const Button = ButtonContainer.withChild(ButtonText);
+  const Button = s.Touchable({ flex: 1 }).withChild(ButtonText);
 
   const button = r(<Button>Press me</Button>).toJSON();
 
