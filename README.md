@@ -13,7 +13,7 @@
 - Supports component [theming](#theming), based on React's new context API.
 - Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
-- [Works with React DOM](#usage-with-react-dom) too, same simple API, same benefits.
+- Works [with React DOM](#usage-with-react-dom) too, same simple API, same benefits.
 - No dependencies, all just React goodness.
 - ~2 KB in size, with less than 100 lines of code.
 
