@@ -40,7 +40,16 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
   Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`;
 
   Styled.extend = more => styled(Styled, { name })(more);
-  Styled.attrs = attrs => styled(Styled, { name, attrs })();
+
+  Styled.attrs = attrs => {
+    Styled.defaultProps = {
+      ...Styled.defaultProps,
+      ...attrs
+    };
+
+    return Styled;
+  };
+
   Styled.withComponent = comp => styled(Styled, { comp })(style);
   Styled.withChild = child => styled(Styled, { name, child })();
   Styled.withTheme = () => withTheme(Styled);

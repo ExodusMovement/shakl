@@ -193,3 +193,5 @@ const Foo = styled.div({ background: '#eee' });
 
 <Foo />; // <div style={{ background: '#eee' }} />
 ```
+
+[![Edit shakl](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/52kw0jrn94?module=%2Fsrc%2FExample.js)
