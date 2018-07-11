@@ -1,6 +1,6 @@
 # 0.0.5
 
-- Simplify `attrs()` my making it just a thin wrapper that overwrites `defaultProps`..
+- Simplify `attrs()` my making it just a thin wrapper that overwrites `defaultProps`.
 
 # 0.0.4
 
