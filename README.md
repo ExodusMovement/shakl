@@ -85,6 +85,16 @@ const RedHeadline = styled(RedBoldTitle)({ fontSize: 28 }); // this works too
 ```js
 const Foo = styled.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
 // <Text style={{ color: 'blue' }} numberOfLines={1} />;
+
+// attrs({ .. }) only overwrites the `defaultProps` of the component
+// for dynamic props however we can pass it a function
+
+const MyText = styled.Text({ color: 'red' }).attrs(props => ({
+  numberOfLines: props.oneLiner ? 1 : 3
+}));
+
+<MyText /> // <Text style={{ color: 'red }} numberOfLines={3} />
+<MyText oneLiner /> // <Text style={{ color: 'red }} numberOfLines={1} />
 ```
 
 ### Wrapping another component

@@ -6,7 +6,7 @@ import { ThemeProvider, withTheme } from './theme';
 
 const styled = (Comp, { name, multi, ...opts } = {}) => style => {
   const Styled = React.forwardRef(({ children, ...props }, ref) => {
-    const { attrs = {}, comp, child } = opts;
+    const { attrs, comp, child } = opts;
 
     const styleProps = multi ? style : { style };
     const styleKeys = Object.keys(styleProps);
@@ -17,7 +17,6 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
       const prop = styleKeys[i];
 
       styles[prop] = flatten([
-        attrs[prop],
         typeof styleProps[prop] === 'function'
           ? styleProps[prop](props)
           : styleProps[prop],
@@ -29,7 +28,7 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
       comp || Comp,
       {
         ref,
-        ...attrs,
+        ...(attrs && attrs(props)),
         ...props,
         ...styles
       },
@@ -42,6 +41,8 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
   Styled.extend = more => styled(Styled, { name })(more);
 
   Styled.attrs = attrs => {
+    if (typeof attrs === 'function') return styled(Styled, { name, attrs })();
+
     Styled.defaultProps = {
       ...Styled.defaultProps,
       ...attrs
