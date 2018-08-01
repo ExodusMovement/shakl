@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`attaches a ref to a child 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={3}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  />
+</View>
+`;
+
 exports[`creates a styled component with a child 1`] = `
 <View
   accessible={true}
@@ -28,6 +50,79 @@ exports[`creates a styled component with a child 1`] = `
     }
   >
     Press me
+  </Text>
+</View>
+`;
+
+exports[`creates a styled component with a child with custom props 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={3}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  >
+    Hello World!
+  </Text>
+</View>
+`;
+
+exports[`creates a styled component with a child with dynamic custom props 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={3}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  >
+    Hello World!
+  </Text>
+</View>
+`;
+
+exports[`creates a styled component with a child with dynamic custom props 2`] = `
+<View
+  onLiner={true}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  >
+    Hello World!
   </Text>
 </View>
 `;

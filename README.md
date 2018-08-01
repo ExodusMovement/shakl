@@ -93,6 +93,7 @@ const MyText = styled.Text({ color: 'red' }).attrs(props => ({
   numberOfLines: props.oneLiner ? 1 : 3
 }));
 
+// equivalent to
 <MyText /> // <Text style={{ color: 'red }} numberOfLines={3} />
 <MyText oneLiner /> // <Text style={{ color: 'red }} numberOfLines={1} />
 ```
@@ -100,10 +101,12 @@ const MyText = styled.Text({ color: 'red' }).attrs(props => ({
 ### Wrapping another component
 
 ```js
-const Button = styled.Touchable({ flex: 1 });
+const Button = styled(TouchableOpacity)({ flex: 1 });
 const HighlightedButton = Button.withComponent(TouchableHighlight);
 
 // equivalent to
+const Button = props => <TouchableOpacity style={{ flex: 1 }} {...props} />;
+
 const HighlightedButton = props => (
   <TouchableHighlight style={{ flex: 1 }} {...props} />
 );
@@ -121,6 +124,35 @@ const Button = ({ children, ...props }) => (
     <Text style={{ color: 'blue' }}>{children}</Text>
   </TouchableOpacity>
 );
+
+// to pass a ref to a child, use the `childRef` prop on the parent
+// to pass custom props to a child, use `.withChild(Child, childProps)`
+const CardText = styled.Text({ color: 'blue' });
+const Card = styled.View({ flex: 1 }).withChild(CardText, { numberOfLines: 3 });
+
+// equivalent to
+const Card = ({ children, childRef, ...props }) => (
+  <View style={{ flex: 1 }} {...props}>
+    <Text ref={childRef} style={{ color: 'blue' }} numberOfLines={3}>
+      {children}
+    </Text>
+  </View>
+);
+
+// you can also access parent props by passing a function `.withChild(Child, parentProps => childProps)`
+const Card = styled.View({ flex: 1 }).withChild(CardText, parentProps => ({
+  numberOfLines: parentProps.onLiner ? 1 : 3
+}));
+
+<Card />
+// <View ..>
+//   <Text ..>{children}</Text>
+// </View>
+
+<Card onLiner />
+// <View ..>
+//   <Text numberOfLines={1} ..>{children}</Text>
+// </View>
 ```
 
 ### Theming
