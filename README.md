@@ -240,7 +240,7 @@ const Foo = styled.div({ background: '#eee' });
 
 Since Shakl supports both React Native and the DOM, we need to explicitly tell Jest that we are testing for React Native, otherwise it will test against the DOM by default, which causes exposed primitives to fail (`.. shakl.default.View is not a function ..` error).
 
-```json
+```js
 // add the follwing to your Jest configuration when testing for React Native
 "moduleNameMapper": {
   "shakl": "<rootDir>/node_modules/shakl/lib/rn.js"
