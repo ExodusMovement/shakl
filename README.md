@@ -236,6 +236,8 @@ const Foo = styled.div({ background: '#eee' });
 <Foo />; // <div style={{ background: '#eee' }} />
 ```
 
+[![Edit shakl](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/52kw0jrn94?module=%2Fsrc%2FExample.js)
+
 ### Testing with Jest
 
 Since Shakl supports both React Native and the DOM, we need to explicitly tell Jest that we are testing for React Native, otherwise it will test against the DOM by default, which causes exposed primitives to fail (`.. shakl.default.View is not a function ..` error).
@@ -246,5 +248,3 @@ Since Shakl supports both React Native and the DOM, we need to explicitly tell J
   "shakl": "<rootDir>/node_modules/shakl/lib/rn.js"
 }
 ```
-
-[![Edit shakl](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/52kw0jrn94?module=%2Fsrc%2FExample.js)
