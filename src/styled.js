@@ -4,7 +4,7 @@ import flatten from './flatten'
 
 import { ThemeProvider, withTheme } from './theme'
 
-const styled = (Comp, { name, multi, ...opts } = {}) => (style) => {
+const styled = (Comp, { name, multi, props: factoryProps, ...opts } = {}) => (style) => {
   const Styled = React.forwardRef(({ childRef, ...props }, ref) => {
     const { comp, child, childProps } = opts
     const { children } = props
@@ -28,6 +28,7 @@ const styled = (Comp, { name, multi, ...opts } = {}) => (style) => {
     }
 
     const parentProps = {
+      ...factoryProps,
       ...attrs,
       ...props,
       ...styles,

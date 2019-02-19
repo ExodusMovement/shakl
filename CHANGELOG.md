@@ -1,3 +1,7 @@
+# 0.0.9
+
+- Support passing default props to the factory.
+
 # 0.0.8
 
 - Support dynamic props in `attrs()`. By default `attrs()` only overwrites the `defaultProps` of the component, now when you pass it a function it will allow for computed props.
