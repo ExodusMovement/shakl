@@ -1,39 +1,37 @@
-import React from 'react';
+import React from 'react'
 
-import flatten from './flatten';
+import flatten from './flatten'
 
-import { ThemeProvider, withTheme } from './theme';
+import { ThemeProvider, withTheme } from './theme'
 
-const styled = (Comp, { name, multi, ...opts } = {}) => style => {
+const styled = (Comp, { name, multi, ...opts } = {}) => (style) => {
   const Styled = React.forwardRef(({ childRef, ...props }, ref) => {
-    const { comp, child, childProps } = opts;
-    const { children } = props;
+    const { comp, child, childProps } = opts
+    const { children } = props
 
-    let { attrs } = opts;
-    attrs = attrs ? attrs(props) : {};
+    let { attrs } = opts
+    attrs = attrs ? attrs(props) : {}
 
-    const styleProps = multi ? style : { style };
-    const styleKeys = Object.keys(styleProps);
+    const styleProps = multi ? style : { style }
+    const styleKeys = Object.keys(styleProps)
 
-    const styles = {};
+    const styles = {}
 
     for (let i = 0; i < styleKeys.length; i += 1) {
-      const prop = styleKeys[i];
+      const prop = styleKeys[i]
 
       styles[prop] = flatten([
         attrs[prop],
-        typeof styleProps[prop] === 'function'
-          ? styleProps[prop](props)
-          : styleProps[prop],
-        props[prop]
-      ]);
+        typeof styleProps[prop] === 'function' ? styleProps[prop](props) : styleProps[prop],
+        props[prop],
+      ])
     }
 
     const parentProps = {
       ...attrs,
       ...props,
-      ...styles
-    };
+      ...styles,
+    }
 
     return React.createElement(
       comp || Comp,
@@ -43,39 +41,36 @@ const styled = (Comp, { name, multi, ...opts } = {}) => style => {
             child,
             {
               ref: childRef,
-              ...(typeof childProps === 'function'
-                ? childProps(parentProps)
-                : childProps)
+              ...(typeof childProps === 'function' ? childProps(parentProps) : childProps),
             },
             children
           )
         : children
-    );
-  });
+    )
+  })
 
-  Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`;
+  Styled.displayName = name || `styled(${Comp.displayName || Comp.name})`
 
-  Styled.extend = more => styled(Styled, { name })(more);
+  Styled.extend = (more) => styled(Styled, { name })(more)
 
-  Styled.attrs = attrs => {
-    if (typeof attrs === 'function') return styled(Styled, { attrs })();
+  Styled.attrs = (attrs) => {
+    if (typeof attrs === 'function') return styled(Styled, { attrs })()
 
     Styled.defaultProps = {
       ...Styled.defaultProps,
-      ...attrs
-    };
+      ...attrs,
+    }
 
-    return Styled;
-  };
+    return Styled
+  }
 
-  Styled.withComponent = comp => styled(Styled, { comp })(style);
+  Styled.withComponent = (comp) => styled(Styled, { comp })(style)
 
-  Styled.withChild = (child, childProps) =>
-    styled(Styled, { child, childProps })();
+  Styled.withChild = (child, childProps) => styled(Styled, { child, childProps })()
 
-  Styled.withTheme = () => withTheme(Styled);
+  Styled.withTheme = () => withTheme(Styled)
 
-  return Styled;
-};
+  return Styled
+}
 
-export { styled as default, ThemeProvider, withTheme };
+export { styled as default, ThemeProvider, withTheme }

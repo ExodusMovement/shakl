@@ -1,25 +1,25 @@
-const flatten = style => {
+const flatten = (style) => {
   if (style === null || typeof style !== 'object') {
-    return undefined;
+    return undefined
   }
 
   if (!Array.isArray(style)) {
-    return style;
+    return style
   }
 
-  const styles = {};
+  const styles = {}
 
   for (let i = 0; i < style.length; i += 1) {
-    const computed = flatten(style[i]);
+    const computed = flatten(style[i])
 
     if (computed) {
       for (const key in computed) {
-        styles[key] = computed[key];
+        styles[key] = computed[key]
       }
     }
   }
 
-  return styles;
-};
+  return styles
+}
 
-export default flatten;
+export default flatten
