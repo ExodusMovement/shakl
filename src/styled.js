@@ -2,8 +2,6 @@ import React from 'react'
 
 import flatten from './flatten'
 
-import { ThemeProvider, withTheme } from './theme'
-
 const styled = (Comp, { name, multi, props: factoryProps, ...opts } = {}) => (style) => {
   const Styled = React.forwardRef(({ childRef, ...props }, ref) => {
     const { comp, child, childProps } = opts
@@ -69,9 +67,7 @@ const styled = (Comp, { name, multi, props: factoryProps, ...opts } = {}) => (st
 
   Styled.withChild = (child, childProps) => styled(Styled, { child, childProps })()
 
-  Styled.withTheme = () => withTheme(Styled)
-
   return Styled
 }
 
-export { styled as default, ThemeProvider, withTheme }
+export default styled
