@@ -10,7 +10,6 @@
 - Supports static and [dynamic styles](#dynamic-styles) (based on props).
 - Supports component extension using [`extend()`](#extending-styles) and [`attrs()`](#custom-props).
 - Supports component composition using [`withComponent()`](#wrapping-another-component) and [`withChild()`](#wrapping-a-child).
-- Supports component [theming](#theming), based on React's new context API.
 - Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
 - Works [with React DOM](#usage-with-react-dom) too, same simple API, same benefits.
@@ -153,27 +152,6 @@ const Card = styled.View({ flex: 1 }).withChild(CardText, parentProps => ({
 // <View ..>
 //   <Text numberOfLines={1} ..>{children}</Text>
 // </View>
-```
-
-### Theming
-
-```js
-import styled, { ThemeProvider } from 'shakl';
-
-const Foo = styled.Text(props => ({ color: props.theme.primary })).withTheme();
-
-const App = () => (
-  <ThemeProvider theme={{ primary: 'blue' }}>
-    <Foo />
-  </ThemeProvider>
-);
-
-// to theme non-styled components you can directly use the HOC withTheme()
-import { withTheme } from 'shakl';
-
-const Bar = props => <Text>Primary color is {props.theme.primary}</Text>;
-
-const ThemedBar = withTheme(Bar);
 ```
 
 ### Multiple style props

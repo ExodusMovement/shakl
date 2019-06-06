@@ -1,3 +1,9 @@
+# 0.0.10
+
+- **Breaking:** Removed theme support
+- Support passing default styles to the factory.
+- Support passing fixed styles to the factory.
+
 # 0.0.9
 
 - Support passing default props to the factory.
