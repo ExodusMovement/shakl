@@ -1,4 +1,4 @@
-# 0.0.10
+# 0.0.11
 
 - **Breaking:** Removed theme support
 - Support passing default styles to the factory.
