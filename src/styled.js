@@ -35,8 +35,13 @@ const styled = (Comp, config = {}) => (style = {}) => {
     const styleProps = multi ? style : { style }
     const styleKeys = Object.keys(styleProps)
 
+    // fixed styles
+    const fixedStyleProps = multi ? fixedStyle : { style: fixedStyle }
+
     for (let i = 0; i < styleKeys.length; i += 1) {
       const prop = styleKeys[i]
+      const fixedPropValue = fixedStyleProps[prop] || {}
+
       styles[prop] = {
         ...styles[prop],
         ...flatten([
@@ -44,16 +49,8 @@ const styled = (Comp, config = {}) => (style = {}) => {
           typeof styleProps[prop] === 'function' ? styleProps[prop](props) : styleProps[prop],
           props[prop],
         ]),
+        ...fixedPropValue
       }
-    }
-
-    // fixed styles
-    const fixedStyleProps = multi ? fixedStyle : { style: fixedStyle }
-    const fixedStyleKeys = Object.keys(fixedStyleProps)
-
-    for (let i = 0; i < fixedStyleKeys.length; i += 1) {
-      const prop = fixedStyleKeys[i]
-      styles[prop] = { ...styles[prop], ...fixedStyleProps[prop] }
     }
 
     const parentProps = {
@@ -68,13 +65,13 @@ const styled = (Comp, config = {}) => (style = {}) => {
       { ref, ...parentProps },
       child
         ? React.createElement(
-            child,
-            {
-              ref: childRef,
-              ...(typeof childProps === 'function' ? childProps(parentProps) : childProps),
-            },
-            children
-          )
+          child,
+          {
+            ref: childRef,
+            ...(typeof childProps === 'function' ? childProps(parentProps) : childProps),
+          },
+          children
+        )
         : children
     )
   })
