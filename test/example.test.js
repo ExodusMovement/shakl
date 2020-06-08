@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import { create as r } from 'react-test-renderer';
+import { create as r } from 'react-test-renderer'
 
-import Example from './Example';
+import Example from './Example'
 
 it('works', () => {
-  const app = r(<Example />).toJSON();
+  const app = r(<Example />).toJSON()
 
-  expect(app).toMatchSnapshot();
-});
+  expect(app).toMatchSnapshot()
+})
