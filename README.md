@@ -10,7 +10,6 @@
 - Supports static and [dynamic styles](#dynamic-styles) (based on props).
 - Supports component extension using [`extend()`](#extending-styles) and [`attrs()`](#custom-props).
 - Supports component composition using [`withComponent()`](#wrapping-another-component) and [`withChild()`](#wrapping-a-child).
-- Supports [styling other style props](#multiple-style-props), e.g. `contentContainerStyle`, you can "truly" style any component.
 - Uses regular inline styles under the hood (performance boost).
 - Works [with React DOM](#usage-with-react-dom) too, same simple API, same benefits.
 - No dependencies, all just React goodness.
@@ -152,23 +151,6 @@ const Card = styled.View({ flex: 1 }).withChild(CardText, (parentProps) => ({
 // <View ..>
 //   <Text numberOfLines={1} ..>{children}</Text>
 // </View>
-```
-
-### Multiple style props
-
-```js
-const Foo = styled(FlatList, { multi: true })({
-  style: { flex: 1 },
-  contentContainerStyle: { flex: 2 },
-  anotherStyleProp: { flex: 3 }
-})
-
-// dynamic styles work too
-const Foo = styled(FlatList, { multi: true })({
-  style: ({ padded }) => ({ padding: padded ? 10 : 0 }),
-  contentContainerStyle: ({ padded }) => ({ padding: padded ? 20 : 0 }),
-  anotherStyleProp: ({ padded }) => ({ padding: padded ? 30 : 0 })
-})
 ```
 
 ### Using refs

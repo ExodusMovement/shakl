@@ -53,7 +53,11 @@ export default class Example extends React.PureComponent {
 
   render() {
     return (
-      <Container backgroundColor="#f5fcff" ref={this.container}>
+      <Container
+        backgroundColor="#f5fcff"
+        ref={this.container}
+        contentContainerStyle={{ flex: 1, paddingTop: 20 }}
+      >
         <RedBox />
         <Headline>Hello world</Headline>
         <Button />
@@ -73,9 +77,8 @@ export default class Example extends React.PureComponent {
   }
 }
 
-const Container = s(ScrollView, { name: 'Container', multi: true })({
-  style: ({ backgroundColor }) => ({ backgroundColor }),
-  contentContainerStyle: { flex: 1, paddingTop: 20 },
-})
+const Container = s(ScrollView, { name: 'Container' })(({ backgroundColor }) => ({
+  backgroundColor,
+}))
 
 Container.defaultProps = { backgroundColor: '#000' }

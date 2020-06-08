@@ -1,11 +1,8 @@
 import React from 'react'
 
-import flatten from './flatten'
-
-const styled = (Comp, config = {}) => (style = {}) => {
+const styled = (Comp, config = {}) => (componentStyle = {}) => {
   const {
     name, // custom displayName for debugging
-    multi, // the component has additional style props like `contentContainerStyle` for `FlatList`
     props: factoryProps = {}, // default props the styled component will have
     style: factoryStyle = {}, // default style the styled component will have
     fixedStyle = {}, // styles that are always applied (even if provided somewhere else)
@@ -20,47 +17,21 @@ const styled = (Comp, config = {}) => (style = {}) => {
     let { attrs } = opts
     attrs = attrs ? attrs(props) : {}
 
-    const styles = {}
+    if (Array.isArray(props.style)) console.warn(`${this.constructor.name} uses array styles`)
 
-    // factory styles
-    const factoryStyleProps = multi ? factoryStyle : { style: factoryStyle }
-    const factoryStyleKeys = Object.keys(factoryStyleProps)
-
-    for (let i = 0; i < factoryStyleKeys.length; i += 1) {
-      const prop = factoryStyleKeys[i]
-      styles[prop] = factoryStyleProps[prop]
-    }
-
-    // component styles
-    const styleProps = multi ? style : { style }
-    const styleKeys = Object.keys(styleProps)
-
-    for (let i = 0; i < styleKeys.length; i += 1) {
-      const prop = styleKeys[i]
-      styles[prop] = {
-        ...styles[prop],
-        ...flatten([
-          attrs[prop],
-          typeof styleProps[prop] === 'function' ? styleProps[prop](props) : styleProps[prop],
-          props[prop],
-        ]),
-      }
-    }
-
-    // fixed styles
-    const fixedStyleProps = multi ? fixedStyle : { style: fixedStyle }
-    const fixedStyleKeys = Object.keys(fixedStyleProps)
-
-    for (let i = 0; i < fixedStyleKeys.length; i += 1) {
-      const prop = fixedStyleKeys[i]
-      styles[prop] = { ...styles[prop], ...fixedStyleProps[prop] }
+    const style = {
+      ...factoryStyle,
+      ...attrs.style,
+      ...(typeof componentStyle === 'function' ? componentStyle(props) : componentStyle),
+      ...props.style,
+      ...fixedStyle,
     }
 
     const parentProps = {
       ...factoryProps,
       ...attrs,
       ...props,
-      ...styles,
+      style,
     }
 
     return React.createElement(
@@ -94,7 +65,7 @@ const styled = (Comp, config = {}) => (style = {}) => {
     return Styled
   }
 
-  Styled.withComponent = (comp) => styled(Styled, { comp })(style)
+  Styled.withComponent = (comp) => styled(Styled, { comp })(componentStyle)
   Styled.withChild = (child, childProps) => styled(Styled, { child, childProps })()
 
   return Styled

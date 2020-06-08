@@ -1,3 +1,8 @@
+# 0.0.12
+
+- **Breaking:** Removed `multi` support for better perf (rarely used).
+- **Breaking:** Removed style arrays `style={[{..}, {..}]}` support for better perf (rarely used).
+
 # 0.0.11
 
 - **Breaking:** Removed theme support.
