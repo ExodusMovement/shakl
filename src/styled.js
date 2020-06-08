@@ -17,8 +17,6 @@ const styled = (Comp, config = {}) => (componentStyle = {}) => {
     let { attrs } = opts
     attrs = attrs ? attrs(props) : {}
 
-    if (Array.isArray(props.style)) console.warn(`${this.constructor.name} uses array styles`)
-
     const style = {
       ...factoryStyle,
       ...attrs.style,
