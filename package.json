@@ -2,9 +2,9 @@
   "license": "MIT",
   "name": "shakl",
   "description": "A utility to create styled components in React Native.",
-  "version": "0.0.12",
-  "main": "lib/index.js",
-  "react-native": "lib/rn.js",
+  "version": "0.0.13",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonaye/shakl.git"
@@ -39,9 +39,7 @@
     "coverage": "yarn test --coverage",
     "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
     "benchmark": "jest /benchmark",
-    "postbenchmark": "open -a Chrome benchmark/chart/index.html",
-    "prebuild": "rm -rf lib",
-    "build": "rollup -c && rollup -c --environment TARGET:react-native"
+    "postbenchmark": "open -a Chrome benchmark/chart/index.html"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -54,6 +52,6 @@
     ]
   },
   "files": [
-    "lib"
+    "src"
   ]
 }
