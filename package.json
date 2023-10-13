@@ -4,6 +4,7 @@
   "description": "A utility to create styled components in React Native.",
   "version": "0.0.13-typed.2",
   "main": "lib/index.js",
+  "react-native": "lib/rn.js",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
