@@ -22,8 +22,9 @@ type StyledComponentType = (
 ) => ComponentType<any>;
 
 declare module "./" {
+  function View(style: ViewStyle | ViewStyleFunction): ComponentType<any>;
   function Text(style: TextStyle | TextStyleFunction): ComponentType<any>;
-  function Image(style: ImageStyle | ImageStyle): ComponentType<any>;
+  function Image(style: ImageStyle | ImageStyleFunction): ComponentType<any>;
   function Touchable(
     style: ViewStyle | TouchableStyleFunction
   ): ComponentType<any>;
