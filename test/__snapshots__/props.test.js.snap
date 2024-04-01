@@ -3,7 +3,7 @@
 exports[`accepts a style prop 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
       "margin": 10,
     }

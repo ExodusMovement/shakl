@@ -1,6 +1,5 @@
 const results = {
-  "Shakl": 0.023759252519128908,
-  "Emotion": 0.080078398403365,
-  "Glamorous Native": 0.13810396948295817,
-  "Styled Components": 0.15223091570627334
+  "Shakl": 9.832410541863835e-7,
+  "Emotion": 0.03399898550096601,
+  "Styled Components": 0.046049751753868814
 };

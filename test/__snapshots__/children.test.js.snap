@@ -3,14 +3,14 @@
 exports[`passes a single child properly 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "flex": 1,
       }
     }
@@ -20,16 +20,16 @@ exports[`passes a single child properly 1`] = `
 
 exports[`passes multiple children properly 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 >
   <View
-    style={Object {}}
+    style={{}}
   />
   <View
-    style={Object {}}
+    style={{}}
   />
   <View
-    style={Object {}}
+    style={{}}
   />
 </View>
 `;

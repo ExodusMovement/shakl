@@ -4,13 +4,13 @@ exports[`works 1`] = `
 <RCTScrollView
   backgroundColor="#f5fcff"
   contentContainerStyle={
-    Object {
+    {
       "flex": 1,
       "paddingTop": 20,
     }
   }
   style={
-    Object {
+    {
       "backgroundColor": "#f5fcff",
     }
   }
@@ -18,7 +18,7 @@ exports[`works 1`] = `
   <View>
     <View
       style={
-        Object {
+        {
           "backgroundColor": "red",
           "height": 40,
           "width": 40,
@@ -26,11 +26,8 @@ exports[`works 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
-        Object {
+        {
           "fontSize": 28,
         }
       }
@@ -38,8 +35,27 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
-      isTVSelectable={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -47,7 +63,7 @@ exports[`works 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "green",
           "height": 40,
           "opacity": 1,
@@ -57,7 +73,7 @@ exports[`works 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "backgroundColor": "blue",
           "height": 40,
           "width": 40,
@@ -65,11 +81,8 @@ exports[`works 1`] = `
       }
     />
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
-        Object {
+        {
           "backgroundColor": "red",
           "padding": 0,
         }
@@ -78,12 +91,9 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       padded={true}
       style={
-        Object {
+        {
           "backgroundColor": "red",
           "padding": 10,
         }
@@ -92,11 +102,8 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
-        Object {
+        {
           "fontSize": 20,
         }
       }
@@ -104,11 +111,8 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
-        Object {
+        {
           "fontSize": 20,
           "fontWeight": "bold",
         }
@@ -117,11 +121,8 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
-        Object {
+        {
           "color": "green",
           "fontSize": 20,
           "fontWeight": "bold",
@@ -131,12 +132,9 @@ exports[`works 1`] = `
       Hello world
     </Text>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       numberOfLines={1}
       style={
-        Object {
+        {
           "color": "blue",
         }
       }
@@ -144,8 +142,17 @@ exports[`works 1`] = `
       Hello world Hello world Hello world Hello world Hello world 
     </Text>
     <View
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
-      isTVSelectable={true}
+      focusable={true}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -153,7 +160,7 @@ exports[`works 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "green",
           "height": 40,
           "width": 40,
@@ -162,7 +169,7 @@ exports[`works 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "backgroundColor": "red",
             "height": 40,
             "width": 40,
@@ -171,8 +178,27 @@ exports[`works 1`] = `
       />
     </View>
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
-      isTVSelectable={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -180,18 +206,15 @@ exports[`works 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "flex": 1,
           "opacity": 1,
         }
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
-          Object {
+          {
             "color": "green",
           }
         }
