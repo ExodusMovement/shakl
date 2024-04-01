@@ -17,12 +17,25 @@ const styled = (Comp, config = {}) => (componentStyle = {}) => {
     let { attrs } = opts
     attrs = attrs ? attrs(props) : {}
 
-    const style = {
+    let style = {
       ...factoryStyle,
       ...attrs.style,
       ...(typeof componentStyle === 'function' ? componentStyle(props) : componentStyle),
-      ...props.style,
-      ...fixedStyle,
+    }
+    
+    if (props.style) {
+      // assuming this is react-native-reanimated >v2 style comming from useAnimatedStyle
+      if (props.style.hasOwnProperty('viewDescriptors')) {
+        style = [style, props.style, fixedStyle]
+      } else if (Array.isArray(props.style) && props.style.some(style => style.hasOwnProperty('viewDescriptors'))) {
+        style = [style, ...props.style, fixedStyle]
+      } else {
+        style = {
+          ...style,
+          ...props.style,
+          ...fixedStyle
+        }
+      }
     }
 
     const parentProps = {
