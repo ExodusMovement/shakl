@@ -14,7 +14,7 @@ import shakl from '../src';
 const suite = new Benchmark.Suite();
 
 
-suite.add('Shakl', () => () => {
+suite.add('Shakl', () => {
   const Foo = shakl.View({ padding: 10 });
   r(<Foo />);
 });
