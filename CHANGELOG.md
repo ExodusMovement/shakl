@@ -1,3 +1,7 @@
+# 0.0.15
+
+- Feat: add support to composition react-native-reanimated styles. https://github.com/ExodusMovement/shakl/pull/13
+
 # 0.0.12
 
 - **Breaking:** Removed `multi` support for better perf (rarely used).
