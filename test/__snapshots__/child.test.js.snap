@@ -3,18 +3,15 @@
 exports[`attaches a ref to a child 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     numberOfLines={3}
     style={
-      Object {
+      {
         "color": "blue",
       }
     }
@@ -24,8 +21,27 @@ exports[`attaches a ref to a child 1`] = `
 
 exports[`creates a styled component with a child 1`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
-  isTVSelectable={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -33,18 +49,15 @@ exports[`creates a styled component with a child 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "flex": 1,
       "opacity": 1,
     }
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
-      Object {
+      {
         "color": "blue",
       }
     }
@@ -57,18 +70,15 @@ exports[`creates a styled component with a child 1`] = `
 exports[`creates a styled component with a child with custom props 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     numberOfLines={3}
     style={
-      Object {
+      {
         "color": "blue",
       }
     }
@@ -81,18 +91,15 @@ exports[`creates a styled component with a child with custom props 1`] = `
 exports[`creates a styled component with a child with dynamic custom props 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     numberOfLines={3}
     style={
-      Object {
+      {
         "color": "blue",
       }
     }
@@ -106,18 +113,15 @@ exports[`creates a styled component with a child with dynamic custom props 2`] =
 <View
   onLiner={true}
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     numberOfLines={1}
     style={
-      Object {
+      {
         "color": "blue",
       }
     }

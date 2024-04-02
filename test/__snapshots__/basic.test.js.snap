@@ -3,7 +3,7 @@
 exports[`creates a styled component 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
@@ -15,7 +15,7 @@ exports[`creates a styled component of a class component 1`] = `<View />`;
 exports[`creates a styled component of a class component 2`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
@@ -27,7 +27,7 @@ exports[`creates a styled component of a functional component 1`] = `<View />`;
 exports[`creates a styled component of a functional component 2`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
@@ -37,7 +37,7 @@ exports[`creates a styled component of a functional component 2`] = `
 exports[`creates a styled component with dynamic styles based on props 1`] = `
 <View
   style={
-    Object {
+    {
       "padding": 0,
     }
   }
@@ -48,7 +48,7 @@ exports[`creates a styled component with dynamic styles based on props 2`] = `
 <View
   padded={true}
   style={
-    Object {
+    {
       "padding": 10,
     }
   }
@@ -57,24 +57,24 @@ exports[`creates a styled component with dynamic styles based on props 2`] = `
 
 exports[`creates a styled component with empty dynamic styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`creates a styled component with empty static styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`creates a styled component with null dynamic styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`creates a styled component with null static styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;

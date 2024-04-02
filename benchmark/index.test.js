@@ -6,23 +6,28 @@ import fs from 'fs';
 
 import Benchmark from 'benchmark';
 
-import emotion from 'react-emotion';
-import glamorous from 'glamorous-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native'
+import emotion from '@emotion/native';
 
 import shakl from '../src';
 
 const suite = new Benchmark.Suite();
 
-const runSample = s => {
-  const Foo = s('div')({ padding: 10 });
-  r(<Foo />);
-};
 
-suite.add('Shakl', () => runSample(shakl));
-suite.add('Emotion', () => runSample(emotion));
-suite.add('Glamorous Native', () => runSample(glamorous));
-suite.add('Styled Components', () => runSample(styled));
+suite.add('Shakl', () => {
+  const Foo = shakl.View({ padding: 10 });
+  r(<Foo />);
+});
+
+suite.add('Emotion', () => {
+  const Foo = emotion.View`padding: 10px`
+  r(<Foo />)
+});
+
+suite.add('Styled Components', () => {
+  const Foo = styled.View`padding: 10px`
+  r(<Foo />)
+});
 
 const results = {};
 
@@ -69,8 +74,9 @@ it('runs', () => {
 });
 
 afterAll(() => {
-  fs.writeFile(
+  const result = `const results = ${JSON.stringify(results, null, 2)};\n`
+  fs.writeFileSync(
     `${__dirname}/results.js`,
-    `const results = ${JSON.stringify(results, null, 2)};\n`
+    result
   );
 });

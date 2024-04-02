@@ -2,8 +2,27 @@
 
 exports[`forwards ref created with React.createRef() to wrapped component 1`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
-  isTVSelectable={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -11,7 +30,7 @@ exports[`forwards ref created with React.createRef() to wrapped component 1`] = 
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "margin": 10,
       "opacity": 1,
     }
@@ -21,8 +40,27 @@ exports[`forwards ref created with React.createRef() to wrapped component 1`] = 
 
 exports[`forwards ref created with React.createRef() to wrapped component 2`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
-  isTVSelectable={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -30,7 +68,7 @@ exports[`forwards ref created with React.createRef() to wrapped component 2`] = 
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "margin": 10,
       "opacity": 1,
     }
@@ -40,8 +78,27 @@ exports[`forwards ref created with React.createRef() to wrapped component 2`] = 
 
 exports[`forwards ref to wrapped component 1`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
-  isTVSelectable={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -49,7 +106,7 @@ exports[`forwards ref to wrapped component 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "margin": 10,
       "opacity": 1,
     }
@@ -59,8 +116,27 @@ exports[`forwards ref to wrapped component 1`] = `
 
 exports[`forwards ref to wrapped component 2`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
-  isTVSelectable={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
@@ -68,7 +144,7 @@ exports[`forwards ref to wrapped component 2`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "margin": 10,
       "opacity": 1,
     }

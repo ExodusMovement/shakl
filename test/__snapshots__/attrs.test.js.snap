@@ -2,12 +2,9 @@
 
 exports[`creates a styled component with custom props 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   numberOfLines={1}
   style={
-    Object {
+    {
       "color": "blue",
     }
   }
@@ -16,12 +13,9 @@ exports[`creates a styled component with custom props 1`] = `
 
 exports[`creates a styled component with dynamic props 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   numberOfLines={3}
   style={
-    Object {
+    {
       "color": "red",
     }
   }
@@ -30,13 +24,10 @@ exports[`creates a styled component with dynamic props 1`] = `
 
 exports[`creates a styled component with dynamic props 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   numberOfLines={1}
   oneLiner={true}
   style={
-    Object {
+    {
       "color": "red",
     }
   }
