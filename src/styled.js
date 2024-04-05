@@ -1,21 +1,21 @@
 import React from 'react'
 
-const styled = (Comp, config = {}) => (componentStyle = {}) => {
+const styled = (Comp, config = Object.create(null)) => (componentStyle = Object.create(null)) => {
   const {
     name, // custom displayName for debugging
-    props: factoryProps = {}, // default props the styled component will have
-    style: factoryStyle = {}, // default style the styled component will have
-    fixedStyle = {}, // styles that are always applied (even if provided somewhere else)
+    props: factoryProps = Object.create(null), // default props the styled component will have
+    style: factoryStyle = Object.create(null), // default style the styled component will have
+    fixedStyle = Object.create(null), // styles that are always applied (even if provided somewhere else)
     ...opts
   } = config
 
   const Styled = React.forwardRef(({ childRef, ...props }, ref) => {
-    const { comp, child, childProps = {} } = opts // private values
+    const { comp, child, childProps = Object.create(null) } = opts // private values
     const { children } = props
 
     // .attrs()
     let { attrs } = opts
-    attrs = attrs ? attrs(props) : {}
+    attrs = attrs ? attrs(props) : Object.create(null)
 
     let style = {
       ...factoryStyle,
