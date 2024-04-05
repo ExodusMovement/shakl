@@ -1,3 +1,8 @@
+# 0.0.16
+
+- fix: support `undefined` style in array of styles https://github.com/ExodusMovement/shakl/pull/15
+- refactor: move jest config outside published files https://github.com/ExodusMovement/shakl/pull/16
+
 # 0.0.15
 
 - Feat: add support to composition react-native-reanimated styles. https://github.com/ExodusMovement/shakl/pull/13
