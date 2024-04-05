@@ -40,19 +40,6 @@
     "prebuild": "rm -rf lib",
     "build": "rollup -c && rollup -c --environment TARGET:react-native ; cp src/index.d.ts lib/index.d.ts"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ],
-    "verbose": true,
-    "preset": "react-native",
-    "transformIgnorePatterns": [
-      "/node_modules/(?!(@react-native|react-native|react-native-reanimated)/).*/"
-    ],
-    "setupFilesAfterEnv": [
-      "./jest-setup.js"
-    ]
-  },
   "files": [
     "lib"
   ]
