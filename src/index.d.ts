@@ -9,16 +9,16 @@ import type {
   ImageProps,
 } from "react-native";
 
-type AnyStyle = ViewStyle | TextStyle | ImageStyle;
-type AnyProps = ViewProps | TextProps | TouchableOpacityProps | ImageProps;
+export type AnyStyle = ViewStyle | TextStyle | ImageStyle;
+export type AnyProps = ViewProps | TextProps | TouchableOpacityProps | ImageProps;
 
-type ViewStyleFunction = (props: ViewProps) => ViewStyle;
-type TextStyleFunction = (props: TextProps) => TextStyle;
-type ImageStyleFunction = (props: ImageProps) => ImageStyle;
-type TouchableStyleFunction = (props: TouchableOpacityProps) => ViewStyle;
-type AnyStyleFunction = (props: AnyProps | any) => AnyStyle;
+export type ViewStyleFunction = (props: ViewProps) => ViewStyle;
+export type TextStyleFunction = (props: TextProps) => TextStyle;
+export type ImageStyleFunction = (props: ImageProps) => ImageStyle;
+export type TouchableStyleFunction = (props: TouchableOpacityProps) => ViewStyle;
+export type AnyStyleFunction = (props: AnyProps | any) => AnyStyle;
 
-type StyledComponentType = ComponentType<any> & {
+export type StyledComponentType = ComponentType<any> & {
   extend: (more: AnyStyle | AnyStyleFunction) => StyledComponentType;
   attrs: (attrs: any) => StyledComponentType;
   withComponent: (comp: ComponentType<any>) => StyledComponentType;
@@ -28,7 +28,7 @@ type StyledComponentType = ComponentType<any> & {
   ) => StyledComponentType;
 };
 
-interface Styled {
+export interface Styled {
   (Component: ComponentType<any>, config?: any): (style: AnyStyle | AnyStyleFunction) => StyledComponentType;
 
   View: (style: ViewStyle | ViewStyleFunction) => StyledComponentType;
