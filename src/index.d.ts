@@ -17,23 +17,26 @@ type TextStyleFunction = (props: TextProps) => TextStyle;
 type ImageStyleFunction = (props: ImageProps) => ImageStyle;
 type TouchableStyleFunction = (props: TouchableOpacityProps) => ViewStyle;
 type AnyStyleFunction = (props: AnyProps | any) => AnyStyle;
-type StyledComponentType = (
-  style: AnyStyle | AnyStyleFunction
-) => ComponentType<any>;
 
-declare module "./" {
-  function View(style: ViewStyle | ViewStyleFunction): ComponentType<any>;
-  function Text(style: TextStyle | TextStyleFunction): ComponentType<any>;
-  function Image(style: ImageStyle | ImageStyleFunction): ComponentType<any>;
-  function Touchable(
-    style: ViewStyle | TouchableStyleFunction
-  ): ComponentType<any>;
+type StyledComponentType = ComponentType<any> & {
+  extend: (more: AnyStyle | AnyStyleFunction) => StyledComponentType;
+  attrs: (attrs: any) => StyledComponentType;
+  withComponent: (comp: ComponentType<any>) => StyledComponentType;
+  withChild: (
+    child: ComponentType<any>,
+    childProps?: any
+  ) => StyledComponentType;
+};
 
-  function styled(Component: any, config?: any): StyledComponentType;
-  styled.View = View;
-  styled.Text = Text;
-  styled.Image = Image;
-  styled.Touchable = Touchable;
+interface Styled {
+  (Component: ComponentType<any>, config?: any): (style: AnyStyle | AnyStyleFunction) => StyledComponentType;
 
-  export default styled;
+  View: (style: ViewStyle | ViewStyleFunction) => StyledComponentType;
+  Text: (style: TextStyle | TextStyleFunction) => StyledComponentType;
+  Image: (style: ImageStyle | ImageStyleFunction) => StyledComponentType;
+  Touchable: (style: ViewStyle | TouchableStyleFunction) => StyledComponentType;
 }
+
+declare const styled: Styled;
+
+export default styled;
