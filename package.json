@@ -38,7 +38,7 @@
     "benchmark": "jest /benchmark",
     "postbenchmark": "open -a Chrome benchmark/chart/index.html",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c && rollup -c --environment TARGET:react-native ; cp src/index.d.ts lib/index.d.ts"
+    "build": "tsc"
   },
   "files": [
     "lib"

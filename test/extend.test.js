@@ -2,7 +2,7 @@ import React from 'react'
 
 import { create as r } from 'react-test-renderer'
 
-import s from '../src'
+import s from '../src/rn'
 
 it('extends a styled component with extend()', () => {
   const Foo = s.Text({ fontSize: 20 })
