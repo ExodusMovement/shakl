@@ -5,7 +5,7 @@
   "version": "0.0.16",
   "main": "lib/index.js",
   "react-native": "lib/rn.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/rn.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonaye/shakl.git"
