@@ -30,10 +30,10 @@ const styled = (Comp, config = Object.create(null)) => (componentStyle = Object.
     }
     
     if (styleFromProps) {
-      // assuming this is react-native-reanimated >v2 style comming from useAnimatedStyle
-      if (styleFromProps.hasOwnProperty('viewDescriptors')) {
+      // assuming this is react-native-reanimated >v2 style comming from useAnimatedStyle or React-Native StyleSheet style
+      if (typeof styleFromProps === 'number' || styleFromProps.hasOwnProperty('viewDescriptors')) {
         style = [style, styleFromProps, fixedStyle]
-      } else if (Array.isArray(styleFromProps) && styleFromProps.some(style => style.hasOwnProperty('viewDescriptors'))) {
+      } else if (Array.isArray(styleFromProps)) {
         style = [style, ...styleFromProps, fixedStyle]
       } else {
         style = {
