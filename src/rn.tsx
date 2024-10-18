@@ -10,8 +10,6 @@ import {
   TextProps,
   ImageProps,
   TouchableOpacityProps,
-  TextInputProps,
-  ScrollViewProps,
   ViewStyle,
   TextStyle,
   ImageStyle,
