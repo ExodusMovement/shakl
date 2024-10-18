@@ -1,4 +1,5 @@
 import React from 'react';
+import type {StyleProp} from "react-native";
 
 export interface Config<P = any> {
   name?: string;
@@ -12,15 +13,15 @@ export interface Config<P = any> {
   [key: string]: any;
 }
 
-export type StyledProps = {
+export type StyledProps<S extends object> = {
   childRef?: React.Ref<any>;
-  style?: any;
+  style?: StyleProp<S>;
 };
 
 type ComponentStyle<P extends object, SP extends object, S extends object> = ((props: Partial<P> & SP) => S) | S
 
 export type StyledComponent<P extends object, S extends object> = React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<P & StyledProps & { children?: React.ReactNode }> &
+  React.PropsWithoutRef<P & StyledProps<S> & { children?: React.ReactNode }> &
   React.RefAttributes<any>
 > & {
   extend: <SP extends object>(more: ComponentStyle<P, SP, S>) => StyledComponent<P & SP, S>;
@@ -52,7 +53,7 @@ const styled = <P extends object, S extends object = object>(
     ...opts
   } = config;
 
-  const Styled = React.forwardRef<any, P & StyledProps & { children?: React.ReactNode }>(
+  const Styled = React.forwardRef<any, P & StyledProps<S> & { children?: React.ReactNode }>(
     (props, ref) => {
       const { childRef, children, ...restProps } = props;
       const { comp, child, childProps = {} } = opts;
