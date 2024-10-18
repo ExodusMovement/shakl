@@ -38,21 +38,6 @@ interface ExtendedStyledFunction extends StyledFunction {
     componentStyle?: ((props: TouchableOpacityProps) => ViewStyle) | ViewStyle,
     config?: Config<TouchableOpacityProps>
   ) => StyledComponentType<TouchableOpacityProps>;
-
-  TextInput: (
-    componentStyle?:
-      | ((props: TextInputProps) => TextStyle | ViewStyle)
-      | TextStyle
-      | ViewStyle,
-    config?: Config<TextInputProps>
-  ) => StyledComponentType<TextInputProps>;
-
-  ScrollView: (
-    componentStyle?: ((props: ScrollViewProps) => ViewStyle) | ViewStyle,
-    config?: Config<ScrollViewProps>
-  ) => StyledComponentType<ScrollViewProps>;
-
-  // Add other primitives as needed
 }
 
 const extendedStyled = styled as ExtendedStyledFunction;
