@@ -18,33 +18,33 @@ export type StyledProps = {
   style?: any;
 };
 
-export type StyledComponentType<P> = React.ForwardRefExoticComponent<
+type ComponentStyle<P extends object, S extends object> = ((props: Partial<P> & S) => any) | object
+
+export type StyledComponent<P extends object> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P & StyledProps & { children?: React.ReactNode }> &
   React.RefAttributes<any>
 > & {
-  extend: (more: any) => StyledComponentType<P>;
-  attrs: (attrs: any) => StyledComponentType<P>;
-  withComponent: (comp: React.ComponentType<any>) => StyledComponentType<P>;
-  withChild: (child: React.ComponentType<any>, childProps: any) => StyledComponentType<P>;
+  extend: <S extends object>(more: ComponentStyle<P, S>) => StyledComponent<P & S>;
+  attrs: (attrs: any) => StyledComponent<P>;
+  withComponent: (comp: React.ComponentType<any>) => StyledComponent<P>;
+  withChild: (child: React.ComponentType<any>, childProps: any) => StyledComponent<P>;
 };
+
+type ComponentFactory<P extends object> = <S extends object>(
+  componentStyle: ComponentStyle<P, S>
+) => StyledComponent<P & S> | (() => StyledComponent<P>);
 
 export interface StyledFunction {
   <P extends object>(
     Comp: React.ComponentType<P>,
     config?: Config<P>
-  ): (
-    componentStyle?: ((props: P) => any) | any
-  ) => StyledComponentType<P>;
+  ): ComponentFactory<P>;
 }
-
-
 
 const styled = <P extends object>(
   Comp: React.ComponentType<P>,
   config: Config<P> = {}
-) => (
-  componentStyle: ((props: P) => any) | any = {}
-): StyledComponentType<P> => {
+) => <S extends object>(componentStyle?: ComponentStyle<P, S>): StyledComponent<P & S> => {
   const {
     name,
     props: factoryProps = {},
@@ -69,7 +69,7 @@ const styled = <P extends object>(
         ...factoryStyle,
         ...attrsResult.style,
         ...(typeof componentStyle === 'function'
-          ? componentStyle(restProps as P)
+          ? componentStyle(restProps as P & S)
           : componentStyle),
       };
 
@@ -126,15 +126,15 @@ const styled = <P extends object>(
 
   // Extend the Styled component with custom methods
   const StyledComponent = Object.assign(Styled, {
-    extend: (more: any) => styled(StyledComponent, { name })(more),
-    attrs: (attrs: any) => styled(StyledComponent, { attrs })(),
+    extend: <S2 extends object>(more: ComponentStyle<P, S & S2>) => styled(StyledComponent, { name })(more),
+    attrs: (attrs: any) => styled(StyledComponent, { attrs })() as StyledComponent<P & S>,
     withComponent: (comp: React.ComponentType<any>) =>
-      styled(StyledComponent, { comp })(componentStyle),
+      styled(StyledComponent, { comp })(componentStyle) as StyledComponent<P & S>,
     withChild: (child: React.ComponentType<any>, childProps: any) =>
-      styled(StyledComponent, { child, childProps })(),
+      styled(StyledComponent, { child, childProps })() as StyledComponent<P & S>,
   });
 
-  return StyledComponent as StyledComponentType<P>;
+  return StyledComponent as StyledComponent<P & S>;
 };
 
 export default styled;
