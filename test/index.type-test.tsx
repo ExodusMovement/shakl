@@ -28,7 +28,7 @@ const StyledImageWithDynamicProps = extendedStyled.Image((props: {active: boolea
 
 const StyledTouchable = extendedStyled.Touchable({width: 100})
 const StyledTouchableWithDynamicProps = extendedStyled.Image((props: {active: boolean}) => ({width: props.active ? 100 : 50}))
-
+const ViewWithText = extendedStyled.View({}).withChild(StyledText)
 
 const MyScreen = () => {
   return (
@@ -61,6 +61,8 @@ const MyScreen = () => {
 
       <StyledTouchable>Touchable</StyledTouchable>
       <StyledTouchableWithDynamicProps active>Touchable with dynamic style</StyledTouchableWithDynamicProps>
+
+      <ViewWithText />
     </>
   )
 }

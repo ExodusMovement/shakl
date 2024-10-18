@@ -27,7 +27,7 @@ export type StyledComponent<P extends object, S extends object> = React.ForwardR
   extend: <SP extends object>(more: ComponentStyle<P, SP, S>) => StyledComponent<P & SP, S>;
   attrs: (attrs: any) => StyledComponent<P, S>;
   withComponent: (comp: React.ComponentType<any>) => StyledComponent<P, S>;
-  withChild: (child: React.ComponentType<any>, childProps: any) => StyledComponent<P, S>;
+  withChild: (child: React.ComponentType<any>, childProps?: any) => StyledComponent<P, S>;
 };
 
 type ComponentFactory<P extends object, S extends object> = <SP extends object>(
