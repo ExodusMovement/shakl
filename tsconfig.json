@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es2022",
     "module": "ESNext",
     "outDir": "./lib",
     "rootDir": "./src",
