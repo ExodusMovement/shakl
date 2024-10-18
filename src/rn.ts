@@ -1,9 +1,11 @@
-// src/rn.ts
 import styled from './index'
 import {
   Image,
-  ImageProps, ImageStyle,
+  ImageProps,
+  ImageStyle,
   Text,
+  TextInputProps,
+  TextInput,
   TextProps,
   TextStyle,
   TouchableOpacity,
@@ -19,6 +21,7 @@ const extended = Object.assign(styled,{
   Text: styled<TextProps, TextStyle>(Text, { name: 'styled(Text)' }),
   Image: styled<ImageProps, ImageStyle>(Image, { name: "styled(Image)" }),
   Touchable: styled<TouchableOpacityProps, ViewStyle>(TouchableOpacity, { name: 'styled(Touchable)' }),
+  TextInput: styled<TextInputProps, ViewStyle>(TextInput, { name: 'styled(TextInput)' }),
 })
 
 export default extended;

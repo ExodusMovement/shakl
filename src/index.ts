@@ -1,4 +1,3 @@
-// src/index.ts
 import React from 'react';
 
 export interface Config<P = any> {
