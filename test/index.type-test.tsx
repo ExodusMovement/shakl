@@ -1,9 +1,12 @@
 import React, { Text } from 'react-native'
 import styled from '../src/index'
+import extendedStyled from '../src/rn'
 
 const StyledText = styled(Text)(({ transparent }: { transparent?: boolean; color: string }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 }))
 const StyledScalableText = StyledText.extend(({ big }: { big?: boolean }) => ({ fontSize: big ? 20 : 10 }))
 const StyledTextWithObjectProps = styled(Text)({ flex: 1, opacity: 1 })
+
+const ExtendedStyledText = extendedStyled.Text(({ transparent }: { transparent?: boolean; }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 }))
 
 const MyScreen = () => {
   return (
@@ -18,6 +21,7 @@ const MyScreen = () => {
       <StyledScalableText color="red" transparent big>Hi</StyledScalableText>
       {/* @ts-expect-error -- transparent prop is not allowed */}
       <StyledTextWithObjectProps transparent>Hi</StyledTextWithObjectProps>
+      <ExtendedStyledText transparent>Hello Extended World</ExtendedStyledText>
     </>
   )
 }
