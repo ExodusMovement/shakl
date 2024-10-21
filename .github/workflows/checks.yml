@@ -1,0 +1,34 @@
+name: Checks
+
+on:
+  push:
+    branches: ['ain/perf']
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: ${{ matrix.name }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Build
+            cmd: yarn build
+          - name: Test
+            cmd: yarn test
+          - name: Test Types
+            cmd: yarn test:types
+    steps:
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+      - uses: actions/setup-node@aca7b64a59c0063db8564e0ffdadd3887f1cbae5
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+      - run: yarn
+      - run: ${{ matrix.cmd }}
