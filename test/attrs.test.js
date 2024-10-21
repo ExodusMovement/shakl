@@ -2,7 +2,7 @@ import React from 'react'
 
 import { create as r } from 'react-test-renderer'
 
-import s from '../src'
+import s from '../src/rn'
 
 it('creates a styled component with custom props', () => {
   const Foo = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 })

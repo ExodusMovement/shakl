@@ -5,7 +5,7 @@
   "version": "0.0.16",
   "main": "lib/index.js",
   "react-native": "lib/rn.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/rn.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonaye/shakl.git"
@@ -18,6 +18,8 @@
     "@emotion/native": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@testing-library/react-native": "^12.4.5",
+    "@tsconfig/react-native": "^3.0.5",
+    "@types/react": "^18.3.11",
     "babel-jest": "^29.7.0",
     "benchmark": "2.1.4",
     "emotion": "9.2.6",
@@ -29,16 +31,19 @@
     "react-native-reanimated": "^3.8.1",
     "react-test-renderer": "18.2.0",
     "rollup": "^4.13.2",
-    "styled-components": "6.1.8"
+    "styled-components": "6.1.8",
+    "typescript": "^5.6.3"
   },
   "scripts": {
+    "test:all": "yarn test && yarn test:types",
     "test": "jest /test",
+    "test:types": "tsc -p tsconfig.test.json",
     "coverage": "yarn test --coverage",
     "postcoverage": "open -a Chrome coverage/lcov-report/index.html",
     "benchmark": "jest /benchmark",
     "postbenchmark": "open -a Chrome benchmark/chart/index.html",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c && rollup -c --environment TARGET:react-native ; cp src/index.d.ts lib/index.d.ts"
+    "build": "tsc"
   },
   "files": [
     "lib"

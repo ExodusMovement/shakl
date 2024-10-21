@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ScrollView, TouchableHighlight, View } from 'react-native'
 
-import s from '../src'
+import s from '../src/rn'
 
 // dom
 // s.View = s('div');

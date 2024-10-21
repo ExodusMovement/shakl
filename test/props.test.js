@@ -2,7 +2,7 @@ import React from 'react'
 
 import { create as r } from 'react-test-renderer'
 
-import s from '../src'
+import s from '../src/rn'
 
 it('accepts a style prop', () => {
   const Foo = s.View({ margin: 10 })

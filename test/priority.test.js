@@ -2,7 +2,7 @@ import React from 'react'
 
 import { create as r } from 'react-test-renderer'
 
-import s from '../src'
+import s from '../src/rn'
 
 test('style prop should have a higher priority', () => {
   const Foo = s.View({ backgroundColor: 'red' })

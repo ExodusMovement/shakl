@@ -3,7 +3,7 @@ import React from 'react'
 import Animated, {useSharedValue, useAnimatedStyle} from 'react-native-reanimated'
 import { render } from '@testing-library/react-native';
 
-import s from '../src'
+import s from '../src/rn'
 
 
 it('works with reanimated styles', () => {
