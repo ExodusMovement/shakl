@@ -9,7 +9,7 @@ import Benchmark from 'benchmark';
 import styled from 'styled-components/native'
 import emotion from '@emotion/native';
 
-import shakl from '../src';
+import shakl from '../src/rn';
 
 const suite = new Benchmark.Suite();
 
