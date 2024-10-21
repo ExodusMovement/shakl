@@ -1,6 +1,7 @@
 import React, { Text } from 'react-native'
 import styled from '../src/index'
 import extendedStyled from '../src/rn'
+import {useRef} from "react";
 
 const StyledText = styled(Text)(({ transparent }: { transparent?: boolean; color: string }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 }))
 const StyledScalableText = StyledText.extend(({ big }: { big?: boolean }) => ({ fontSize: big ? 20 : 10 }))
@@ -31,9 +32,11 @@ const StyledTouchableWithDynamicProps = extendedStyled.Image((props: {active: bo
 const ViewWithText = extendedStyled.View({}).withChild(StyledText)
 
 const MyScreen = () => {
+    const ref = useRef()
   return (
     <>
       <StyledText color="red" transparent>Hello Transparent World</StyledText>
+      <StyledText ref={ref} color="red">Hello Transparent World with ref</StyledText>
       {/* should also work without transparent prop */}
       <StyledText color="red">Hello World</StyledText>
       {/* @ts-expect-error -- should not work without required color prop */}
