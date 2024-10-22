@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { create as r } from 'react-test-renderer';
+import { create as r } from 'react-test-renderer'
 
-import s from '../src/styled';
+import s from '../src'
 
-s.div = s('div');
+s.div = s('div')
 
 it('creates a styled component', () => {
-  const Foo = s.div({ flex: 1 });
-  const foo = r(<Foo />).toJSON();
+  const Foo = s.div({ flex: 1 })
+  const foo = r(<Foo />).toJSON()
 
-  expect(foo.props.style).toEqual({ flex: 1 });
+  expect(foo.props.style).toEqual({ flex: 1 })
 
-  expect(foo).toMatchSnapshot();
-});
+  expect(foo).toMatchSnapshot()
+})

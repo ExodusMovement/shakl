@@ -3,7 +3,7 @@
 exports[`extended styles should have a higher priority 1`] = `
 <View
   style={
-    Object {
+    {
       "backgroundColor": "red",
     }
   }
@@ -13,7 +13,7 @@ exports[`extended styles should have a higher priority 1`] = `
 exports[`extended styles should have a higher priority 2`] = `
 <View
   style={
-    Object {
+    {
       "backgroundColor": "green",
     }
   }
@@ -23,7 +23,7 @@ exports[`extended styles should have a higher priority 2`] = `
 exports[`style prop should have a higher priority 1`] = `
 <View
   style={
-    Object {
+    {
       "backgroundColor": "green",
     }
   }

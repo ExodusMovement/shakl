@@ -2,11 +2,8 @@
 
 exports[`extends a styled component with custom props 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
     }
   }
@@ -15,12 +12,9 @@ exports[`extends a styled component with custom props 1`] = `
 
 exports[`extends a styled component with custom props 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
   bar={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
       "fontWeight": "bold",
     }
@@ -30,13 +24,10 @@ exports[`extends a styled component with custom props 2`] = `
 
 exports[`extends a styled component with custom props 3`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
   bar={true}
   baz={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "color": "red",
       "fontSize": 20,
       "fontWeight": "bold",
@@ -47,20 +38,14 @@ exports[`extends a styled component with custom props 3`] = `
 
 exports[`extends a styled component with dynamic styles based on props 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with dynamic styles based on props 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "padding": 0,
     }
   }
@@ -69,12 +54,9 @@ exports[`extends a styled component with dynamic styles based on props 2`] = `
 
 exports[`extends a styled component with dynamic styles based on props 3`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   padded={true}
   style={
-    Object {
+    {
       "padding": 10,
     }
   }
@@ -83,35 +65,32 @@ exports[`extends a styled component with dynamic styles based on props 3`] = `
 
 exports[`extends a styled component with empty dynamic styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with empty dynamic styles 2`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with empty static styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with empty static styles 2`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with extend() 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
     }
   }
@@ -120,11 +99,8 @@ exports[`extends a styled component with extend() 1`] = `
 
 exports[`extends a styled component with extend() 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
       "fontWeight": "bold",
     }
@@ -134,11 +110,8 @@ exports[`extends a styled component with extend() 2`] = `
 
 exports[`extends a styled component with extend() 3`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "color": "red",
       "fontSize": 20,
       "fontWeight": "bold",
@@ -149,35 +122,32 @@ exports[`extends a styled component with extend() 3`] = `
 
 exports[`extends a styled component with null dynamic styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with null dynamic styles 2`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with null static styles 1`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with null static styles 2`] = `
 <View
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`extends a styled component with styled(Styled) 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
     }
   }
@@ -186,11 +156,8 @@ exports[`extends a styled component with styled(Styled) 1`] = `
 
 exports[`extends a styled component with styled(Styled) 2`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "fontSize": 20,
       "fontWeight": "bold",
     }
@@ -200,11 +167,8 @@ exports[`extends a styled component with styled(Styled) 2`] = `
 
 exports[`extends a styled component with styled(Styled) 3`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
-    Object {
+    {
       "color": "red",
       "fontSize": 20,
       "fontWeight": "bold",

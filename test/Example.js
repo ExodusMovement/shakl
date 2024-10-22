@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import { ScrollView, TouchableHighlight, View } from 'react-native';
+import { ScrollView, TouchableHighlight, View } from 'react-native'
 
-import s from '../src';
+import s from '../src/rn'
 
 // dom
 // s.View = s('div');
@@ -13,47 +13,51 @@ import s from '../src';
 // const TouchableHighlight = 'button';
 // const ScrollView = 'div';
 
-const RedBox = s(View)({ height: 40, width: 40, backgroundColor: 'red' });
+const RedBox = s(View)({ height: 40, width: 40, backgroundColor: 'red' })
 
-const Headline = s.Text({ fontSize: 28 });
+const Headline = s.Text({ fontSize: 28 })
 
 const Button = s.Touchable({
   height: 40,
   width: 40,
-  backgroundColor: 'green'
-});
+  backgroundColor: 'green',
+})
 
-const BlueBox = s.View({ height: 40, width: 40, backgroundColor: 'blue' });
+const BlueBox = s.View({ height: 40, width: 40, backgroundColor: 'blue' })
 
-const Subtitle = s.Text(props => ({
+const Subtitle = s.Text((props) => ({
   padding: props.padded ? 10 : 0,
-  backgroundColor: 'red'
-}));
+  backgroundColor: 'red',
+}))
 
-const Title = s.Text({ fontSize: 20 });
+const Title = s.Text({ fontSize: 20 })
 
-const BoldTitle = Title.extend({ fontWeight: 'bold' });
+const BoldTitle = Title.extend({ fontWeight: 'bold' })
 
-const RedBoldTitle = BoldTitle.extend({ color: 'green' });
+const RedBoldTitle = BoldTitle.extend({ color: 'green' })
 
-const OneLiner = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 });
+const OneLiner = s.Text({ color: 'blue' }).attrs({ numberOfLines: 1 })
 
-const HighlightedButton = Button.withComponent(TouchableHighlight);
+const HighlightedButton = Button.withComponent(TouchableHighlight)
 
-const ButtonText = s.Text({ color: 'green' });
+const ButtonText = s.Text({ color: 'green' })
 
-const AnotherButton = s.Touchable({ flex: 1 }).withChild(ButtonText);
+const AnotherButton = s.Touchable({ flex: 1 }).withChild(ButtonText)
 
 export default class Example extends React.PureComponent {
-  container = React.createRef();
+  container = React.createRef()
 
   componentDidMount() {
-    if (!this.container.current) throw new Error('ref is not working');
+    if (!this.container.current) throw new Error('ref is not working')
   }
 
   render() {
     return (
-      <Container backgroundColor="#f5fcff" ref={this.container}>
+      <Container
+        backgroundColor="#f5fcff"
+        ref={this.container}
+        contentContainerStyle={{ flex: 1, paddingTop: 20 }}
+      >
         <RedBox />
         <Headline>Hello world</Headline>
         <Button />
@@ -69,13 +73,12 @@ export default class Example extends React.PureComponent {
         </HighlightedButton>
         <AnotherButton>BUTTON</AnotherButton>
       </Container>
-    );
+    )
   }
 }
 
-const Container = s(ScrollView, { name: 'Container', multi: true })({
-  style: ({ backgroundColor }) => ({ backgroundColor }),
-  contentContainerStyle: { flex: 1, paddingTop: 20 }
-});
+const Container = s(ScrollView, { name: 'Container' })(({ backgroundColor }) => ({
+  backgroundColor,
+}))
 
-Container.defaultProps = { backgroundColor: '#000' };
+Container.defaultProps = { backgroundColor: '#000' }

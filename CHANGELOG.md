@@ -1,6 +1,20 @@
+# 0.0.16
+
+- fix: support `undefined` style in array of styles https://github.com/ExodusMovement/shakl/pull/15
+- refactor: move jest config outside published files https://github.com/ExodusMovement/shakl/pull/16
+
+# 0.0.15
+
+- Feat: add support to composition react-native-reanimated styles. https://github.com/ExodusMovement/shakl/pull/13
+
+# 0.0.12
+
+- **Breaking:** Removed `multi` support for better perf (rarely used).
+- **Breaking:** Removed style arrays `style={[{..}, {..}]}` support for better perf (rarely used).
+
 # 0.0.11
 
-- **Breaking:** Removed theme support
+- **Breaking:** Removed theme support.
 - Support passing default styles to the factory.
 - Support passing fixed styles to the factory.
 
@@ -13,9 +27,9 @@
 - Support dynamic props in `attrs()`. By default `attrs()` only overwrites the `defaultProps` of the component, now when you pass it a function it will allow for computed props.
 
 ```js
-const MyText = styled.Text({ color: 'red' }).attrs(props => ({
+const MyText = styled.Text({ color: 'red' }).attrs((props) => ({
   numberOfLines: props.oneLiner ? 1 : 3
-}));
+}))
 
 // equivalent to
 <MyText /> // <Text style={{ color: 'red }} numberOfLines={3} />
@@ -26,8 +40,8 @@ const MyText = styled.Text({ color: 'red' }).attrs(props => ({
 - Support passing a ref to a child in `withChild()` through the parent's `childRef` prop.
 
 ```js
-const CardText = styled.Text({ color: 'blue' });
-const Card = styled.View({ flex: 1 }).withChild(CardText, { numberOfLines: 3 });
+const CardText = styled.Text({ color: 'blue' })
+const Card = styled.View({ flex: 1 }).withChild(CardText, { numberOfLines: 3 })
 
 // equivalent to
 const Card = ({ children, childRef, ...props }) => (
@@ -36,19 +50,19 @@ const Card = ({ children, childRef, ...props }) => (
       {children}
     </Text>
   </View>
-);
+)
 
 // you can also access parent props
-const Card = styled.View({ flex: 1 }).withChild(CardText, parentProps => ({
+const Card = styled.View({ flex: 1 }).withChild(CardText, (parentProps) => ({
   numberOfLines: parentProps.onLiner ? 1 : 3
-}));
+}))
 
-<Card>Hello World!</Card>;
+<Card>Hello World!</Card>
 // <View ..>
 //   <Text ..>{children}</Text>
 // </View>
 
-<Card onLiner>Hello World!</Card>;
+<Card onLiner>Hello World!</Card>
 // <View ..>
 //   <Text numberOfLines={1} ..>{children}</Text>
 // </View>
