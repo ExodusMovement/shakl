@@ -29,6 +29,5 @@ jobs:
       - uses: actions/setup-node@aca7b64a59c0063db8564e0ffdadd3887f1cbae5
         with:
           node-version-file: .nvmrc
-          cache: yarn
       - run: yarn
       - run: ${{ matrix.cmd }}
