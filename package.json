@@ -30,7 +30,7 @@
     "react-emotion": "9.2.6",
     "react-native": "0.55.4",
     "react-test-renderer": "16.3.1",
-    "rollup": "0.63.5",
+    "rollup": "2.79.2",
     "rollup-plugin-babel": "3.0.7",
     "styled-components": "3.3.3"
   },
