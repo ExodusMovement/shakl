@@ -22,7 +22,7 @@ jobs:
             cmd: yarn build
           - name: Test
             cmd: yarn test
-          - name: Test Types
+          - name: Types
             cmd: yarn test:types
     steps:
       - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
