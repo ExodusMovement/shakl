@@ -24,6 +24,8 @@ jobs:
             cmd: yarn test
           - name: Types
             cmd: yarn test:types
+          - name: Lint
+            cmd: yarn lint
     steps:
       - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
       - uses: actions/setup-node@aca7b64a59c0063db8564e0ffdadd3887f1cbae5
