@@ -38,7 +38,7 @@ const extendedWithLinear = Object.assign(extendedStyled, {
     })
 })
 
-const StyledLinear = styled(LinearGradient)({}).attrs({
+const StyledLinear = extendedWithLinear.LinearGradient({ }).attrs({
     colors: ['red', 'white'],
 })
 
@@ -79,6 +79,9 @@ const MyScreen = () => {
       <StyledTouchableWithDynamicProps active>Touchable with dynamic style</StyledTouchableWithDynamicProps>
 
       <ViewWithText />
+
+      {/* @ts-expect-error -- missing "colors" */}
+      <LinearGradient/>
       {/* doesn't require optional props */}
       <StyledLinear />
       {/* but they can be provided */}

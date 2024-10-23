@@ -1,12 +1,12 @@
 import React from 'react';
 import type {StyleProp} from "react-native";
 
-export interface Config<P extends object> {
+export interface Config<P extends object, A extends object> {
   name?: string;
   props?: Partial<P>;
   style?: any;
   fixedStyle?: any;
-  attrs?: Attrs<P>;
+  attrs?: Attrs<A>;
   comp?: React.ComponentType<any>;
   child?: React.ComponentType<any>;
   childProps?: ((props: any) => any) | any;
@@ -33,9 +33,9 @@ export type StyledComponent<P extends object, S extends object> = React.ForwardR
   withChild: (child: React.ComponentType<any>, childProps?: any) => StyledComponent<P, S>;
 };
 
-const styled = <P extends object, S extends object = object, A extends P | undefined = undefined>(
+const styled = <P extends object, S extends object = object, A extends Partial<P> = {}>(
   Comp: React.ComponentType<P>,
-  config: Config<P> = {}
+  config: Config<P, A> = {}
 ) => <SP extends object>(componentStyle?: ComponentStyle<P, SP, S>): StyledComponent<WithOptional<P & SP, keyof A>, S> => {
   const {
     name,
