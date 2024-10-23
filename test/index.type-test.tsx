@@ -38,9 +38,11 @@ const extendedWithLinear = Object.assign(extendedStyled, {
     })
 })
 
-const StyledLinear = extendedWithLinear.LinearGradient({ }).attrs({
+const DefaultLinearGradient = extendedWithLinear.LinearGradient({ }).attrs({
     colors: ['red', 'white'],
 })
+
+const DangerLinearGradient = styled(LinearGradient)({}).attrs({ colors: ['orange', 'red']})
 
 const MyScreen = () => {
     const ref = useRef()
@@ -83,9 +85,10 @@ const MyScreen = () => {
       {/* @ts-expect-error -- missing "colors" */}
       <LinearGradient/>
       {/* doesn't require optional props */}
-      <StyledLinear />
+      <DefaultLinearGradient />
+      <DangerLinearGradient />
       {/* but they can be provided */}
-      <StyledLinear colors={['blue', 'green']} />
+      <DefaultLinearGradient colors={['blue', 'green']} />
     </>
   )
 }
