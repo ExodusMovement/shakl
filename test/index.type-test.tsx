@@ -1,18 +1,19 @@
-import React, { Text } from 'react-native'
+import React, {Text, ViewStyle} from 'react-native'
 import styled from '../src/index'
 import extendedStyled from '../src/rn'
 import {useRef} from "react";
+import LinearGradient, { LinearGradientProps } from 'react-native-linear-gradient'
 
 const StyledText = styled(Text)(({ transparent }: { transparent?: boolean; color: string }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 }))
+const StyledTextWithAttrs = StyledText.attrs({ color: 'black' })
+const StyledTextWithAttrsFromConfig = styled(StyledText, { attrs: { color: 'black' } })()
 const StyledScalableText = StyledText.extend(({ big }: { big?: boolean }) => ({ fontSize: big ? 20 : 10 }))
 const StyledTextWithObjectProps = styled(Text)({ flex: 1, opacity: 1 })
 const ExtendedStyledText = extendedStyled.Text(({ transparent }: { transparent?: boolean; }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 }))
-
-const ExtenedStyledTextWithAttrs = extendedStyled.Text(({ transparent }: { transparent?: boolean; big?:boolean }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 })).attrs(({big}: {big?: boolean}) => ({
+const ExtendedStyledTextWithStyle = extendedStyled(Text)((props: {specificColor: string}) => ({color: props.specificColor}))
+const ExtenedStyledTextWithAttrs = extendedStyled.Text(({ transparent }: { transparent?: boolean; big?:boolean }) => ({ flex: 1, opacity: transparent ? 0.5 : 1 })).attrs(({ big}) => ({
     ellipsizeMode: big ? 'middle' : 'head',
 }))
-const ExtendedStyledTextWithStyle = extendedStyled(Text)((props: {specificColor: string}) => ({color: props.specificColor}))
-
 
 const StyledView = extendedStyled.View({width: 100})
 const StyledViewWithDynamicProps = extendedStyled.View((props: {active: boolean}) => ({width: props.active ? 100 : 50}))
@@ -31,12 +32,24 @@ const StyledTouchable = extendedStyled.Touchable({width: 100})
 const StyledTouchableWithDynamicProps = extendedStyled.Image((props: {active: boolean}) => ({width: props.active ? 100 : 50}))
 const ViewWithText = extendedStyled.View({}).withChild(StyledText)
 
+const extendedWithLinear = Object.assign(extendedStyled, {
+    LinearGradient: styled<LinearGradientProps, ViewStyle>(LinearGradient, {
+        name: 'styled(LinearGradient)',
+    })
+})
+
+const StyledLinear = styled(LinearGradient)({}).attrs({
+    colors: ['red', 'white'],
+})
+
 const MyScreen = () => {
     const ref = useRef()
   return (
     <>
       <StyledText color="red" transparent>Hello Transparent World</StyledText>
       <StyledText ref={ref} color="red">Hello Transparent World with ref</StyledText>
+      <StyledTextWithAttrs>Color set through .attrs() and therefore not required</StyledTextWithAttrs>
+      <StyledTextWithAttrsFromConfig>Color is set through config.attrs and therefore not required</StyledTextWithAttrsFromConfig>
       {/* should also work without transparent prop */}
       <StyledText color="red">Hello World</StyledText>
       {/* @ts-expect-error -- should not work without required color prop */}
@@ -66,6 +79,10 @@ const MyScreen = () => {
       <StyledTouchableWithDynamicProps active>Touchable with dynamic style</StyledTouchableWithDynamicProps>
 
       <ViewWithText />
+      {/* doesn't require optional props */}
+      <StyledLinear />
+      {/* but they can be provided */}
+      <StyledLinear colors={['blue', 'green']} />
     </>
   )
 }
