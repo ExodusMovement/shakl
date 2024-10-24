@@ -1,13 +1,9 @@
 module.exports = {
-  'collectCoverageFrom': [
-    'src/**/*.js'
+  collectCoverageFrom: ['src/**/*.js'],
+  verbose: true,
+  preset: 'react-native',
+  transformIgnorePatterns: [
+    '/node_modules/(?!(@react-native|react-native|react-native-reanimated)/).*/',
   ],
-  'verbose': true,
-  'preset': 'react-native',
-  'transformIgnorePatterns': [
-    '/node_modules/(?!(@react-native|react-native|react-native-reanimated)/).*/'
-  ],
-  'setupFilesAfterEnv': [
-    './jest-setup.js'
-  ]
+  setupFilesAfterEnv: ['./jest-setup.js'],
 }

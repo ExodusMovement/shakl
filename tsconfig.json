@@ -9,6 +9,5 @@
     "noEmit": false,
     "declaration": true
   },
-
   "include": ["src/**/*"]
 }
