@@ -32,6 +32,11 @@ suite.add('Styled Components', () => {
 
 const results = {}
 
+afterAll(() => {
+  const result = `const results = ${JSON.stringify(results, null, 2)};\n`
+  fs.writeFileSync(`${__dirname}/results.js`, result)
+})
+
 it('runs', () => {
   suite
     .on('complete', (e) => {
@@ -44,7 +49,6 @@ it('runs', () => {
       let max = first
 
       let minFunc = firstFunc
-      let maxFunc = firstFunc
 
       let output = ''
 
@@ -56,7 +60,6 @@ it('runs', () => {
 
         if (mean > max) {
           max = mean
-          maxFunc = name
         }
 
         const result = mean * 1000
@@ -72,9 +75,4 @@ it('runs', () => {
       console.log(output)
     })
     .run()
-})
-
-afterAll(() => {
-  const result = `const results = ${JSON.stringify(results, null, 2)};\n`
-  fs.writeFileSync(`${__dirname}/results.js`, result)
 })

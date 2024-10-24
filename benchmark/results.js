@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const results = {
   Shakl: 0.029_811_424_241_520_11,
   Emotion: 0.037_209_380_871_224_86,

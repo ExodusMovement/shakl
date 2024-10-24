@@ -38,7 +38,7 @@ export type StyledComponent<P extends object, S extends object> = React.ForwardR
 }
 
 const styled =
-  <P extends object, S extends object = object, A extends Partial<P> = {}>(
+  <P extends object, S extends object = object, A extends Partial<P> = {}>( // eslint-disable-line @typescript-eslint/no-empty-object-type
     Comp: React.ComponentType<P>,
     config: Config<P, A> = {}
   ) =>
