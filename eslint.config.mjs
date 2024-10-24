@@ -1,8 +1,25 @@
-import {
-  javascriptReactBabelPreset,
-  typescriptReactBabelPreset,
-} from '@exodus/eslint-config-exodus'
+import { createTypescriptReactBabelPreset } from '@exodus/eslint-config-exodus'
 
-const config = [javascriptReactBabelPreset, typescriptReactBabelPreset].flat()
+const config = [
+  { ignores: ['lib', 'node_modules'] },
+  createTypescriptReactBabelPreset({ project: ['./tsconfig.test.json'] }),
+  {
+    settings: {
+      'import/ignore': ['node_modules/react-native/index\\.js$'],
+    },
+  },
+  {
+    files: ['jest.config.js', 'jest-setup.js'],
+    rules: {
+      'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    },
+  },
+  {
+    files: ['**/*.type-test.ts{x,}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+  },
+].flat()
 
 export default config

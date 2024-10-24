@@ -4,5 +4,8 @@
     "rootDir": ".",
     "noEmit": true
   },
-  "include": ["test/**/*.tsx"],
+  "include": [
+    "test/**/*.ts*",
+    "src/**/*.ts*"
+  ],
 }

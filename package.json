@@ -11,14 +11,15 @@
     "url": "git+https://github.com/sonaye/shakl.git"
   },
   "peerDependencies": {
-    "react": ">=16.3.0"
+    "react": ">=16.3.0",
+    "react-native": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
     "@babel/preset-react": "^7.25.9",
     "@emotion/native": "^11.11.0",
     "@emotion/react": "^11.11.4",
-    "@exodus/eslint-config-exodus": "^1.2.0",
+    "@exodus/eslint-config-exodus": "^1.3.1",
     "@exodus/prettier": "^1.0.0",
     "@testing-library/react-native": "^12.4.5",
     "@tsconfig/react-native": "^3.0.5",
