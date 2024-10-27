@@ -44,6 +44,12 @@ const ButtonText = s.Text({ color: 'green' })
 
 const AnotherButton = s.Touchable({ flex: 1 }).withChild(ButtonText)
 
+const Container = s(ScrollView, { name: 'Container' })(({ backgroundColor }) => ({
+  backgroundColor,
+}))
+
+Container.defaultProps = { backgroundColor: '#000' }
+
 export default class Example extends React.PureComponent {
   container = React.createRef()
 
@@ -76,9 +82,3 @@ export default class Example extends React.PureComponent {
     )
   }
 }
-
-const Container = s(ScrollView, { name: 'Container' })(({ backgroundColor }) => ({
-  backgroundColor,
-}))
-
-Container.defaultProps = { backgroundColor: '#000' }
