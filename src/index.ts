@@ -40,30 +40,30 @@ export type StyledComponent<P extends object, S extends object> = React.ForwardR
 const styled =
   <P extends object, S extends object = object, A extends Partial<P> = {}>( // eslint-disable-line @typescript-eslint/no-empty-object-type
     Comp: React.ComponentType<P>,
-    config: Config<P, A> = {}
+    config: Config<P, A> = Object.create(null)
   ) =>
   <SP extends object>(
     componentStyle?: ComponentStyle<P, SP, S>
   ): StyledComponent<WithOptional<P & SP, keyof A>, S> => {
     const {
       name,
-      props: factoryProps = {},
-      style: factoryStyle = {},
-      fixedStyle = {},
+      props: factoryProps = Object.create(null),
+      style: factoryStyle = Object.create(null),
+      fixedStyle = Object.create(null),
       ...opts
     } = config
 
     const Styled = React.forwardRef<any, P & StyledProps<S> & { children?: React.ReactNode }>(
       (props, ref) => {
         const { childRef, children, ...restProps } = props
-        const { comp, child, childProps = {} } = opts
+        const { comp, child, childProps = Object.create(null) } = opts
 
         const attrs = opts.attrs
         const attrsResult = attrs
           ? typeof attrs === 'function'
             ? attrs(restProps as P)
             : attrs
-          : {}
+          : Object.create(null)
 
         let style = {
           ...factoryStyle,
