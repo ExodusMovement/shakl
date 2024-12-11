@@ -7,6 +7,9 @@ const config = [
     settings: {
       'import/ignore': ['node_modules/react-native/index\\.js$'],
     },
+    rules: {
+      'unicorn/expiring-todo-comments': 'off',
+    },
   },
   {
     files: ['jest.config.js', 'jest-setup.js'],
