@@ -51,7 +51,8 @@
     "benchmark": "jest /benchmark",
     "postbenchmark": "open -a Chrome benchmark/chart/index.html",
     "prebuild": "rm -rf lib",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "lib"
