@@ -9,7 +9,7 @@ const config = [
     },
     rules: {
       'unicorn/expiring-todo-comments': 'off',
-    }
+    },
   },
   {
     files: ['jest.config.js', 'jest-setup.js'],
