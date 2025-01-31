@@ -10,7 +10,7 @@ export interface Config<P extends object, A extends object> {
   comp?: React.ComponentType<any>
   child?: React.ComponentType<any>
   childProps?: ((props: any) => any) | any
-  omitProps?: string[]
+  omitProps?: Extract<keyof P, string>[]
   [key: string]: any
 }
 
@@ -53,7 +53,7 @@ const styled =
       props: factoryProps = Object.create(null),
       style: factoryStyle = Object.create(null),
       fixedStyle = Object.create(null),
-      omitProps = DEFAULT_OMIT_PROPS,
+      omitProps = DEFAULT_OMIT_PROPS as Extract<keyof P, string>[],
       ...opts
     } = config
 
