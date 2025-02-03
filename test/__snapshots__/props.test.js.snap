@@ -10,3 +10,28 @@ exports[`accepts a style prop 1`] = `
   }
 />
 `;
+
+exports[`doesn't pass \`theme\` property by default 1`] = `
+<View
+  style={
+    {
+      "color": "#193bc3",
+    }
+  }
+/>
+`;
+
+exports[`passes \`theme\` property if \`omitProps\` specified without it 1`] = `
+<View
+  style={
+    {
+      "color": "#193bc3",
+    }
+  }
+  theme={
+    {
+      "fancyColor": "#193bc3",
+    }
+  }
+/>
+`;

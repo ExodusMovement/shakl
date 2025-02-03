@@ -10,6 +10,7 @@ export interface Config<P extends object, A extends object> {
   comp?: React.ComponentType<any>
   child?: React.ComponentType<any>
   childProps?: ((props: any) => any) | any
+  omitProps?: Extract<keyof P, string>[]
   [key: string]: any
 }
 
@@ -26,6 +27,8 @@ type Attrs<A extends object> = ((props: Partial<A>) => Partial<A>) | Partial<A>
 type ComponentStyle<P extends object, SP extends object, S extends object> =
   | ((props: Partial<P> & SP) => S)
   | S
+
+const DEFAULT_OMIT_PROPS = ['theme']
 
 export type StyledComponent<P extends object, S extends object> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P & StyledProps<S> & { children?: React.ReactNode }> &
@@ -50,6 +53,7 @@ const styled =
       props: factoryProps = Object.create(null),
       style: factoryStyle = Object.create(null),
       fixedStyle = Object.create(null),
+      omitProps = DEFAULT_OMIT_PROPS as Extract<keyof P, string>[],
       ...opts
     } = config
 
@@ -95,6 +99,12 @@ const styled =
             }
           }
         }
+
+        omitProps.forEach((excludeProp) => {
+          if ((restProps as Record<string, any>)[excludeProp]) {
+            delete (restProps as Record<string, any>)[excludeProp]
+          }
+        })
 
         const parentProps = {
           ...factoryProps,
