@@ -1,7 +1,6 @@
-import React from 'react'
-
-import Animated, { useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import { render } from '@testing-library/react-native'
+import React from 'react'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 
 import s from '../src/rn'
 

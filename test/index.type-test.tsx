@@ -1,10 +1,11 @@
+import { useRef } from 'react'
 import type { ViewStyle } from 'react-native'
 import React, { Text } from 'react-native'
-import styled from '../src/index'
-import extendedStyled from '../src/rn'
-import { useRef } from 'react'
 import type { LinearGradientProps } from 'react-native-linear-gradient'
 import LinearGradient from 'react-native-linear-gradient'
+
+import styled from '../src/index'
+import extendedStyled from '../src/rn'
 
 const StyledText = styled(Text)(({ transparent }: { transparent?: boolean; color: string }) => ({
   flex: 1,
