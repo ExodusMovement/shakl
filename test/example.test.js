@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { create as r } from 'react-test-renderer'
 
 import Example from './Example'

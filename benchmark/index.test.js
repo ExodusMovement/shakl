@@ -1,13 +1,9 @@
-import React from 'react'
-
-import { create as r } from 'react-test-renderer'
-
-import fs from 'fs'
-
-import Benchmark from 'benchmark'
-
-import styled from 'styled-components/native'
 import emotion from '@emotion/native'
+import Benchmark from 'benchmark'
+import fs from 'fs'
+import React from 'react'
+import { create as r } from 'react-test-renderer'
+import styled from 'styled-components/native'
 
 import shakl from '../src/rn'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { ScrollView, TouchableHighlight, View } from 'react-native'
 
 import s from '../src/rn'

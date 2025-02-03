@@ -1,9 +1,8 @@
-import React from 'react'
-
 import { render } from '@testing-library/react-native'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 
 import s from '../src/rn'
-import { View, StyleSheet } from 'react-native'
 
 it('works with stylesheet styles', () => {
   const stylesheetStyle = StyleSheet.create({

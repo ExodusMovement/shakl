@@ -1,8 +1,6 @@
 import React from 'react'
-
-import { create as r } from 'react-test-renderer'
-
 import { Text, TouchableOpacity, View } from 'react-native'
+import { create as r } from 'react-test-renderer'
 
 import s from '../src/rn'
 
