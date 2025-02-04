@@ -83,13 +83,12 @@ const styled =
           styleFromProps = styleFromProps.filter((style) => !!style)
         }
 
+        const isReanimatedStyle = (style: any) => style.hasOwnProperty('viewDescriptors')
+
         if (styleFromProps) {
-          if (
-            typeof styleFromProps === 'number' ||
-            (styleFromProps as any).hasOwnProperty('viewDescriptors')
-          ) {
+          if (typeof styleFromProps === 'number' || isReanimatedStyle(styleFromProps)) {
             style = [style, styleFromProps, fixedStyle]
-          } else if (Array.isArray(styleFromProps)) {
+          } else if (Array.isArray(styleFromProps) && styleFromProps.some(isReanimatedStyle)) {
             style = [style, ...styleFromProps, fixedStyle]
           } else {
             style = {
