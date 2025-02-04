@@ -88,7 +88,7 @@ const styled =
         if (styleFromProps) {
           if (typeof styleFromProps === 'number' || isReanimatedStyle(styleFromProps)) {
             style = [style, styleFromProps, fixedStyle]
-          } else if (Array.isArray(styleFromProps) && styleFromProps.some(isReanimatedStyle)) {
+          } else if (Array.isArray(styleFromProps)) {
             style = [style, ...styleFromProps, fixedStyle]
           } else {
             style = {
@@ -143,7 +143,10 @@ const styled =
       withComponent: (comp: React.ComponentType<any>) =>
         styled(StyledComponent, { comp })(componentStyle) as StyledComponent<P & SP, S>,
       withChild: (child: React.ComponentType<any>, childProps: any) =>
-        styled(StyledComponent, { child, childProps, omitProps: [] })() as StyledComponent<P & SP, S>,
+        styled(StyledComponent, { child, childProps, omitProps: [] })() as StyledComponent<
+          P & SP,
+          S
+        >,
     })
 
     return StyledComponent as StyledComponent<WithOptional<P & SP, keyof A>, S>
