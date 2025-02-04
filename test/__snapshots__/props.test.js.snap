@@ -11,7 +11,7 @@ exports[`accepts a style prop 1`] = `
 />
 `;
 
-exports[`doesn't pass \`theme\` property by default 1`] = `
+exports[`doesn't pass \`theme\` property to the child by default but passes to the style callback 1`] = `
 <View
   style={
     {

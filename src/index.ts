@@ -134,13 +134,16 @@ const styled =
     // Extend the Styled component with custom methods
     const StyledComponent = Object.assign(Styled, {
       extend: <SP2 extends object>(more: ComponentStyle<P, SP & SP2, S>) =>
-        styled(StyledComponent, { name })(more),
+        styled(StyledComponent, { name, omitProps: [] })(more),
       attrs: <A2 extends P>(attrs: Attrs<A2>) =>
-        styled(StyledComponent, { attrs })() as StyledComponent<WithOptional<P, keyof A2>, S>,
+        styled(StyledComponent, { attrs, omitProps: [] })() as StyledComponent<
+          WithOptional<P, keyof A2>,
+          S
+        >,
       withComponent: (comp: React.ComponentType<any>) =>
         styled(StyledComponent, { comp })(componentStyle) as StyledComponent<P & SP, S>,
       withChild: (child: React.ComponentType<any>, childProps: any) =>
-        styled(StyledComponent, { child, childProps })() as StyledComponent<P & SP, S>,
+        styled(StyledComponent, { child, childProps, omitProps: [] })() as StyledComponent<P & SP, S>,
     })
 
     return StyledComponent as StyledComponent<WithOptional<P & SP, keyof A>, S>
