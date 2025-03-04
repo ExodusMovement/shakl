@@ -30,3 +30,12 @@ it('creates a styled component with dynamic props', () => {
   expect(foo).toMatchSnapshot()
   expect(fooOneLiner).toMatchSnapshot()
 })
+
+it('creates a styled component with children prop', () => {
+  const Foo = s.Text().attrs({ children: 'Children1' })
+  const foo = r(<Foo />).toJSON()
+  expect(foo.children).toEqual(['Children1'])
+
+  const foo2 = r(<Foo>Children2</Foo>).toJSON()
+  expect(foo2.children).toEqual(['Children2'])
+})

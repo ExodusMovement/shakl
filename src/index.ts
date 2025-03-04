@@ -59,7 +59,7 @@ const styled =
 
     const Styled = React.forwardRef<any, P & StyledProps<S> & { children?: React.ReactNode }>(
       (props, ref) => {
-        const { childRef, children, ...restProps } = props
+        const { childRef, ...restProps } = props
         const { comp, child, childProps = Object.create(null) } = opts
 
         const attrs = opts.attrs
@@ -68,6 +68,7 @@ const styled =
             ? attrs(restProps as P)
             : attrs
           : Object.create(null)
+        const children = props.children || attrsResult.children
 
         let style = {
           ...factoryStyle,
